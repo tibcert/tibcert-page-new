@@ -1,0 +1,181 @@
+---
+const currentYear = new Date().getFullYear();
+import Logo from "./Logo.astro";
+---
+
+<footer class="bg-brand-surface border-t border-white/5 py-12 mt-auto">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand & Trust -->
+        <div class="col-span-1 md:col-span-1">
+            <a href="/" class="block mb-4">
+                <Logo class="h-8 w-auto text-brand-text" />
+            </a>
+            <p
+                class="text-brand-maroon dark:text-brand-red font-medium text-xs mb-4 opacity-80"
+            >
+                བོད་ཀྱི་ཀམ་པུ་ཊར་ཛ་དྲག་གནད་དོན་ལ་བརྡ་ལན་ཚོགས་པ།
+            </p>
+            <p class="text-brand-muted text-sm mb-4">
+                Tibetan Computer Emergency Readiness Team. Dedicated to
+                protecting the digital security of the Tibetan community
+                worldwide.
+            </p>
+            <div class="flex items-center gap-4">
+                <!-- Social/Contact icons placeholder -->
+                <div class="w-8 h-8 rounded bg-white/5"></div>
+                <div class="w-8 h-8 rounded bg-white/5"></div>
+                <div class="w-8 h-8 rounded bg-white/5"></div>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h3
+                class="text-white font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
+            >
+                <span class="w-1 h-1 bg-brand-red"></span>
+                MAP_INDEX
+            </h3>
+            <ul class="space-y-3 text-sm text-brand-muted font-light">
+                <li>
+                    <a
+                        href="/blog"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        Latest Reports
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/blog"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        Reports Feed
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/blog"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Legal/Contact -->
+        <div>
+            <h3
+                class="text-white font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
+            >
+                <span class="w-1 h-1 bg-brand-red"></span>
+                COMMS_CHANNEL
+            </h3>
+            <ul class="space-y-3 text-sm text-brand-muted font-light">
+                <li>
+                    <a
+                        href="/contact"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        Contact Us
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/contact#pgp"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        PGP Key
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/contact"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        Privacy Policy
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/contact"
+                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                        <span
+                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                        ></span>
+                        Terms of Service
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Trust Signals / Member of -->
+        <div>
+            <h3
+                class="text-white font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
+            >
+                <span class="w-1 h-1 bg-brand-red"></span>
+                FEDERATION_STATUS
+            </h3>
+            <div
+                class="grid grid-cols-2 gap-px bg-white/5 border border-white/5"
+            >
+                <!-- Placeholders for partner logos -->
+                <div
+                    class="h-12 bg-brand-void flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors"
+                >
+                    <span
+                        class="font-mono text-[10px] text-brand-text font-black tracking-widest"
+                        >FIRST</span
+                    >
+                    <span
+                        class="font-mono text-[7px] text-brand-red/40 uppercase mt-1"
+                        >Certified</span
+                    >
+                </div>
+                <div
+                    class="h-12 bg-brand-void flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors"
+                >
+                    <span
+                        class="font-mono text-[10px] text-brand-text font-black tracking-widest"
+                        >APC</span
+                    >
+                    <span
+                        class="font-mono text-[7px] text-brand-red/40 uppercase mt-1"
+                        >Active</span
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="container mx-auto px-4 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-brand-muted/40 uppercase tracking-[0.2em]"
+    >
+        <div>&copy; {currentYear} TIBCERT // ROOT_DIR_ACCESS_GRANTED</div>
+        <div class="flex items-center gap-4">
+            <span>Lat: 32.2276° N</span>
+            <span class="text-brand-red/20">|</span>
+            <span>Lon: 76.3231° E</span>
+        </div>
+    </div>
+</footer>

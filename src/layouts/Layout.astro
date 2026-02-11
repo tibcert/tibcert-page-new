@@ -1,0 +1,96 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/common/Navbar.astro";
+import Footer from "../components/common/Footer.astro";
+import AlertBanner from "../components/common/AlertBanner.astro";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Tibetan Computer Emergency Response Team - Enhancing digital security for the Tibetan community.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Google Fonts: Inter and JetBrains Mono -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>{title} | TIBCERT</title>
+
+        <!-- Inline script to detect theme and prevent flashing -->
+        <script is:inline>
+            if (
+                localStorage.getItem("color-theme") === "dark" ||
+                (!("color-theme" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        </script>
+    </head>
+    <body class="bg-brand-void text-brand-text relative">
+        <!-- Global Cyber Tech Overlays -->
+        <div
+            class="fixed inset-0 z-[100] pointer-events-none overflow-hidden h-screen w-screen opacity-[0.03]"
+        >
+            <div
+                class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] animate-scan"
+            >
+            </div>
+        </div>
+        <div
+            class="fixed inset-0 z-[101] pointer-events-none opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"
+        >
+        </div>
+
+        <Navbar />
+        <div class="flex-grow relative z-10">
+            <slot />
+        </div>
+        <Footer />
+        <script>
+            function initScrollReveal() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("revealed");
+                            // Optionally stop observing after it's revealed
+                            // observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                const revealElements = document.querySelectorAll(".reveal");
+                revealElements.forEach((el) => observer.observe(el));
+            }
+
+            // Support for View Transitions and regular loads
+            document.addEventListener("astro:page-load", initScrollReveal);
+            initScrollReveal();
+        </script>
+    </body>
+</html>

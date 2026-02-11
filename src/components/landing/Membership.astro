@@ -1,0 +1,255 @@
+---
+import TibetanPattern from "../common/TibetanPattern.astro";
+
+const criteria = [
+    {
+        title: "Staff Commitment",
+        description:
+            "Dedicate a point person to join the TibCERT Response working group for rapid coordination.",
+        icon: "👥",
+        span: "lg:col-span-1 lg:row-span-1",
+        gradient: "from-brand-maroon/20 to-transparent",
+    },
+    {
+        title: "Security Training",
+        description:
+            "Ensure all staff are trained on digital hygiene by TibCERT Ambassadors.",
+        icon: "🎓",
+        span: "lg:col-span-1 lg:row-span-1",
+        gradient: "from-brand-amber/10 to-transparent",
+    },
+    {
+        title: "Security Policy",
+        description:
+            "Establish a digital security policy within 6 months of joining to protect your organization.",
+        icon: "📝",
+        span: "lg:col-span-1 lg:row-span-1",
+        gradient: "from-white/5 to-transparent",
+    },
+    {
+        title: "Threat Sharing",
+        description:
+            "Share data on phishing or malware samples to help us conducting research.",
+        icon: "🤝",
+        span: "lg:col-span-1 lg:row-span-1",
+        gradient: "from-brand-red/10 to-transparent",
+    },
+];
+
+const protocol = {
+    title: "Protocol Adherence",
+    description:
+        "Full compliance with the Traffic Light Protocol (TLP) to ensure the highest standards of trust and confidentiality in information sharing across the coalition.",
+    icon: "🚥",
+    span: "lg:col-span-2 lg:row-span-1",
+    gradient: "from-brand-void to-brand-surface",
+};
+---
+
+<section class="py-24 bg-brand-void relative overflow-hidden reveal">
+    <!-- Background visual -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-red/5 rounded-full blur-[120px] pointer-events-none opacity-50"
+    >
+    </div>
+
+    <!-- Tibetan Pattern Decoration -->
+    <TibetanPattern
+        class="absolute -left-32 top-20 rotate-45"
+        size="w-96 h-96"
+        color="var(--color-brand-maroon)"
+        opacity="opacity-[0.03] dark:opacity-5"
+    />
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div
+            class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16"
+        >
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-4 mb-6 opacity-40 uppercase tracking-[0.3em] font-mono text-[10px]">
+                    <div class="h-px w-8 bg-brand-red"></div>
+                    Membership_Protocol_Init
+                </div>
+                <h2
+                    class="text-4xl md:text-5xl font-black text-brand-text mb-6 uppercase tracking-tight"
+                >
+                    Join the <span
+                        class="text-brand-red underline decoration-brand-red/20 underline-offset-8"
+                        >Coalition</span
+                    >
+                </h2>
+                <p class="text-xl text-brand-muted leading-relaxed font-light">
+                    A collaborative membership model designed to build mutual
+                    defense and shared digital resilience for the Tibetan
+                    community.
+                </p>
+            </div>
+            <div class="flex-shrink-0">
+                <div
+                    class="bg-brand-surface border border-white/5 px-6 py-3 rounded-sm flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest"
+                >
+                    <span class="text-brand-muted">NETWORK_NODES</span>
+                    <div class="flex -space-x-3">
+                        <div
+                            class="w-6 h-6 rounded-full bg-brand-red border-2 border-brand-void"
+                        >
+                        </div>
+                        <div
+                            class="w-6 h-6 rounded-full bg-brand-amber border-2 border-brand-void"
+                        >
+                        </div>
+                        <div
+                            class="w-6 h-6 rounded-full bg-white/20 border-2 border-brand-void"
+                        >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4-Column Balanced Bento Grid -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-fr"
+        >
+            <!-- Row 1: How to Join (2) + Criteria 1 (1) + Criteria 2 (1) -->
+            <div
+                class="lg:col-span-2 bg-brand-red p-10 rounded-sm flex flex-col justify-between group overflow-hidden relative min-h-[300px]"
+            >
+                <div
+                    class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -mr-24 -mt-24 group-hover:scale-150 transition-transform duration-700"
+                >
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter">
+                        How to Join
+                    </h3>
+                    <p class="text-white/80 text-lg leading-relaxed max-w-md font-light">
+                        Become a part of our secure network. There are certain
+                        criteria which need to be fulfilled by the participating
+                        organization.
+                    </p>
+                </div>
+                <div class="relative z-10 mt-8">
+                    <a
+                        href="/contact"
+                        class="inline-flex items-center gap-4 bg-white text-brand-red font-mono text-xs tracking-widest px-8 py-4 rounded-sm transition-all hover:gap-8 shadow-xl shadow-black/20"
+                    >
+                        [ APPLY_FOR_MEMBERSHIP ] <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            {
+                criteria.slice(0, 2).map((item, index) => (
+                    <div class="bg-brand-surface border border-white/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
+                        <!-- Notches -->
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        
+                        <div
+                            class={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                        />
+                        <div class="relative z-10 flex flex-col h-full">
+                            <span class="font-mono text-[9px] text-brand-red/40 mb-6 uppercase tracking-widest">CRITERIA_{String(index + 1).padStart(2, '0')}</span>
+                            <div class="text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 inline-block">
+                                {item.icon}
+                            </div>
+                            <h4 class="text-lg font-black text-white mb-3 tracking-tight group-hover:text-brand-red transition-colors uppercase">
+                                {item.title}
+                            </h4>
+                            <p class="text-brand-muted text-sm leading-relaxed font-light">
+                                {item.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+
+            <!-- Row 2: Criteria 3 (1) + Criteria 4 (1) + Protocol (2) -->
+            {
+                criteria.slice(2, 4).map((item, index) => (
+                    <div class="bg-brand-surface border border-white/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
+                        <!-- Notches -->
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+
+                        <div
+                            class={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                        />
+                        <div class="relative z-10 flex flex-col h-full">
+                            <span class="font-mono text-[9px] text-brand-red/40 mb-6 uppercase tracking-widest">CRITERIA_{String(index + 3).padStart(2, '0')}</span>
+                            <div class="text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 inline-block">
+                                {item.icon}
+                            </div>
+                            <h4 class="text-lg font-black text-white mb-3 tracking-tight group-hover:text-brand-red transition-colors uppercase">
+                                {item.title}
+                            </h4>
+                            <p class="text-brand-muted text-sm leading-relaxed font-light">
+                                {item.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+
+            <div
+                class="lg:col-span-2 bg-brand-surface border border-brand-red/20 p-8 md:p-10 rounded-sm relative group overflow-hidden hover:border-brand-red/50 transition-all duration-500 min-h-[250px] flex flex-col justify-center"
+            >
+                <!-- Notches for large card -->
+                <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-red/20 transition-colors"></div>
+                <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-red/20 transition-colors"></div>
+
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 rounded-full blur-[100px] pointer-events-none"
+                >
+                </div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-6 mb-6">
+                        <div
+                            class="text-3xl bg-brand-void p-3 rounded-sm border border-white/10 group-hover:scale-110 transition-transform"
+                        >
+                            {protocol.icon}
+                        </div>
+                        <div>
+                            <span class="font-mono text-[9px] text-brand-red uppercase tracking-[0.4em] mb-1 block">Policy_Check</span>
+                            <h4
+                                class="text-2xl font-black text-white tracking-tight uppercase"
+                            >
+                                {protocol.title}
+                            </h4>
+                        </div>
+                    </div>
+                    <p
+                        class="text-brand-muted text-base leading-relaxed max-w-xl font-light"
+                    >
+                        {protocol.description}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sustainability Footer -->
+        <div class="mt-16 p-8 border-t border-white/5">
+            <div
+                class="flex flex-col md:flex-row items-center justify-between gap-8"
+            >
+                <div class="flex items-center gap-8">
+                    <div class="font-mono text-3xl opacity-20 select-none tracking-tighter">SUSTAIN_0x0</div>
+                    <div>
+                        <h3 class="text-xl font-black text-white mb-1 uppercase tracking-tight">
+                            Sustainability & Cost
+                        </h3>
+                        <p class="text-brand-muted font-mono text-xs uppercase tracking-widest">
+                            [ STATUS: <span class="text-brand-red font-bold"
+                                >NO_FEE_LOGGED</span
+                            > ]
+                        </p>
+                    </div>
+                </div>
+                <p class="text-brand-muted text-sm max-w-md italic opacity-50 font-light border-l border-brand-red/20 pl-6 py-2">
+                    "As a community-based project, your support and
+                    collaboration are essential for our survival and continued
+                    impact."
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

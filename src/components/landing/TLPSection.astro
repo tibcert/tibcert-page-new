@@ -1,0 +1,298 @@
+---
+const groups = [
+    {
+        name: "TibCERT & Members",
+        description:
+            "Direct collaboration and secure intelligence sharing within the core response network.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+    },
+    {
+        name: "Tibetan Community",
+        description:
+            "Disseminating actionable alerts and safety guidance to the broader Tibetan public.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    },
+    {
+        name: "Security Researchers",
+        description:
+            "Engaging with the global infosec community for vulnerability reporting and research.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>`,
+    },
+    {
+        name: "Advisory Council",
+        description:
+            "Strategic coordination and governance updates between TibCERT and leadership.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    },
+];
+
+const tlpLevels = [
+    {
+        name: "TLP:RED",
+        color: "#FF0000",
+        textColor: "text-white",
+        abbreviation: "Not for disclosure, restricted to participants only.",
+        description:
+            "Sources may use TLP:RED when information cannot be effectively acted upon by additional parties, and could lead to impacts on a party's privacy, reputation, or operations if misused. Recipients may not share TLP:RED information with any parties outside of the specific exchange, meeting, or conversation in which it was originally disclosed.",
+    },
+    {
+        name: "TLP:AMBER",
+        color: "#FFC000",
+        textColor: "text-black",
+        abbreviation:
+            "Limited disclosure, restricted to participants’ organizations.",
+        description:
+            "Sources may use TLP:AMBER when information requires support to be effectively acted upon, yet carries risks to privacy, reputation, or operations if shared outside of the organizations involved. Recipients may only share TLP:AMBER information with members of their own organization, and with clients or customers who need to know.",
+    },
+    {
+        name: "TLP:GREEN",
+        color: "#00FF00",
+        textColor: "text-black",
+        abbreviation: "Limited disclosure, restricted to the community.",
+        description:
+            "Sources may use TLP:GREEN when information is useful for the awareness of all participating organizations as well as with peers within the broader community or sector. Recipients may share TLP:GREEN information with peers and partner organizations within their sector or community, but not via publicly accessible channels.",
+    },
+    {
+        name: "TLP:CLEAR",
+        color: "#FFFFFF",
+        textColor: "text-black",
+        abbreviation: "Disclosure is not limited.",
+        description:
+            "Sources may use TLP:CLEAR when information carries minimal or no foreseeable risk of misuse, in accordance with applicable rules and procedures for public release. Subject to standard copyright rules, TLP:CLEAR information may be distributed without restriction.",
+    },
+];
+---
+
+<section class="py-24 bg-brand-void relative overflow-hidden reveal">
+    <!-- Sophisticated Background Elements -->
+    <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,#ef482c08_0%,transparent_40%)] pointer-events-none"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[120px] -mb-64 -mr-64 pointer-events-none"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Header -->
+        <div class="max-w-4xl mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-text mb-6">
+                Traffic Light <span class="text-brand-red">Protocol (TLP)</span>
+            </h2>
+            <p class="text-brand-muted text-lg leading-relaxed mb-8">
+                This TLP defines how TibCERT facilitates greater sharing of
+                information and is part of the TibCERT policy in terms of
+                information sharing between our core stakeholders.
+            </p>
+            <button
+                id="open-tlp-modal"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-surface border border-white/10 text-brand-text font-bold hover:bg-brand-red hover:border-brand-red transition-all duration-300 shadow-lg group"
+            >
+                <span
+                    class="w-2 h-2 rounded-full bg-brand-red group-hover:bg-white animate-pulse"
+                ></span>
+                TLP definition
+            </button>
+        </div>
+
+        <!-- Info Sharing Groups: Tech Specification Design -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 mb-24">
+            {
+                groups.map((group, index) => (
+                    <div class="group relative bg-brand-void p-8 overflow-hidden">
+                        <!-- Technical Border Accents -->
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex flex-col gap-4 mb-6">
+                                <span class="font-mono text-[9px] text-brand-red tracking-[0.3em] font-bold">
+                                    NODE_{String(index + 1).padStart(2, '0')}
+                                </span>
+                                <h3 class="text-xs font-mono font-black text-brand-text tracking-widest uppercase group-hover:text-brand-red transition-colors">
+                                    {group.name}
+                                </h3>
+                            </div>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow font-light">
+                                {group.description}
+                            </p>
+                            <div class="pt-4 border-t border-white/5">
+                                <span class="font-mono text-[8px] uppercase text-brand-muted/30 tracking-[0.2em]">Status: Operational</span>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        <!-- Redesigned Centered Footer -->
+        <div
+            class="flex flex-col items-center justify-center text-center mt-8 pb-12 border-b border-white/5"
+        >
+            <div
+                class="bg-brand-surface/30 border border-white/5 px-10 py-4 rounded-sm backdrop-blur-sm inline-flex items-center gap-6 group hover:border-brand-red/30 transition-colors"
+            >
+                <div class="w-2 h-2 bg-brand-red rounded-full animate-pulse"></div>
+                <p
+                    class="text-brand-muted font-mono text-xs tracking-widest uppercase"
+                >
+                    Standardized via <span
+                        class="text-brand-text font-black">FIRST.ORG // PROTOCOL_V1</span
+                    >
+                </p>
+                <div class="w-2 h-2 bg-brand-red rounded-full animate-pulse"></div>
+            </div>
+
+            <div
+                class="flex items-center gap-8 mt-12 text-[9px] font-mono font-bold text-brand-muted/40 tracking-[0.5em] uppercase"
+            >
+                <span>CONFIDENTIALITY</span>
+                <span class="text-brand-red/20 font-light">|</span>
+                <span>TRUST</span>
+                <span class="text-brand-red/20 font-light">|</span>
+                <span>SECURITY</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Implementation -->
+<div
+    id="tlp-modal"
+    class="fixed inset-0 z-[100] hidden items-center justify-center p-4 backdrop-blur-md bg-brand-void/80"
+>
+    <div
+        class="bg-brand-surface border border-white/10 w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden relative"
+        id="tlp-modal-content"
+    >
+        <!-- Modal Glow -->
+        <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-brand-red/10 rounded-full blur-[100px] pointer-events-none"
+        >
+        </div>
+
+        <div class="p-8 md:p-12">
+            <div class="flex items-center justify-between mb-12">
+                <h3 class="text-2xl md:text-4xl font-bold text-white">
+                    Traffic Light <span class="text-brand-red">Protocol</span>
+                </h3>
+                <button
+                    id="close-tlp-modal"
+                    class="p-2 rounded-full bg-white/5 hover:bg-brand-red text-white transition-colors group"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                {
+                    tlpLevels.map((level) => (
+                        <div class="flex flex-col h-full rounded-2xl overflow-hidden border border-white/5 bg-brand-void/50 group">
+                            <div
+                                class={`h-16 flex items-center justify-center font-black text-sm tracking-[0.2em] ${level.textColor}`}
+                                style={`background-color: ${level.color}`}
+                            >
+                                {level.name}
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col">
+                                <h4 class="text-[10px] font-bold text-brand-red uppercase tracking-widest mb-1">
+                                    Abbreviation
+                                </h4>
+                                <p class="text-xs font-bold text-brand-text mb-4 opacity-90">
+                                    {level.abbreviation}
+                                </p>
+
+                                <h4 class="text-[10px] font-bold text-brand-red uppercase tracking-widest mb-1">
+                                    Description
+                                </h4>
+                                <p class="text-xs font-medium text-brand-muted leading-relaxed group-hover:text-brand-text transition-colors">
+                                    {level.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 text-center">
+                <p
+                    class="text-brand-muted text-xs uppercase tracking-widest font-bold"
+                >
+                    Standardized Information Sharing
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initTLPModal() {
+        const modal = document.getElementById("tlp-modal");
+        const openBtn = document.getElementById("open-tlp-modal");
+        const closeBtn = document.getElementById("close-tlp-modal");
+        const content = document.getElementById("tlp-modal-content");
+
+        if (!modal || !openBtn || !closeBtn || !content) return;
+
+        openBtn.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = "hidden";
+
+            // Trigger animation
+            content.classList.add("animate-modal-in");
+        });
+
+        const closeModal = () => {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = "auto";
+            content.classList.remove("animate-modal-in");
+        };
+
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Close on Escape
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !modal.classList.contains("hidden"))
+                closeModal();
+        });
+    }
+
+    // Support for View Transitions
+    document.addEventListener("astro:page-load", initTLPModal);
+    // Initial load
+    initTLPModal();
+</script>
+
+<style>
+    @keyframes modal-in {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+    .animate-modal-in {
+        animation: modal-in 0.3s ease-out forwards;
+    }
+</style>

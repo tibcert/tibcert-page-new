@@ -1,0 +1,107 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    primaryAction: { label: string; href: string };
+    secondaryAction?: { label: string; href: string };
+    inverted?: boolean;
+}
+
+const {
+    title,
+    description,
+    primaryAction,
+    secondaryAction,
+    inverted = false,
+} = Astro.props;
+---
+
+<section
+    class:list={[
+        "py-16 border-y border-white/5 relative overflow-hidden reveal",
+        inverted
+            ? "bg-brand-red"
+            : "bg-gradient-to-br from-brand-surface to-brand-void",
+    ]}
+>
+    <!-- Background element -->
+    <div
+        class:list={[
+            "absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none",
+            inverted ? "bg-white/10" : "bg-brand-red/5",
+        ]}
+    >
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <!-- Technical Label -->
+        <div class="flex items-center justify-center gap-3 mb-6 opacity-40">
+            <span
+                class="font-mono text-[9px] tracking-[0.4em] uppercase text-white/80"
+                >Transmission_Secure</span
+            >
+            <div class="h-px w-6 bg-white/20"></div>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto py-12 px-8">
+            <!-- Decorative Brackets -->
+            <div
+                class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20"
+            >
+            </div>
+
+            <h2
+                class:list={[
+                    "text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight",
+                    inverted ? "text-white" : "text-brand-text",
+                ]}
+            >
+                {title}
+            </h2>
+            <p
+                class:list={[
+                    "max-w-2xl mx-auto mb-10 text-xl font-light leading-relaxed",
+                    inverted ? "text-white/90" : "text-brand-muted",
+                ]}
+            >
+                {description}
+            </p>
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-6"
+            >
+                <a
+                    href={primaryAction.href}
+                    class:list={[
+                        "font-mono text-sm tracking-[0.2em] py-4 px-10 rounded-sm transition-all transform hover:-translate-y-1 shadow-2xl uppercase",
+                        inverted
+                            ? "bg-white text-brand-red hover:bg-brand-surface shadow-black/20"
+                            : "bg-brand-red hover:bg-[#d13d25] text-white shadow-brand-red/20",
+                    ]}
+                >
+                    [ {primaryAction.label.replace(" ", "_").toUpperCase()} ]
+                </a>
+                {
+                    secondaryAction && (
+                        <a
+                            href={secondaryAction.href}
+                            class:list={[
+                                "border py-4 px-10 rounded-sm transition-all font-mono text-sm tracking-[0.2em] uppercase",
+                                inverted
+                                    ? "border-white/30 text-white hover:bg-white/10"
+                                    : "border-white/10 hover:border-white/30 hover:bg-white/5 text-brand-text",
+                            ]}
+                        >
+                            {secondaryAction.label
+                                .replace(" ", "_")
+                                .toUpperCase()}
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+    </div>
+</section>

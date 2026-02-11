@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --color-brand-void: #f8fafc;
+  /* Slate 50 */
+  --color-brand-surface: #f1f5f9;
+  /* Slate 100 */
+  --color-brand-text: #020617;
+  /* Slate 950 */
+  --color-brand-muted: #64748b;
+  /* Slate 500 */
+  --color-brand-red: #ef482c;
+  --color-brand-amber: #d97706;
+  --color-brand-maroon: #7a1b1b;
+}
+
+.dark {
+  --color-brand-void: #233140;
+  --color-brand-surface: #2c3e50;
+  --color-brand-text: #f8fafc;
+  /* Slate 50 */
+  --color-brand-muted: #94a3b8;
+  /* Slate 400 */
+}
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-brand-void: var(--color-brand-void);
+  --color-brand-surface: var(--color-brand-surface);
+  --color-brand-red: var(--color-brand-red);
+  --color-brand-amber: var(--color-brand-amber);
+  --color-brand-maroon: var(--color-brand-maroon);
+  --color-brand-text: var(--color-brand-text);
+  --color-brand-muted: var(--color-brand-muted);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-brand-void);
+    color: var(--color-brand-text);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body {
+    @apply antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Custom Utilities if needed */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .text-glow-red {
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+  }
+
+  /* Scroll Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .revealed {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Tibetan Flourish Background */
+  .bg-tibetan-dot {
+    background-image: radial-gradient(var(--color-brand-maroon) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+  }
+
+  .border-tibetan-gold {
+    border-image: linear-gradient(to right, #d97706, #fcd34d, #d97706) 1;
+  }
+}

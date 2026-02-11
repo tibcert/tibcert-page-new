@@ -1,0 +1,108 @@
+---
+import BackgroundGlow from "../common/BackgroundGlow.astro";
+import TibetanPattern from "../common/TibetanPattern.astro";
+---
+
+<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+    <!-- Dynamic Background -->
+    <div class="absolute inset-0 bg-brand-void z-0">
+        <div
+            class="absolute inset-0
+bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)]
+bg-[size:24px_24px]"
+        >
+        </div>
+
+        <!-- Tibetan Pattern Accent -->
+        <TibetanPattern
+            class="absolute -right-20 -top-20 md:-right-32 md:-top-32 rotate-12"
+            size="w-96 h-96 md:w-[600px] md:h-[600px]"
+            color="var(--color-brand-maroon)"
+            opacity="opacity-5 dark:opacity-10"
+        />
+
+        <div
+            class="absolute left-0 right-0 top-0 -z-10
+m-auto h-[310px] w-[310px] rounded-full bg-brand-red opacity-20 blur-[100px]"
+        >
+        </div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10 text-center">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10
+border border-blue-500/20 text-blue-400 text-xs font-semibold mb-6
+animate-fade-in-up"
+        >
+            <span class="relative flex h-2 w-2">
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400
+opacity-75"
+                ></span>
+                <span
+                    class="relative inline-flex rounded-full h-2 w-2
+bg-blue-500"
+                ></span>
+            </span> Official Cybersecurity Authority for the Tibetan Community
+        </div>
+
+        <!-- Tibetan Identity Text -->
+        <p
+            class="text-brand-maroon dark:text-brand-red/60 font-medium text-lg md:text-xl mb-4 opacity-80 tracking-widest font-inter"
+        >
+            བོད་ཀྱི་ཀམ་པུ་ཊར་ཛ་དྲག་གནད་དོན་ལ་བརྡ་ལན་ཚོགས་པ།
+        </p>
+
+        <h1
+            class="text-5xl md:text-7xl font-bold tracking-tight
+text-brand-text mb-6"
+        >
+            Defending the <span
+                class="bg-clip-text text-transparent
+bg-gradient-to-r from-brand-red to-brand-amber text-glow-red"
+                >Digital Frontline</span
+            >
+        </h1>
+        <p
+            class="text-xl md:text-2xl text-brand-muted max-w-3xl mx-auto mb-10
+leading-relaxed"
+        >
+            TIBCERT monitors threats, provides incident response, and empowers
+            Tibetan organizations with the knowledge to stay secure.
+        </p>
+        <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+            <a
+                href="/report-incident"
+                class="w-full sm:w-auto bg-brand-red hover:bg-[#d13d25]
+text-white font-bold py-4 px-8 rounded-lg transition-all flex items-center
+justify-center gap-2 group"
+            >
+                <span>Report an Incident</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-4 h-4 group-hover:translate-x-1
+transition-transform"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                    ></path>
+                </svg>
+            </a>
+            <a
+                href="/blog"
+                class="w-full sm:w-auto bg-brand-surface
+border border-white/10 text-brand-text font-semibold py-4 px-8 rounded-lg
+transition-all flex items-center justify-center gap-2"
+            >
+                Latest Reports
+            </a>
+        </div>
+    </div>
+</section>

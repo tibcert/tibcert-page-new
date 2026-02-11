@@ -1,0 +1,41 @@
+---
+interface Props {
+    message?: string;
+    level?: "critical" | "warning" | "info";
+    link?: string;
+}
+
+const {
+    message = "Urgent: Active phishing campaign targeting Tibetan NGOs.",
+    level = "critical",
+    link = "#",
+} = Astro.props;
+
+const colors = {
+    critical: "bg-brand-red text-white",
+    warning: "bg-brand-amber text-black",
+    info: "bg-brand-surface border-b border-brand-muted text-brand-text",
+};
+
+const icon = {
+    critical: "🚨",
+    warning: "⚠️",
+    info: "ℹ️",
+};
+---
+
+<div
+    class={`${colors[level]} px-4 py-2 text-sm font-medium flex items-center justify-between`}
+>
+    <div class="container mx-auto flex items-center gap-2">
+        <span>{icon[level]}</span>
+        <span>{message}</span>
+        {
+            link && (
+                <a href={link} class="underline hover:no-underline ml-2">
+                    Read more &rarr;
+                </a>
+            )
+        }
+    </div>
+</div>

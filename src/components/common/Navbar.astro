@@ -1,0 +1,70 @@
+---
+const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Response Hub", href: "/response-hub" },
+    { name: "Blog", href: "/blog" },
+    { name: "Resources", href: "/resources" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+];
+
+import Logo from "./Logo.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header
+    class="bg-brand-void/80 backdrop-blur-md border-b border-brand-surface sticky top-0 z-50"
+>
+    <nav class="container mx-auto px-4 h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="block">
+            <Logo class="h-10 w-auto text-brand-text" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="hidden md:flex items-center gap-8">
+            {
+                navItems.map((item) => (
+                    <li>
+                        <a
+                            href={item.href}
+                            class="text-sm font-medium text-brand-muted hover:text-brand-red transition-colors"
+                        >
+                            {item.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <!-- Actions -->
+        <div class="hidden md:flex items-center gap-6">
+            <ThemeToggle />
+            <a
+                href="/contact"
+                class="bg-brand-red hover:bg-[#d13d25] text-white font-mono text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm transition-all shadow-lg shadow-brand-red/10 flex items-center gap-2"
+            >
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"
+                ></span>
+                [ REPORT_INCIDENT ]
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button (Placeholder) -->
+        <button class="md:hidden text-brand-text">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+        </button>
+    </nav>
+</header>

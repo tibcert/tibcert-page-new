@@ -1,0 +1,31 @@
+---
+interface Props {
+    class?: string;
+    color?: string;
+    size?: string;
+    opacity?: string;
+}
+
+const {
+    class: className = "",
+    color = "bg-brand-red",
+    size = "w-96 h-96",
+    opacity = "opacity-20",
+} = Astro.props;
+---
+
+<div
+    class={`absolute pointer-events-none select-none -z-10 blur-[120px] rounded-full transition-all duration-1000 ${color} ${size} ${opacity} ${className}`}
+>
+</div>
+
+<style>
+    /* We can also use SVG filters for more complex effects if needed */
+    div {
+        background: radial-gradient(
+            circle,
+            var(--tw-gradient-from) 0%,
+            transparent 70%
+        );
+    }
+</style>

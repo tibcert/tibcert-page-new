@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const resources = [
+    {
+        name: "TIBCERT Blog",
+        description: "Stay updated with the latest security advisories, incident reports, and digital security news from the Tibetan community.",
+        link: "https://blog.tibcert.org",
+        icon: "📰",
+        category: "Updates"
+    },
+    {
+        name: "TIBCERT Learn",
+        description: "Comprehensive digital security guides, tutorials, and training materials designed for the Tibetan community.",
+        link: "https://learn.tibcert.org",
+        icon: "📚",
+        category: "Education"
+    },
+    {
+        name: "Digital Disruption",
+        description: "A platform dedicated to analyzing and tracking digital threats and disruptions affecting the Tibetan diaspora.",
+        link: "https://digital-disruption.tibcert.org/",
+        icon: "⚡",
+        category: "Research"
+    }
+];
+---
+
+<Layout title="Resources | TIBCERT">
+    <main class="pt-32 pb-24 relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] -z-10"></div>
+
+        <div class="container mx-auto px-4">
+            <!-- Header Section -->
+            <div class="max-w-4xl mb-24 reveal relative">
+                <!-- Technical Brackets -->
+                <div class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20 uppercase"></div>
+                
+                <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">RESOURCE_VAULT // ASSET_INDEX</span>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic">
+                    Tools & <span class="text-brand-red">Resources</span>
+                </h1>
+                <p class="text-brand-muted text-base font-light leading-relaxed max-w-xl">
+                    Centralized access to specialized community toolkits, documentation, and digital security assets.
+                </p>
+            </div>
+
+            <!-- Platform Cards (Tech-Spec Style) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+                {
+                    resources.map((resource, index) => (
+                        <div class="bg-brand-void group relative overflow-hidden">
+                            <!-- Technical Border Accents -->
+                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+
+                            <div class="p-8 md:p-10 hover:bg-brand-red/[0.01] transition-all duration-500 h-full flex flex-col relative">
+                                <!-- Category & ID -->
+                                <div class="flex items-center justify-between mb-8">
+                                    <div class="flex flex-col">
+                                        <span class="font-mono text-[8px] text-brand-red tracking-[0.3em] mb-1 uppercase opacity-60">REF_ID_{String(index + 1).padStart(2, '0')}</span>
+                                        <span class="font-mono text-[9px] text-white uppercase tracking-widest font-black">
+                                            {resource.category}
+                                        </span>
+                                    </div>
+                                    <div class="h-8 w-8 border border-white/5 flex items-center justify-center text-brand-red/40 group-hover:text-brand-red group-hover:border-brand-red/20 transition-all">
+                                        <span class="text-xl">{resource.icon}</span>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-2xl font-black text-white mb-4 group-hover:text-brand-red transition-colors leading-tight uppercase tracking-tight italic">
+                                    {resource.name}
+                                </h3>
+                                <p class="text-brand-muted text-sm leading-relaxed mb-10 flex-grow font-light">
+                                    {resource.description}
+                                </p>
+                                
+                                <div class="mt-auto space-y-6">
+                                    <div class="flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-brand-muted/40">
+                                        <span>Status:</span>
+                                        <span class="text-brand-red opacity-80">Online // Secure</span>
+                                    </div>
+                                    
+                                    <a
+                                        href={resource.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center justify-between w-full group/link"
+                                    >
+                                        <span class="font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] transition-transform group-hover/link:translate-x-1">
+                                            [ ACCESS_PLATFORM ]
+                                        </span>
+                                        <div class="h-px flex-grow mx-4 bg-white/5 group-hover/link:bg-brand-red/20 transition-colors"></div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red/40 group-hover/link:text-brand-red transition-colors"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

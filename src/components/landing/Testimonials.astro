@@ -1,0 +1,200 @@
+---
+const testimonials = [
+    {
+        quote: "TIBCERT is an invaluable partner for securing our community's digital space. Their expertise is essential.",
+        author: "Tenzin Rabgyal",
+        organization: "Tibetan Community Center",
+        role: "IT Director"
+    },
+    {
+        quote: "The incident response and training programs have significantly raised our organizational security.",
+        author: "Kelsang Dolma",
+        organization: "Digital Rights Advocacy",
+        role: "Executive Director"
+    },
+    {
+        quote: "A beacon of trust for Tibetans worldwide. Reliable, prompt and professional technical support.",
+        author: "Pema Tseten",
+        organization: "NGO Partner",
+        role: "Operation Manager"
+    },
+    {
+        quote: "They understand the unique threats we face every day in the media sector. Truly indispensable.",
+        author: "Lobsang Wangdu",
+        organization: "Media House",
+        role: "Journalist"
+    },
+    {
+        quote: "Culturally sensitive technical support that respects our language and values.",
+        author: "Dechen Wangmo",
+        organization: "Education Center",
+        role: "Director"
+    },
+    {
+        quote: "Protecting our digital heritage and identity with technical excellence and deep understanding.",
+        author: "Tashi Namgyal",
+        organization: "Library of Works",
+        role: "Chief Librarian"
+    },
+    {
+        quote: "Essential for any Tibetan organization navigating the complexities of the digital age safely.",
+        author: "Dolkar Tso",
+        organization: "Youth Federation",
+        role: "President"
+    },
+    {
+        quote: "Technical excellence combined with deep community roots. A mandatory partner for us.",
+        author: "Karma Dorjee",
+        organization: "Health Initiative",
+        role: "Program Manager"
+    }
+];
+
+// Split testimonials for two marquee rows
+const row1 = [...testimonials.slice(0, 4)];
+const row2 = [...testimonials.slice(4)];
+---
+
+<section class="py-24 relative overflow-hidden reveal">
+    <!-- Static Headline -->
+    <div class="container mx-auto px-4 mb-20 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">
+            Voices from the <span class="text-brand-red">Community</span>
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-brand-muted max-w-2xl mx-auto">
+            Partnering with organizations to ensure a safer digital future for all Tibetans.
+        </p>
+    </div>
+
+    <!-- Marquee Rows -->
+    <div class="space-y-8 relative">
+        <!-- Background Accents -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-red/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <!-- Row 1: Left to Right -->
+        <div class="flex marquee-container overflow-hidden group">
+            <div class="flex gap-8 marquee-content-left items-center group-hover:[animation-play-state:paused]">
+                {[...row1, ...row1, ...row1].map((item, index) => (
+                    <div class="flex-shrink-0 bg-brand-void border border-white/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                        <!-- Technical Accents -->
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        
+                        <!-- ID Tag -->
+                        <div class="absolute top-4 right-4 font-mono text-[8px] text-white/10 uppercase tracking-widest group-hover/card:text-brand-red/30 transition-colors">
+                            VOUCHER_{String(index + 1).padStart(3, '0')}
+                        </div>
+
+                        <div>
+                            <svg class="w-8 h-8 text-brand-red/40 mb-8 group-hover/card:text-brand-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                            
+                            <p class="text-brand-text text-base leading-relaxed font-light mb-8 line-clamp-4">
+                                "{item.quote}"
+                            </p>
+                        </div>
+                        
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4 border-t border-white/5 pt-6">
+                            <div class="w-10 h-10 rounded-sm bg-brand-surface border border-white/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
+                                {item.author.charAt(0)}
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="font-black text-xs uppercase tracking-tight text-white line-clamp-1">{item.author}</h4>
+                                <p class="text-brand-red font-mono text-[9px] uppercase tracking-widest mt-1 line-clamp-1 opacity-70">{item.role} // {item.organization}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Row 2: Right to Left -->
+        <div class="flex marquee-container overflow-hidden group">
+            <div class="flex gap-8 marquee-content-right items-center group-hover:[animation-play-state:paused]">
+                {[...row2, ...row2, ...row2].map((item, index) => (
+                    <div class="flex-shrink-0 bg-brand-void border border-white/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                        <!-- Technical Accents -->
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+
+                        <!-- ID Tag -->
+                        <div class="absolute top-4 left-4 font-mono text-[8px] text-white/10 uppercase tracking-widest group-hover/card:text-brand-red/30 transition-colors">
+                            VOUCHER_{String(index + 5).padStart(3, '0')}
+                        </div>
+
+                        <div>
+                            <svg class="w-8 h-8 text-brand-red/40 mb-8 group-hover/card:text-brand-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                            
+                            <p class="text-brand-text text-base leading-relaxed font-light mb-8 line-clamp-4">
+                                "{item.quote}"
+                            </p>
+                        </div>
+                        
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4 border-t border-white/5 pt-6">
+                            <div class="w-10 h-10 rounded-sm bg-brand-surface border border-white/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
+                                {item.author.charAt(0)}
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="font-black text-xs uppercase tracking-tight text-white line-clamp-1">{item.author}</h4>
+                                <p class="text-brand-red font-mono text-[9px] uppercase tracking-widest mt-1 line-clamp-1 opacity-70">{item.role} // {item.organization}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .marquee-container {
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent
+        );
+    }
+
+    .marquee-content-left {
+        animation: marquee-scroll-left 40s linear infinite;
+    }
+
+    .marquee-content-right {
+        animation: marquee-scroll-right 45s linear infinite;
+    }
+
+    @keyframes marquee-scroll-left {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-33.33%);
+        }
+    }
+
+    @keyframes marquee-scroll-right {
+        0% {
+            transform: translateX(-33.33%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    /* Adjust speeds for mobile */
+    @media (max-width: 768px) {
+        .marquee-content-left {
+            animation-duration: 25s;
+        }
+        .marquee-content-right {
+            animation-duration: 30s;
+        }
+    }
+</style>

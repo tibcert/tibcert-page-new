@@ -1,0 +1,410 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contactMethods = [
+    {
+        id: "INFO",
+        tag: "Inquiries",
+        email: "info(@)tibcert.org",
+        title: "General Information",
+        description: "For general inquiries, collaborations, and partnership requests.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`,
+        pgp: "0x3FDE820A",
+        fingerprint: "4A6E 9C23 8B12 0F5D 7E21 A348 9D90 12CC 3FDE 820A",
+        keyBlock: `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+Ae1K3xfDtkfy
+-----END PGP PUBLIC KEY BLOCK-----`
+    },
+    {
+        id: "SUPPORT",
+        tag: "Emergency",
+        email: "support(@)tibcert.org",
+        title: "Support & Assistance",
+        description: "Direct technical support for individuals and organizations in need of security help.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`,
+        pgp: "0xF0D565FC",
+        fingerprint: "8EC0 A593 60D4 5625 78E6 6FCD F0D5 65FC 191A 2136",
+        keyBlock: `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+TLqo0fsP6oej8w==
+=l9tf
+-----END PGP PUBLIC KEY BLOCK-----`
+    },
+    {
+        id: "SUBMIT",
+        tag: "Incidents",
+        email: "submit(@)tibcert.org",
+        title: "Malware Submission",
+        description: "Secure channel for reporting malware, phishing, and targeted digital attacks.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
+        pgp: "0x868D72F7",
+        fingerprint: "CA53 1690 E79A AB62 298B BA75 868D 72F7 E1DC ADEE",
+        keyBlock: `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+B8EJX6Az6QnXkBplmNFCFIQ6bg==
+=bo5X
+-----END PGP PUBLIC KEY BLOCK-----`
+    }
+];
+---
+
+<Layout title="Contact | TIBCERT">
+    <main class="pt-32 pb-24 relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] -z-10"></div>
+
+        <div class="container mx-auto px-4">
+            <!-- Header Section -->
+            <div class="max-w-4xl mb-24 reveal relative">
+                <!-- Technical Brackets -->
+                <div class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20 uppercase"></div>
+                
+                <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">COMM_UPLINK // CONTACT_VECTOR</span>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic">
+                    Establish <span class="text-brand-red">Contact</span>
+                </h1>
+                <p class="text-brand-muted text-base font-light leading-relaxed max-w-xl">
+                    Secure communication channels for incident reporting, general inquiries, and community engagement.
+                </p>
+            </div>
+
+            <!-- Contact Methods (Technical Blocks) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5 mb-24 reveal">
+                {
+                    contactMethods.map((method, index) => (
+                        <div 
+                            class="bg-brand-void group relative overflow-hidden cursor-pointer pgp-method-card"
+                            data-method={method.id}
+                        >
+                            <!-- Technical Border Accents -->
+                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                            
+                            <div class="p-8 md:p-10 hover:bg-brand-red/[0.01] transition-all duration-500 h-full flex flex-col relative text-center items-center">
+                                <span class="font-mono text-[8px] text-brand-red tracking-[0.3em] mb-4 uppercase opacity-60">CHANNEL_0{index + 1}</span>
+                                
+                                <div class="w-16 h-16 bg-brand-red/5 border border-brand-red/20 flex items-center justify-center text-brand-red mb-6" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">
+                                    <Fragment set:html={method.icon} />
+                                </div>
+                                
+                                <h3 class="text-xl font-black text-white mb-2 uppercase tracking-tight italic">
+                                    {method.title}
+                                </h3>
+                                <p class="text-brand-muted text-[10px] font-mono mb-8 uppercase tracking-widest opacity-60">
+                                    {method.tag}
+                                </p>
+                                
+                                <div class="mt-auto w-full">
+                                    <button
+                                        class="inline-block w-full py-4 border border-white/5 bg-white/[0.02] font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] hover:bg-brand-red hover:text-white hover:border-brand-red transition-all"
+                                    >
+                                        [ SELECT_KEY ]
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- PGP Public Key Section -->
+            <div id="pgp" class="mb-24 reveal">
+                <div class="mb-12">
+                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">SECURITY_MODULE // PGP_ENCRYPTION</span>
+                    <h2 class="text-3xl font-black text-white uppercase tracking-tight italic">
+                        PGP Public <span class="text-brand-red">Key</span>
+                    </h2>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-12 items-start">
+                    <div class="lg:col-span-1 space-y-6">
+                        <div class="p-6 bg-brand-void border border-white/5 relative">
+                            <div class="absolute top-0 right-0 p-2 font-mono text-[8px] text-brand-red/40 uppercase">META_DATA</div>
+                            <div class="space-y-4 font-mono text-[10px] uppercase tracking-widest">
+                                <div>
+                                    <span class="text-brand-muted opacity-40">KEY_ID:</span>
+                                    <span id="pgp-key-id" class="text-white block mt-1">{contactMethods[0].pgp}</span>
+                                </div>
+                                <div>
+                                    <span class="text-brand-muted opacity-40">FINGERPRINT:</span>
+                                    <span id="pgp-fingerprint" class="text-white block mt-1 break-all">{contactMethods[0].fingerprint}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <button
+                                id="copy-pgp"
+                                class="inline-flex items-center gap-4 font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] group/copy"
+                            >
+                                <span id="copy-text" class="transition-transform group-hover/copy:translate-x-1">[ COPY_KEY_BLOCK ]</span>
+                                <div class="h-px w-8 bg-brand-red/40 group-hover/copy:w-12 transition-all"></div>
+                            </button>
+                            
+                            <button
+                                id="download-pgp"
+                                class="inline-flex items-center gap-4 font-mono text-[10px] text-brand-muted uppercase tracking-[0.2em] group/down hover:text-brand-red transition-colors"
+                            >
+                                <span class="transition-transform group-hover/down:translate-x-1">[ DOWNLOAD_SOURCE ]</span>
+                                <div class="h-px w-8 bg-brand-muted/40 group-hover/down:bg-brand-red/40 group-hover/down:w-12 transition-all"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 relative">
+                        <div class="absolute -top-3 left-4 px-2 bg-brand-void z-10 font-mono text-[9px] text-brand-red uppercase tracking-widest">TERMINAL_VIEWER.EXE</div>
+                        <div class="bg-black/40 border border-white/10 p-8 font-mono text-[11px] text-brand-muted/80 leading-relaxed overflow-hidden relative group h-64">
+                            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brand-void via-brand-void/80 to-transparent z-10 pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-brand-red/[0.01] pointer-events-none"></div>
+                            <code id="pgp-key-block" class="block whitespace-pre-wrap break-all select-all pb-12">
+                                {contactMethods[0].keyBlock}
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Warning/Info -->
+            <div class="max-w-4xl mx-auto p-12 bg-brand-red/[0.03] border border-brand-red/20 relative reveal">
+                <div class="absolute top-0 left-0 w-2 h-2 bg-brand-red"></div>
+                <div class="flex gap-8 items-start">
+                    <div class="text-brand-red text-3xl opacity-50">⚠️</div>
+                    <div>
+                        <h4 class="text-white font-black uppercase tracking-tight mb-4 italic">Important Security Notice</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed font-light">
+                            When reporting sensitive incidents, we strongly recommend using encrypted communication. 
+                            If you believe your current communication channel is compromised, please use a secure, 
+                            secondary device or network to reach out to us.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<script define:vars={{ contactMethods }}>
+    const cards = document.querySelectorAll('.pgp-method-card');
+    const keyIdEl = document.getElementById('pgp-key-id');
+    const fingerprintEl = document.getElementById('pgp-fingerprint');
+    const keyBlockEl = document.getElementById('pgp-key-block');
+    const downloadBtn = document.getElementById('download-pgp');
+    const copyBtn = document.getElementById('copy-pgp');
+    const copyText = document.getElementById('copy-text');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Remove active state from all cards
+            cards.forEach(c => c.classList.remove('active'));
+            // Add active state to clicked card
+            card.classList.add('active');
+
+            const methodId = card.getAttribute('data-method');
+            const method = contactMethods.find(m => m.id === methodId);
+            
+            if (method) {
+                // Update text with a small typing effect/flicker
+                keyIdEl.classList.add('opacity-0');
+                fingerprintEl.classList.add('opacity-0');
+                keyBlockEl.classList.add('opacity-0');
+
+                setTimeout(() => {
+                    keyIdEl.textContent = method.pgp;
+                    fingerprintEl.textContent = method.fingerprint;
+                    keyBlockEl.textContent = method.keyBlock;
+                    
+                    keyIdEl.classList.remove('opacity-0');
+                    fingerprintEl.classList.remove('opacity-0');
+                    keyBlockEl.classList.remove('opacity-0');
+
+                    // Reset copy button text if needed
+                    if (copyText) copyText.textContent = "[ COPY_KEY_BLOCK ]";
+
+                    // Scroll to PGP section
+                    document.getElementById('pgp').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 200);
+            }
+        });
+    });
+
+    // Handle dummy download
+    downloadBtn?.addEventListener('click', () => {
+        const text = keyBlockEl.textContent;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `tibcert-key-${keyIdEl.textContent}.asc`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    });
+
+    // Handle copy to clipboard
+    copyBtn?.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(keyBlockEl.textContent);
+            const originalText = copyText.textContent;
+            copyText.textContent = "[ COPIED_TO_CLIPBOARD ]";
+            copyBtn.classList.add('text-green-400');
+            copyBtn.classList.remove('text-brand-red');
+            
+            setTimeout(() => {
+                copyText.textContent = originalText;
+                copyBtn.classList.remove('text-green-400');
+                copyBtn.classList.add('text-brand-red');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy!', err);
+        }
+    });
+</script>
+
+<style>
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    #pgp-key-id, #pgp-fingerprint, #pgp-key-block {
+        transition: opacity 0.2s ease-in-out;
+    }
+    
+    .pgp-method-card.active {
+        border-color: rgba(239, 72, 44, 0.4);
+        background-color: rgba(239, 72, 44, 0.02);
+    }
+</style>

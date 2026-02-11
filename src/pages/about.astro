@@ -1,0 +1,227 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About TIBCERT">
+    <main class="bg-brand-bg min-h-screen">
+        <!-- Main Content Section: Two Columns -->
+        <section class="pt-32 pb-24 relative overflow-hidden">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.1),transparent_70%)] pointer-events-none"
+            >
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div
+                    class="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto items-start"
+                >
+                    <!-- Left: About Text -->
+                    <div class="reveal relative">
+                        <!-- Technical Brackets -->
+                        <div class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20"></div>
+                        
+                        <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">ORG_MISSION // IDENTITY_ROOT</span>
+                        <h1 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter uppercase italic">
+                            About <span class="text-brand-red">Us</span>
+                        </h1>
+                        <p class="text-lg text-brand-muted leading-relaxed font-light max-w-xl">
+                            The Tibetan Computer Emergency Readiness Team
+                            (TibCERT) seeks to create a formal, coalition-based
+                            structure for reducing and mitigating online threats
+                            in the Tibetan community.
+                        </p>
+                    </div>
+
+                    <!-- Right: Mission Points (List Style) -->
+                    <div
+                        class="space-y-12 reveal"
+                        style="animation-delay: 0.2s;"
+                    >
+                        {
+                            [
+                                {
+                                    id: "COLLAB_01",
+                                    title: "Long-term Collaboration",
+                                    desc: "Create and sustain a platform for long term collaboration between stakeholders in the Tibetan community on digital security issues.",
+                                    icon: "🤝",
+                                },
+                                {
+                                    id: "NETWORK_02",
+                                    title: "Global Network",
+                                    desc: "Deepen connections between Tibetans and global cybersecurity researchers to ensure mutually beneficial threat sharing.",
+                                    icon: "🌐",
+                                },
+                                {
+                                    id: "RESOURCES_03",
+                                    title: "Resource Mobilization",
+                                    desc: "Increase the resources available to Tibetans to defend against online attacks by regularly publicizing threat intelligence.",
+                                    icon: "📈",
+                                },
+                                {
+                                    id: "FREEDOM_04",
+                                    title: "Censorship Circumvention",
+                                    desc: "Help Tibetans circumvent censorship and surveillance by providing regular, detailed analysis and technical solutions.",
+                                    icon: "🔓",
+                                },
+                            ].map((m) => (
+                                <div class="group relative flex gap-6 p-6 border-l border-white/5 hover:border-brand-red/40 transition-colors bg-white/[0.01]">
+                                    <div class="relative z-10">
+                                        <span class="font-mono text-[9px] text-brand-red tracking-widest block mb-2 uppercase opacity-40">{m.id}</span>
+                                        <h3 class="text-lg font-black text-white mb-2 uppercase tracking-tight group-hover:text-brand-red transition-colors italic">
+                                            {m.title}
+                                        </h3>
+                                        <p class="text-sm text-brand-muted leading-relaxed font-light">
+                                            {m.desc}
+                                        </p>
+                                    </div>
+                                    <!-- Technical Notch -->
+                                    <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section with Marquee -->
+        <section class="py-32 relative bg-white/[0.01] overflow-hidden">
+            <div class="container mx-auto px-6 mb-16">
+                <div
+                    class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between reveal"
+                >
+                    <div class="max-w-2xl relative">
+                        <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">PERSONNEL_INDEX // CORE_TEAM</span>
+                        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight italic">
+                            Our <span class="text-brand-red">Team</span>
+                        </h2>
+                        <p class="text-brand-muted text-base font-light leading-relaxed">
+                            Technical expertise and strategic leadership driving 
+                            TIBCERT's mission within the digital frontier.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marquee Container -->
+            <div class="max-w-7xl mx-auto px-6">
+                <div
+                    class="relative flex overflow-hidden group [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]"
+                >
+                    <!-- Marquee Content (Repeated for Seamless Looping) -->
+                    <div
+                        class="flex animate-marquee group-hover:pause-marquee space-x-8 px-4"
+                    >
+                        {
+                            [1, 2].map(() => (
+                                <>
+                                    {[
+                                        {
+                                            name: "Lobsang Gyatso Sither",
+                                            role: "Director",
+                                            color: "bg-[#FFB800]",
+                                            img: "/images/team/lobsang-gyatso.png",
+                                            pos: "object-left",
+                                        },
+                                        {
+                                            name: "Tenzin Thayai",
+                                            role: "TibCERT Manager",
+                                            color: "bg-[#00F0FF]",
+                                            img: "/images/team/tenzin-thayai.png",
+                                            pos: "object-right",
+                                        },
+                                        {
+                                            name: "Dorjee Phuntsok",
+                                            role: "TibCERT Response Manager",
+                                            color: "bg-[#FF2E54]",
+                                            img: "/images/team/lobsang-gyatso.png",
+                                        },
+                                        {
+                                            name: "Dawa Paljor",
+                                            role: "TibCERT Sys-Admin",
+                                            color: "bg-[#7000FF]",
+                                            img: "/images/team/dawa-paljor.png",
+                                        },
+                                        {
+                                            name: "Gemphel Norsang",
+                                            role: "TibCERT Incident Response Manager",
+                                            color: "bg-[#00FF85]",
+                                            img: "/images/team/lobsang-gyatso.png",
+                                        },
+                                    ].map((member, index) => (
+                                        <div class="flex-none w-56 group/card pt-16 relative">
+                                            <!-- Technical ID Tag -->
+                                            <div class="absolute top-12 left-1/2 -translate-x-1/2 font-mono text-[8px] text-brand-red tracking-[0.3em] opacity-40 group-hover/card:opacity-100 transition-opacity">
+                                                ID_NODE_{String(index + 1).padStart(2, '0')}
+                                            </div>
+
+                                            <div class="relative w-40 h-40 mx-auto">
+                                                <!-- Container for Portrait (Sharp/Technical) -->
+                                                <div
+                                                    class={`absolute inset-0 ${member.color} overflow-hidden transition-all duration-500 group-hover/card:scale-105 border border-white/10 group-hover:border-brand-red/40`}
+                                                    style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);"
+                                                >
+                                                    <img
+                                                        src={member.img}
+                                                        alt={member.name}
+                                                        class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain grayscale opacity-80 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-700 ${member.pos || ""}`}
+                                                        style="transform-origin: bottom center;"
+                                                    />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-6 text-center">
+                                                <h3 class="text-sm font-black text-white mb-1 group-hover/card:text-brand-red transition-colors uppercase tracking-tight">
+                                                    {member.name}
+                                                </h3>
+                                                <p class="text-[9px] text-brand-muted font-mono uppercase tracking-[0.2em] opacity-60">
+                                                    {member.role}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        .reveal {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+            display: flex;
+            width: max-content;
+        }
+
+        .pause-marquee {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</Layout>
