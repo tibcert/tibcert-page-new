@@ -1,4 +1,6 @@
 ---
+import SectionDivider from "../common/SectionDivider.astro";
+
 const groups = [
     {
         name: "TibCERT & Members",
@@ -77,9 +79,10 @@ const tlpLevels = [
     <div class="container mx-auto px-4 relative z-10">
         <!-- Header -->
         <div class="max-w-4xl mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold text-brand-text mb-6">
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-text mb-4">
                 Traffic Light <span class="text-brand-red">Protocol (TLP)</span>
             </h2>
+            <SectionDivider class="text-brand-red w-48 mb-8" />
             <p class="text-brand-muted text-lg leading-relaxed mb-8">
                 This TLP defines how TibCERT facilitates greater sharing of
                 information and is part of the TibCERT policy in terms of

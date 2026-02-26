@@ -1,0 +1,57 @@
+---
+interface Props {
+    class?: string;
+}
+
+const { class: className = "text-brand-red w-full max-w-xs mx-auto" } =
+    Astro.props;
+---
+
+<svg
+    class={className}
+    viewBox="0 0 300 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet"
+>
+    <!-- Left Endpoint -->
+    <circle cx="10" cy="20" r="3" stroke="currentColor" stroke-width="2"
+    ></circle>
+
+    <!-- Left Line -->
+    <line
+        x1="14"
+        y1="20"
+        x2="115"
+        y2="20"
+        stroke="currentColor"
+        stroke-width="2"></line>
+
+    <!-- Center Knot Structure -->
+    <path
+        d="M115 20 L130 5 L145 20 L130 35 L115 20 Z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"></path>
+    <path
+        d="M145 20 L160 5 L175 20 L160 35 L145 20 Z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"></path>
+
+    <!-- Interlacing Connection -->
+    <path d="M130 20 L145 20" stroke="currentColor" stroke-width="2"></path>
+
+    <!-- Right Line -->
+    <line
+        x1="175"
+        y1="20"
+        x2="286"
+        y2="20"
+        stroke="currentColor"
+        stroke-width="2"></line>
+
+    <!-- Right Endpoint -->
+    <circle cx="290" cy="20" r="3" stroke="currentColor" stroke-width="2"
+    ></circle>
+</svg>

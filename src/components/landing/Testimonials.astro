@@ -1,4 +1,6 @@
 ---
+import SectionDivider from "../common/SectionDivider.astro";
+
 const testimonials = [
     {
         quote: "TIBCERT is an invaluable partner for securing our community's digital space. Their expertise is essential.",
@@ -58,9 +60,10 @@ const row2 = [...testimonials.slice(4)];
 <section class="py-24 relative overflow-hidden reveal">
     <!-- Static Headline -->
     <div class="container mx-auto px-4 mb-20 text-center">
-        <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        <h2 class="text-4xl md:text-6xl font-bold mb-4">
             Voices from the <span class="text-brand-red">Community</span>
         </h2>
+        <SectionDivider class="text-brand-red w-64 mx-auto mb-8" />
         <p class="text-xl text-gray-600 dark:text-brand-muted max-w-2xl mx-auto">
             Partnering with organizations to ensure a safer digital future for all Tibetans.
         </p>

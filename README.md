@@ -4,6 +4,8 @@
 npm create astro@latest -- --template minimal
 ```
 
+![screenshot](public/screenshot.png)
+
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure

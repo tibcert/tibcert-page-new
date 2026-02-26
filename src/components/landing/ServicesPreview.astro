@@ -1,5 +1,6 @@
 ---
 import BackgroundGlow from "../common/BackgroundGlow.astro";
+import SectionDivider from "../common/SectionDivider.astro";
 const services = [
     {
         title: "Incident Response",
@@ -59,9 +60,10 @@ const services = [
 
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-4xl mb-20">
-            <h2 class="text-4xl md:text-6xl font-black mb-8 text-white leading-tight">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 text-white leading-tight">
                 Our <span class="text-brand-red italic px-2">Core</span> Services
             </h2>
+            <SectionDivider class="text-brand-red w-48 mb-8" />
             <p class="text-brand-muted text-xl leading-relaxed max-w-2xl">
                 Specialized cybersecurity support tailored for organization-level resilience and community protection.
             </p>

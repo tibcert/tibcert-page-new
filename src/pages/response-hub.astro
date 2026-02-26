@@ -64,6 +64,9 @@ const dharamshalaMembers = [
     },
 ];
 
+const bylakuppeMembers = [...dharamshalaMembers];
+const mundgodMembers = [...dharamshalaMembers];
+
 const projects = [
     {
         title: "Disinformation and Misinformation",
@@ -483,44 +486,159 @@ const projects = [
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Content Area: Bylakuppe (Placeholder) -->
+    <!-- Content Area: Bylakuppe -->
     <div
         id="bylakuppe"
         class="hub-content hidden animate-in fade-in slide-in-from-bottom-4 duration-500"
     >
-        <div
-            class="text-center py-20 bg-brand-surface/30 rounded-2xl border border-white/5 border-dashed"
-        >
-            <h2 class="text-2xl font-bold text-white mb-4">
+        <div class="text-center mb-16 relative">
+            <span
+                class="font-mono text-[9px] text-brand-red tracking-widest block mb-2 uppercase"
+                >HUB_STATUS: ACTIVE // BYLA_02</span
+            >
+            <h2
+                class="text-3xl font-black text-white mb-4 uppercase tracking-tight italic"
+            >
                 Bylakuppe Response Hub
             </h2>
-            <p class="text-brand-muted">
-                Content for Bylakuppe is currently being updated. Please check
-                back soon.
+            <p
+                class="text-sm text-brand-muted max-w-2xl mx-auto font-light leading-relaxed"
+            >
+                Established: JAN_15_2021. Core infrastructure for localized
+                security response and technical capacity building within the
+                southern Tibetan community hub.
             </p>
+        </div>
+
+        <!-- Members Grid -->
+        <div class="mb-20">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5"
+            >
+                {
+                    bylakuppeMembers.map((member) => (
+                        <div class="bg-brand-void group flex items-stretch relative overflow-hidden transition-all duration-300 h-24">
+                            <!-- Hover Background Accent -->
+                            <div class="absolute inset-0 bg-brand-red/[0.01] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            
+                            <!-- Left: Profile Thumbnail -->
+                            <div class="relative w-24 shrink-0 overflow-hidden bg-brand-void/80 grayscale group-hover:grayscale-0 transition-all duration-700 border-r border-white/5">
+                                <img
+                                    src={member.image}
+                                    alt={member.name}
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div class="absolute inset-0 bg-brand-red/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </div>
+
+                            <!-- Right: Personal Information -->
+                            <div class="flex-grow min-w-0 relative z-10 p-4 flex flex-col justify-center">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="w-1 h-1 bg-brand-red/40"></div>
+                                    <span class="font-mono text-[7px] text-brand-red tracking-widest uppercase opacity-60">
+                                        Verified_Node
+                                    </span>
+                                </div>
+                                <h4 class="text-sm font-black text-white group-hover:text-brand-red transition-colors uppercase tracking-tight leading-none mb-1 truncate">
+                                    {member.name}
+                                </h4>
+                                <div class="text-[9px] text-brand-muted font-mono uppercase tracking-widest leading-tight mb-2 truncate">
+                                    {member.role || "Team Member"}
+                                </div>
+                                <div class="pt-1 border-t border-white/5">
+                                    <span class="text-[8px] text-brand-text font-bold uppercase tracking-widest block truncate opacity-70">
+                                        {member.org}
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Technical Border Corner (Interactive) -->
+                            <div class="absolute top-0 left-0 w-1 h-1 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors pointer-events-none z-20"></div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     </div>
 
-    <!-- Content Area: Mundgod (Placeholder) -->
+    <!-- Content Area: Mundgod -->
     <div
         id="mundgod"
         class="hub-content hidden animate-in fade-in slide-in-from-bottom-4 duration-500"
     >
-        <div
-            class="text-center py-20 bg-brand-surface/30 rounded-2xl border border-white/5 border-dashed"
-        >
-            <h2 class="text-2xl font-bold text-white mb-4">
+        <div class="text-center mb-16 relative">
+            <span
+                class="font-mono text-[9px] text-brand-red tracking-widest block mb-2 uppercase"
+                >HUB_STATUS: ACTIVE // MUND_03</span
+            >
+            <h2
+                class="text-3xl font-black text-white mb-4 uppercase tracking-tight italic"
+            >
                 Mundgod Response Hub
             </h2>
-            <p class="text-brand-muted">
-                Content for Mundgod is currently being updated. Please check
-                back soon.
+            <p
+                class="text-sm text-brand-muted max-w-2xl mx-auto font-light leading-relaxed"
+            >
+                Established: MAR_10_2021. Core infrastructure for localized
+                security response and technical capacity building within the
+                Mundgod settlement hub.
             </p>
         </div>
+
+        <!-- Members Grid -->
+        <div class="mb-20">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5"
+            >
+                {
+                    mundgodMembers.map((member) => (
+                        <div class="bg-brand-void group flex items-stretch relative overflow-hidden transition-all duration-300 h-24">
+                            <!-- Hover Background Accent -->
+                            <div class="absolute inset-0 bg-brand-red/[0.01] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            
+                            <!-- Left: Profile Thumbnail -->
+                            <div class="relative w-24 shrink-0 overflow-hidden bg-brand-void/80 grayscale group-hover:grayscale-0 transition-all duration-700 border-r border-white/5">
+                                <img
+                                    src={member.image}
+                                    alt={member.name}
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div class="absolute inset-0 bg-brand-red/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </div>
+
+                            <!-- Right: Personal Information -->
+                            <div class="flex-grow min-w-0 relative z-10 p-4 flex flex-col justify-center">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="w-1 h-1 bg-brand-red/40"></div>
+                                    <span class="font-mono text-[7px] text-brand-red tracking-widest uppercase opacity-60">
+                                        Verified_Node
+                                    </span>
+                                </div>
+                                <h4 class="text-sm font-black text-white group-hover:text-brand-red transition-colors uppercase tracking-tight leading-none mb-1 truncate">
+                                    {member.name}
+                                </h4>
+                                <div class="text-[9px] text-brand-muted font-mono uppercase tracking-widest leading-tight mb-2 truncate">
+                                    {member.role || "Team Member"}
+                                </div>
+                                <div class="pt-1 border-t border-white/5">
+                                    <span class="text-[8px] text-brand-text font-bold uppercase tracking-widest block truncate opacity-70">
+                                        {member.org}
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Technical Border Corner (Interactive) -->
+                            <div class="absolute top-0 left-0 w-1 h-1 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors pointer-events-none z-20"></div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
     </div>
+        </div>
+    </section>
+
     <!-- Impact & Activities (Standalone) -->
     <section class="py-24 bg-brand-void relative overflow-hidden">
         <!-- Background Grid -->
