@@ -32,19 +32,19 @@ const formatDate = (date: Date) => {
             </div>
 
             <!-- Blog Post Grid (Tech-Spec Style) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-text/5 border border-brand-text/5">
                 {sortedPosts.map((post, index) => (
                     <a href={`/blog/${post.slug}`} class="block group h-full reveal bg-brand-void relative overflow-hidden">
                         <!-- Technical Border Accents -->
-                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
-                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
 
                         <article class="p-8 hover:bg-brand-red/[0.01] transition-all duration-500 h-full flex flex-col relative">
                             <div class="relative z-10 flex flex-col h-full">
                                 <div class="flex items-center justify-between mb-8">
                                     <div class="flex flex-col">
                                         <span class="font-mono text-[8px] text-brand-red tracking-[0.3em] mb-1 uppercase opacity-60">LOG_{String(index + 1).padStart(2, '0')}</span>
-                                        <span class="font-mono text-[9px] text-white uppercase tracking-widest font-black">
+                                        <span class="font-mono text-[9px] text-brand-red uppercase tracking-widest font-black">
                                             {post.data.category}
                                         </span>
                                     </div>
@@ -53,7 +53,7 @@ const formatDate = (date: Date) => {
                                     </time>
                                 </div>
                                 
-                                <h3 class="text-2xl font-black text-white mb-4 group-hover:text-brand-red transition-colors leading-tight uppercase tracking-tight italic">
+                                <h3 class="text-2xl font-black text-brand-red mb-4 group-hover:text-brand-red transition-colors leading-tight uppercase tracking-tight italic">
                                     {post.data.title}
                                 </h3>
                                 
@@ -65,7 +65,7 @@ const formatDate = (date: Date) => {
                                     <span class="font-mono text-[10px] text-brand-red uppercase tracking-[0.2em]">
                                         [ READ_FULL_LOG ]
                                     </span>
-                                    <div class="h-px flex-grow mx-4 bg-white/5 group-hover:bg-brand-red/20 transition-colors"></div>
+                                    <div class="h-px flex-grow mx-4 bg-brand-text/5 group-hover:bg-brand-red/20 transition-colors"></div>
                                 </div>
                             </div>
                         </article>

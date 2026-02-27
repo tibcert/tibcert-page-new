@@ -15,21 +15,21 @@ const partners = [
 ];
 ---
 
-<section class="py-16 border-t border-white/5 reveal">
+<section class="py-16 border-t border-brand-text/5 reveal">
     <div class="container mx-auto px-4 text-center">
         <p
             class="font-mono text-[9px] text-brand-muted/60 uppercase tracking-[0.4em] mb-12 flex items-center justify-center gap-4"
         >
-            <span class="h-px w-8 bg-white/5"></span>
+            <span class="h-px w-8 bg-brand-text/5"></span>
             NETWORK_AFFILIATES // TRUST_INDEX
-            <span class="h-px w-8 bg-white/5"></span>
+            <span class="h-px w-8 bg-brand-text/5"></span>
         </p>
         <div
             class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500"
         >
             {
                 partners.map((partner) => (
-                    <div class="text-xl font-bold text-white flex items-center gap-2">
+                    <div class="text-xl font-bold text-brand-text flex items-center gap-2">
                         {partnerLogos[partner] ? (
                             <img
                                 src={partnerLogos[partner]}
@@ -47,7 +47,7 @@ const partners = [
                             />
                         ) : (
                             <>
-                                <div class="w-8 h-8 bg-white/10 rounded-full" />
+                                <div class="w-8 h-8 bg-brand-text/10 rounded-full" />
                                 {partner}
                             </>
                         )}

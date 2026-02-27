@@ -200,7 +200,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
             </div>
 
             <!-- Contact Methods (Technical Blocks) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5 mb-24 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-text/5 border border-brand-text/5 mb-24 reveal">
                 {
                     contactMethods.map((method, index) => (
                         <div 
@@ -208,7 +208,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
                             data-method={method.id}
                         >
                             <!-- Technical Border Accents -->
-                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
                             
                             <div class="p-8 md:p-10 hover:bg-brand-red/[0.01] transition-all duration-500 h-full flex flex-col relative text-center items-center">
                                 <span class="font-mono text-[8px] text-brand-red tracking-[0.3em] mb-4 uppercase opacity-60">CHANNEL_0{index + 1}</span>
@@ -217,7 +217,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
                                     <Fragment set:html={method.icon} />
                                 </div>
                                 
-                                <h3 class="text-xl font-black text-white mb-2 uppercase tracking-tight italic">
+                                <h3 class="text-xl font-black text-brand-text mb-2 uppercase tracking-tight italic">
                                     {method.title}
                                 </h3>
                                 <p class="text-brand-muted text-[10px] font-mono mb-8 uppercase tracking-widest opacity-60">
@@ -226,7 +226,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
                                 
                                 <div class="mt-auto w-full">
                                     <button
-                                        class="inline-block w-full py-4 border border-white/5 bg-white/[0.02] font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] hover:bg-brand-red hover:text-white hover:border-brand-red transition-all"
+                                        class="inline-block w-full py-4 border border-brand-text/5 bg-brand-text/[0.02] font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] hover:bg-brand-red hover:text-white hover:border-brand-red transition-all"
                                     >
                                         [ SELECT_KEY ]
                                     </button>
@@ -241,23 +241,23 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
             <div id="pgp" class="mb-24 reveal">
                 <div class="mb-12">
                     <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">SECURITY_MODULE // PGP_ENCRYPTION</span>
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tight italic">
+                    <h2 class="text-3xl font-black text-brand-text uppercase tracking-tight italic">
                         PGP Public <span class="text-brand-red">Key</span>
                     </h2>
                 </div>
 
                 <div class="grid lg:grid-cols-3 gap-12 items-start">
                     <div class="lg:col-span-1 space-y-6">
-                        <div class="p-6 bg-brand-void border border-white/5 relative">
+                        <div class="p-6 bg-brand-void border border-brand-text/5 relative">
                             <div class="absolute top-0 right-0 p-2 font-mono text-[8px] text-brand-red/40 uppercase">META_DATA</div>
                             <div class="space-y-4 font-mono text-[10px] uppercase tracking-widest">
                                 <div>
                                     <span class="text-brand-muted opacity-40">KEY_ID:</span>
-                                    <span id="pgp-key-id" class="text-white block mt-1">{contactMethods[0].pgp}</span>
+                                    <span id="pgp-key-id" class="text-brand-text block mt-1">{contactMethods[0].pgp}</span>
                                 </div>
                                 <div>
                                     <span class="text-brand-muted opacity-40">FINGERPRINT:</span>
-                                    <span id="pgp-fingerprint" class="text-white block mt-1 break-all">{contactMethods[0].fingerprint}</span>
+                                    <span id="pgp-fingerprint" class="text-brand-text block mt-1 break-all">{contactMethods[0].fingerprint}</span>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +282,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
 
                     <div class="lg:col-span-2 relative">
                         <div class="absolute -top-3 left-4 px-2 bg-brand-void z-10 font-mono text-[9px] text-brand-red uppercase tracking-widest">TERMINAL_VIEWER.EXE</div>
-                        <div class="bg-black/40 border border-white/10 p-8 font-mono text-[11px] text-brand-muted/80 leading-relaxed overflow-hidden relative group h-64">
+                        <div class="bg-black/40 border border-brand-text/10 p-8 font-mono text-[11px] text-brand-muted/80 leading-relaxed overflow-hidden relative group h-64">
                             <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brand-void via-brand-void/80 to-transparent z-10 pointer-events-none"></div>
                             <div class="absolute inset-0 bg-brand-red/[0.01] pointer-events-none"></div>
                             <code id="pgp-key-block" class="block whitespace-pre-wrap break-all select-all pb-12">
@@ -299,7 +299,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
                 <div class="flex gap-8 items-start">
                     <div class="text-brand-red text-3xl opacity-50">⚠️</div>
                     <div>
-                        <h4 class="text-white font-black uppercase tracking-tight mb-4 italic">Important Security Notice</h4>
+                        <h4 class="text-brand-text font-black uppercase tracking-tight mb-4 italic">Important Security Notice</h4>
                         <p class="text-brand-muted text-sm leading-relaxed font-light">
                             When reporting sensitive incidents, we strongly recommend using encrypted communication. 
                             If you believe your current communication channel is compromised, please use a secure, 

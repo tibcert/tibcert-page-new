@@ -78,13 +78,13 @@ const row2 = [...testimonials.slice(4)];
         <div class="flex marquee-container overflow-hidden group">
             <div class="flex gap-8 marquee-content-left items-center group-hover:[animation-play-state:paused]">
                 {[...row1, ...row1, ...row1].map((item, index) => (
-                    <div class="flex-shrink-0 bg-brand-void border border-white/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
                         <!-- Technical Accents -->
-                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
-                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
                         
                         <!-- ID Tag -->
-                        <div class="absolute top-4 right-4 font-mono text-[8px] text-white/10 uppercase tracking-widest group-hover/card:text-brand-red/30 transition-colors">
+                        <div class="absolute top-4 right-4 font-mono text-[8px] text-brand-text/10 uppercase tracking-widest group-hover/card:text-brand-red/30 transition-colors">
                             VOUCHER_{String(index + 1).padStart(3, '0')}
                         </div>
 
@@ -99,12 +99,12 @@ const row2 = [...testimonials.slice(4)];
                         </div>
                         
                         <!-- Author Info -->
-                        <div class="flex items-center gap-4 border-t border-white/5 pt-6">
-                            <div class="w-10 h-10 rounded-sm bg-brand-surface border border-white/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
+                        <div class="flex items-center gap-4 border-t border-brand-text/5 pt-6">
+                            <div class="w-10 h-10 rounded-sm bg-brand-surface border border-brand-text/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
                                 {item.author.charAt(0)}
                             </div>
                             <div class="overflow-hidden">
-                                <h4 class="font-black text-xs uppercase tracking-tight text-white line-clamp-1">{item.author}</h4>
+                                <h4 class="font-black text-xs uppercase tracking-tight text-brand-text line-clamp-1">{item.author}</h4>
                                 <p class="text-brand-red font-mono text-[9px] uppercase tracking-widest mt-1 line-clamp-1 opacity-70">{item.role} // {item.organization}</p>
                             </div>
                         </div>
@@ -117,13 +117,13 @@ const row2 = [...testimonials.slice(4)];
         <div class="flex marquee-container overflow-hidden group">
             <div class="flex gap-8 marquee-content-right items-center group-hover:[animation-play-state:paused]">
                 {[...row2, ...row2, ...row2].map((item, index) => (
-                    <div class="flex-shrink-0 bg-brand-void border border-white/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
                         <!-- Technical Accents -->
-                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
-                        <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
 
                         <!-- ID Tag -->
-                        <div class="absolute top-4 left-4 font-mono text-[8px] text-white/10 uppercase tracking-widest group-hover/card:text-brand-red/30 transition-colors">
+                        <div class="absolute top-4 left-4 font-mono text-[8px] text-brand-text/10 uppercase tracking-widest group-hover/card:text-brand-red/30 transition-colors">
                             VOUCHER_{String(index + 5).padStart(3, '0')}
                         </div>
 
@@ -138,8 +138,8 @@ const row2 = [...testimonials.slice(4)];
                         </div>
                         
                         <!-- Author Info -->
-                        <div class="flex items-center gap-4 border-t border-white/5 pt-6">
-                            <div class="w-10 h-10 rounded-sm bg-brand-surface border border-white/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
+                        <div class="flex items-center gap-4 border-t border-brand-text/5 pt-6">
+                            <div class="w-10 h-10 rounded-sm bg-brand-surface border border-brand-text/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
                                 {item.author.charAt(0)}
                             </div>
                             <div class="overflow-hidden">

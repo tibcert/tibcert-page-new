@@ -12,6 +12,7 @@
   --color-brand-red: #ef482c;
   --color-brand-amber: #d97706;
   --color-brand-maroon: #7a1b1b;
+  --color-brand-logo: #464444;
 }
 
 .dark {
@@ -21,6 +22,7 @@
   /* Slate 50 */
   --color-brand-muted: #94a3b8;
   /* Slate 400 */
+  --color-brand-logo: var(--color-brand-text);
 }
 
 @theme {
@@ -34,6 +36,7 @@
   --color-brand-maroon: var(--color-brand-maroon);
   --color-brand-text: var(--color-brand-text);
   --color-brand-muted: var(--color-brand-muted);
+  --color-brand-logo: var(--color-brand-logo);
 }
 
 @layer base {

@@ -25,7 +25,7 @@ const criteria = [
             "Establish a digital security policy within 6 months of joining to protect your organization.",
         icon: "📝",
         span: "lg:col-span-1 lg:row-span-1",
-        gradient: "from-white/5 to-transparent",
+        gradient: "from-brand-text/5 to-transparent",
     },
     {
         title: "Threat Sharing",
@@ -88,7 +88,7 @@ const protocol = {
             </div>
             <div class="flex-shrink-0">
                 <div
-                    class="bg-brand-surface border border-white/5 px-6 py-3 rounded-sm flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest"
+                    class="bg-brand-surface border border-brand-text/5 px-6 py-3 rounded-sm flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest"
                 >
                     <span class="text-brand-muted">NETWORK_NODES</span>
                     <div class="flex -space-x-3">
@@ -101,7 +101,7 @@ const protocol = {
                         >
                         </div>
                         <div
-                            class="w-6 h-6 rounded-full bg-white/20 border-2 border-brand-void"
+                            class="w-6 h-6 rounded-full bg-brand-text/20 border-2 border-brand-void"
                         >
                         </div>
                     </div>
@@ -118,14 +118,14 @@ const protocol = {
                 class="lg:col-span-2 bg-brand-red p-10 rounded-sm flex flex-col justify-between group overflow-hidden relative min-h-[300px]"
             >
                 <div
-                    class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -mr-24 -mt-24 group-hover:scale-150 transition-transform duration-700"
+                    class="absolute top-0 right-0 w-48 h-48 bg-brand-text/10 rounded-full blur-3xl -mr-24 -mt-24 group-hover:scale-150 transition-transform duration-700"
                 >
                 </div>
                 <div class="relative z-10">
                     <h3 class="text-4xl font-black text-white mb-6 uppercase tracking-tighter">
                         How to Join
                     </h3>
-                    <p class="text-white/80 text-lg leading-relaxed max-w-md font-light">
+                    <p class="text-brand-text/80 text-lg leading-relaxed max-w-md font-light">
                         Become a part of our secure network. There are certain
                         criteria which need to be fulfilled by the participating
                         organization.
@@ -143,9 +143,9 @@ const protocol = {
 
             {
                 criteria.slice(0, 2).map((item, index) => (
-                    <div class="bg-brand-surface border border-white/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
+                    <div class="bg-brand-surface border border-brand-text/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
                         <!-- Notches -->
-                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
                         
                         <div
                             class={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -155,7 +155,7 @@ const protocol = {
                             <div class="text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 inline-block">
                                 {item.icon}
                             </div>
-                            <h4 class="text-lg font-black text-white mb-3 tracking-tight group-hover:text-brand-red transition-colors uppercase">
+                            <h4 class="text-lg font-black text-brand-text mb-3 tracking-tight group-hover:text-brand-red transition-colors uppercase">
                                 {item.title}
                             </h4>
                             <p class="text-brand-muted text-sm leading-relaxed font-light">
@@ -169,9 +169,9 @@ const protocol = {
             <!-- Row 2: Criteria 3 (1) + Criteria 4 (1) + Protocol (2) -->
             {
                 criteria.slice(2, 4).map((item, index) => (
-                    <div class="bg-brand-surface border border-white/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
+                    <div class="bg-brand-surface border border-brand-text/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
                         <!-- Notches -->
-                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-brand-red/40 transition-colors"></div>
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
 
                         <div
                             class={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -181,7 +181,7 @@ const protocol = {
                             <div class="text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 inline-block">
                                 {item.icon}
                             </div>
-                            <h4 class="text-lg font-black text-white mb-3 tracking-tight group-hover:text-brand-red transition-colors uppercase">
+                            <h4 class="text-lg font-black text-brand-text mb-3 tracking-tight group-hover:text-brand-red transition-colors uppercase">
                                 {item.title}
                             </h4>
                             <p class="text-brand-muted text-sm leading-relaxed font-light">
@@ -206,14 +206,14 @@ const protocol = {
                 <div class="relative z-10">
                     <div class="flex items-center gap-6 mb-6">
                         <div
-                            class="text-3xl bg-brand-void p-3 rounded-sm border border-white/10 group-hover:scale-110 transition-transform"
+                            class="text-3xl bg-brand-void p-3 rounded-sm border border-brand-text/10 group-hover:scale-110 transition-transform"
                         >
                             {protocol.icon}
                         </div>
                         <div>
                             <span class="font-mono text-[9px] text-brand-red uppercase tracking-[0.4em] mb-1 block">Policy_Check</span>
                             <h4
-                                class="text-2xl font-black text-white tracking-tight uppercase"
+                                class="text-2xl font-black text-brand-text tracking-tight uppercase"
                             >
                                 {protocol.title}
                             </h4>
@@ -229,14 +229,14 @@ const protocol = {
         </div>
 
         <!-- Sustainability Footer -->
-        <div class="mt-16 p-8 border-t border-white/5">
+        <div class="mt-16 p-8 border-t border-brand-text/5">
             <div
                 class="flex flex-col md:flex-row items-center justify-between gap-8"
             >
                 <div class="flex items-center gap-8">
                     <div class="font-mono text-3xl opacity-20 select-none tracking-tighter">SUSTAIN_0x0</div>
                     <div>
-                        <h3 class="text-xl font-black text-white mb-1 uppercase tracking-tight">
+                        <h3 class="text-xl font-black text-brand-text mb-1 uppercase tracking-tight">
                             Sustainability & Cost
                         </h3>
                         <p class="text-brand-muted font-mono text-xs uppercase tracking-widest">
