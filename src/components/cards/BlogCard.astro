@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
     title: string;
     date: string;
@@ -13,14 +15,16 @@ const { title, date, excerpt, image, category = "General", slug } = Astro.props;
 
 <a href={`/blog/${slug}`} class="block group">
     <article
-        class="bg-brand-surface border border-brand-text/5 rounded-lg overflow-hidden hover:border-brand-amber/50 transition-colors h-full flex flex-col"
+        class="bg-brand-void border border-brand-text/5 rounded-lg overflow-hidden hover:border-brand-amber/50 transition-colors h-full flex flex-col"
     >
         {
             image && (
                 <div class="h-48 overflow-hidden">
-                    <img
+                    <Image
                         src={image}
                         alt={title}
+                        width={600}
+                        height={400}
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                 </div>

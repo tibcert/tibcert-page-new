@@ -1,0 +1,66 @@
+---
+
+---
+
+<button
+    id="scroll-to-top"
+    class="fixed bottom-8 right-8 z-[110] p-3 rounded-full bg-brand-void/80 border border-brand-red/20 text-brand-red backdrop-blur-md shadow-2xl opacity-0 translate-y-10 invisible transition-all duration-500 hover:bg-brand-red hover:text-white hover:border-brand-red group"
+    aria-label="Scroll to top"
+>
+    <!-- Technical Notch -->
+    <div
+        class="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-brand-red/40 group-hover:border-white/40 transition-colors"
+    >
+    </div>
+
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+        stroke="currentColor"
+        class="w-5 h-5"
+    >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+    </svg>
+</button>
+
+<script>
+    function initScrollToTop() {
+        const btn = document.getElementById("scroll-to-top");
+        if (!btn) return;
+
+        const handleScroll = () => {
+            if (window.scrollY > 400) {
+                btn.classList.remove(
+                    "opacity-0",
+                    "translate-y-10",
+                    "invisible",
+                );
+                btn.classList.add("opacity-100", "translate-y-0", "visible");
+            } else {
+                btn.classList.add("opacity-0", "translate-y-10", "invisible");
+                btn.classList.remove("opacity-100", "translate-y-0", "visible");
+            }
+        };
+
+        btn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+
+        window.addEventListener("scroll", handleScroll);
+
+        // Initial check
+        handleScroll();
+    }
+
+    // Support for View Transitions
+    document.addEventListener("astro:page-load", initScrollToTop);
+    initScrollToTop();
+</script>

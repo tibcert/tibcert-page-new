@@ -17,7 +17,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 >
     <nav class="container mx-auto px-4 h-16 flex items-center justify-between">
         <!-- Logo -->
-        <a href="/" class="block">
+        <a href="/" class="block" aria-label="TIBCERT">
             <Logo class="h-6 w-auto text-brand-text" />
         </a>
 
@@ -28,7 +28,7 @@ import ThemeToggle from "./ThemeToggle.astro";
                     <li>
                         <a
                             href={item.href}
-                            class="text-sm font-medium text-brand-muted hover:text-brand-red transition-colors"
+                            class="text-sm font-medium text-brand-text hover:text-brand-red transition-colors"
                         >
                             {item.name}
                         </a>

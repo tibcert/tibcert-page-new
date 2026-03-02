@@ -59,9 +59,13 @@ const services = [
     <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-amber/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
     <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mb-20">
-            <h2 class="text-4xl md:text-6xl font-black mb-6 text-brand-text leading-tight">
-                Our <span class="text-brand-red italic px-2">Core</span> Services
+        <div class="max-w-4xl mb-20 reveal relative">
+            <!-- Technical Brackets -->
+            <div class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20 opacity-60"></div>
+            
+            <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">SERVICE_CATALOG // OPERATIONAL_SCOPE</span>
+            <h2 class="text-4xl md:text-6xl font-black mb-6 text-brand-text leading-tight uppercase tracking-tight italic">
+                Our <span class="text-brand-red">Core</span> Services
             </h2>
             <SectionDivider class="text-brand-red w-48 mb-8" />
             <p class="text-brand-muted text-xl leading-relaxed max-w-2xl">

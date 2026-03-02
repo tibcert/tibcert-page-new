@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 // Partner logo mapping
 const partnerLogos: Record<string, string> = {
     "Citizen Lab": "/images/partners/citizen-lab.svg",
@@ -31,16 +32,19 @@ const partners = [
                 partners.map((partner) => (
                     <div class="text-xl font-bold text-brand-text flex items-center gap-2">
                         {partnerLogos[partner] ? (
-                            <img
+                            <Image
                                 src={partnerLogos[partner]}
                                 alt={partner}
-                                class:list={[
-                                    "w-auto grayscale-0",
+                                width={200}
+                                height={
                                     partner === "Citizen Lab" ||
                                     partner === "Front Line Defenders" ||
                                     partner === "Guardian Project"
-                                        ? "h-14"
-                                        : "h-10",
+                                        ? 56
+                                        : 40
+                                }
+                                class:list={[
+                                    "w-auto grayscale-0",
                                     partner === "Guardian Project" &&
                                         "brightness-300",
                                 ]}

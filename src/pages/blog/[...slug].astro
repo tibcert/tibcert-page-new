@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -23,7 +24,9 @@ const formatDate = (date: Date) => {
 ---
 
 <Layout title={`${post.data.title} | Blog | TIBCERT`}>
-    <main class="pt-32 pb-24">
+    <main class="pt-32 pb-24 relative overflow-hidden">
+        <!-- Premium Radial Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"></div>
         <article class="container mx-auto px-4 max-w-4xl">
             <!-- Breadcrumbs -->
             <div
@@ -108,9 +111,11 @@ const formatDate = (date: Date) => {
                         <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-brand-red/40 z-20 transition-all group-hover:scale-110"></div>
                         
                         <div class="overflow-hidden bg-brand-void border border-brand-text/10 group-hover:border-brand-red/20 transition-colors">
-                            <img
+                            <Image
                                 src={post.data.image}
                                 alt={post.data.title}
+                                width={1200}
+                                height={675}
                                 class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                             />
                         </div>

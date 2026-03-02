@@ -1,6 +1,7 @@
 ---
 import BackgroundGlow from "../common/BackgroundGlow.astro";
 import SectionDivider from "../common/SectionDivider.astro";
+import { Image } from "astro:assets";
 
 // Using a basic fetch and simple parsing for the RSS feed
 // In a production environment, you might use an RSS parser library,
@@ -65,7 +66,7 @@ try {
 }
 ---
 
-<section class="py-24 bg-brand-surface relative overflow-hidden reveal">
+<section id="reports" class="py-24 bg-brand-void relative overflow-hidden reveal">
     <!-- Sophisticated Background Glows -->
     <BackgroundGlow 
         color="fill-brand-red" 
@@ -81,12 +82,13 @@ try {
     />
 
     <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 reveal relative">
+            <!-- Technical Brackets -->
+            <div class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20 opacity-60"></div>
+
             <div class="max-w-2xl">
-                <h2 class="text-[10px] font-black text-brand-red uppercase tracking-[0.4em] mb-4">
-                    External Intelligence
-                </h2>
-                <h3 class="text-3xl md:text-5xl font-black text-brand-text mb-4 uppercase tracking-tight">
+                <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">EXTERNAL_INTELLIGENCE // DATA_STREAM</span>
+                <h3 class="text-3xl md:text-5xl font-black text-brand-text mb-4 uppercase tracking-tight italic">
                     Latest <span class="text-brand-red">Reports</span>
                 </h3>
                 <SectionDivider class="text-brand-red w-48 mb-6" />
@@ -111,11 +113,13 @@ try {
 
                         <article class="relative z-10 p-1 flex flex-col sm:flex-row h-full sm:h-52 hover:bg-brand-red/[0.01] transition-all duration-500">
                             <!-- Image Section -->
-                            <div class="w-full sm:w-[40%] h-44 sm:h-full overflow-hidden relative border-r border-brand-text/5">
+                            <div class="w-full sm:w-64 shrink-0 h-44 sm:h-full overflow-hidden relative border-r border-brand-text/5">
                                 {report.thumbnail ? (
-                                    <img 
-                                        src={report.thumbnail} 
+                                    <Image
+                                        src={report.thumbnail}
                                         alt={report.title}
+                                        width={400}
+                                        height={250}
                                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                                     />
                                 ) : (

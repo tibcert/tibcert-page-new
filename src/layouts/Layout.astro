@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navbar from "../components/common/Navbar.astro";
 import Footer from "../components/common/Footer.astro";
 import AlertBanner from "../components/common/AlertBanner.astro";
+import ScrollToTop from "../components/common/ScrollToTop.astro";
 
 interface Props {
     title: string;
@@ -67,6 +68,7 @@ const {
             <slot />
         </div>
         <Footer />
+        <ScrollToTop />
         <script>
             function initScrollReveal() {
                 const observerOptions = {

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-brand-void: #f8fafc;
-  /* Slate 50 */
-  --color-brand-surface: #f1f5f9;
+  --color-brand-void: #f1f5f9;
   /* Slate 100 */
+  --color-brand-surface: #e2e8f0;
+  /* Slate 200 */
   --color-brand-text: #020617;
   /* Slate 950 */
-  --color-brand-muted: #64748b;
-  /* Slate 500 */
+  --color-brand-muted: #475569;
+  /* Slate 600 */
   --color-brand-red: #ef482c;
   --color-brand-amber: #d97706;
   --color-brand-maroon: #7a1b1b;
@@ -16,8 +16,10 @@
 }
 
 .dark {
-  --color-brand-void: #233140;
-  --color-brand-surface: #2c3e50;
+  --color-brand-void: #12161a;
+  /* Updated to requested deep navy for higher contrast */
+  --color-brand-surface: #0f172a;
+  /* Slate 900 */
   --color-brand-text: #f8fafc;
   /* Slate 50 */
   --color-brand-muted: #94a3b8;
@@ -30,6 +32,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-brand-void: var(--color-brand-void);
+  --color-brand-bg: var(--color-brand-void);
   --color-brand-surface: var(--color-brand-surface);
   --color-brand-red: var(--color-brand-red);
   --color-brand-amber: var(--color-brand-amber);

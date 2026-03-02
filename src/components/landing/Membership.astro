@@ -43,11 +43,11 @@ const protocol = {
         "Full compliance with the Traffic Light Protocol (TLP) to ensure the highest standards of trust and confidentiality in information sharing across the coalition.",
     icon: "🚥",
     span: "lg:col-span-2 lg:row-span-1",
-    gradient: "from-brand-void to-brand-surface",
+    gradient: "from-brand-void to-brand-void/50",
 };
 ---
 
-<section class="py-24 bg-brand-void relative overflow-hidden reveal">
+<section id="membership" class="py-24 bg-brand-void relative overflow-hidden reveal">
     <!-- Background visual -->
     <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-red/5 rounded-full blur-[120px] pointer-events-none opacity-50"
@@ -88,7 +88,7 @@ const protocol = {
             </div>
             <div class="flex-shrink-0">
                 <div
-                    class="bg-brand-surface border border-brand-text/5 px-6 py-3 rounded-sm flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest"
+                    class="bg-brand-void border border-brand-text/5 px-6 py-3 rounded-sm flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest"
                 >
                     <span class="text-brand-muted">NETWORK_NODES</span>
                     <div class="flex -space-x-3">
@@ -143,7 +143,7 @@ const protocol = {
 
             {
                 criteria.slice(0, 2).map((item, index) => (
-                    <div class="bg-brand-surface border border-brand-text/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
+                    <div class="bg-brand-void border border-brand-text/5 p-8 rounded-sm relative group overflow-hidden hover:border-brand-red/30 transition-all duration-500">
                         <!-- Notches -->
                         <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
                         
@@ -193,7 +193,7 @@ const protocol = {
             }
 
             <div
-                class="lg:col-span-2 bg-brand-surface border border-brand-red/20 p-8 md:p-10 rounded-sm relative group overflow-hidden hover:border-brand-red/50 transition-all duration-500 min-h-[250px] flex flex-col justify-center"
+                class="lg:col-span-2 bg-brand-void border border-brand-red/20 p-8 md:p-10 rounded-sm relative group overflow-hidden hover:border-brand-red/50 transition-all duration-500 min-h-[250px] flex flex-col justify-center"
             >
                 <!-- Notches for large card -->
                 <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-red/20 transition-colors"></div>
