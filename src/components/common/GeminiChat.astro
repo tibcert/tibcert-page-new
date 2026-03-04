@@ -268,32 +268,11 @@
 
     let chat: any = null;
 
-    // Initialize Gemini
-    async function initGemini() {
-        if (!API_KEY) {
-            console.warn(
-                "Gemini API Key is missing. Follow implementation plan to add it.",
-            );
-            return null;
-        }
-        const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-        // Setup chat with context
-        return model.startChat({
-            history: [],
-            generationConfig: {
-                maxOutputTokens: 500,
-            },
-        });
-    }
-
     // Toggle Window
     toggleBtn?.addEventListener("click", () => {
         chatWindow?.classList.toggle("open");
         if (chatWindow?.classList.contains("open")) {
             input?.focus();
-            if (!chat) initGemini().then((c) => (chat = c));
         }
     });
 
@@ -366,34 +345,77 @@
             return;
         }
 
-        try {
-            showLoadingIndicator();
-            input.disabled = true;
-            sendBtn.disabled = true;
+        const modelsToTry = [
+            "gemini-1.5-flash-latest",
+            "gemini-1.5-flash",
+            "gemini-2.0-flash",
+            "gemini-pro",
+        ];
 
-            if (!chat) {
-                chat = await initGemini();
-            }
+        let success = false;
+        showLoadingIndicator();
+        input.disabled = true;
+        sendBtn.disabled = true;
 
-            if (chat) {
+        for (const modelName of modelsToTry) {
+            try {
+                const genAI = new GoogleGenerativeAI(API_KEY);
+                const model = genAI.getGenerativeModel({ model: modelName });
+
+                if (!chat || modelsToTry.indexOf(modelName) > 0) {
+                    chat = model.startChat({
+                        history: [],
+                        generationConfig: { maxOutputTokens: 500 },
+                    });
+                }
+
                 const result = await chat.sendMessage(message);
                 const responseText = result.response.text();
+
                 removeLoadingIndicator();
                 appendMessage(responseText, false);
-            } else {
-                throw new Error("Failed to initialize chat");
+                success = true;
+                break;
+            } catch (error: any) {
+                console.warn(`Gemini Error with ${modelName}:`, error);
+
+                if (
+                    error.message?.includes("404") ||
+                    error.message?.includes("not found")
+                ) {
+                    chat = null;
+                    continue;
+                }
+
+                removeLoadingIndicator();
+                let errMsg =
+                    "Sorry, I encountered an error. Please try again later.";
+                if (error.message?.includes("API key")) {
+                    errMsg =
+                        "API Key Error: Please check if your Google AI Studio key is valid and active.";
+                } else if (error.message?.includes("quota")) {
+                    errMsg =
+                        "Rate limit exceeded. Please wait a moment before trying again.";
+                } else if (error.message?.includes("Safety")) {
+                    errMsg =
+                        "The response was blocked due to safety filters. Please try rephrasing.";
+                }
+                appendMessage(errMsg, false);
+                success = true;
+                break;
             }
-        } catch (error) {
-            console.error("Gemini Error:", error);
+        }
+
+        if (!success) {
             removeLoadingIndicator();
             appendMessage(
-                "Sorry, I encountered an error. Please try again later.",
+                "I'm having trouble connecting to the AI models. Please check your internet or API key status.",
                 false,
             );
-        } finally {
-            input.disabled = false;
-            sendBtn.disabled = false;
-            input.focus();
         }
+
+        input.disabled = false;
+        sendBtn.disabled = false;
+        input.focus();
     });
 </script>
