@@ -4,6 +4,7 @@ import Navbar from "../components/common/Navbar.astro";
 import Footer from "../components/common/Footer.astro";
 import AlertBanner from "../components/common/AlertBanner.astro";
 import ScrollToTop from "../components/common/ScrollToTop.astro";
+import GeminiChat from "../components/common/GeminiChat.astro";
 
 interface Props {
     title: string;
@@ -69,6 +70,7 @@ const {
         </div>
         <Footer />
         <ScrollToTop />
+        <GeminiChat />
         <script>
             function initScrollReveal() {
                 const observerOptions = {

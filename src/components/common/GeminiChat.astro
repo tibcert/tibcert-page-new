@@ -1,0 +1,399 @@
+---
+// GeminiChat.astro
+---
+
+<div
+    id="gemini-chat-container"
+    class="fixed bottom-6 right-6 z-[200] font-sans"
+>
+    <!-- Chat Toggle Button -->
+    <button
+        id="chat-toggle"
+        class="w-14 h-14 rounded-full bg-brand-void border-2 border-brand-red flex items-center justify-center cursor-pointer shadow-[0_0_15px_rgba(239,72,44,0.3)] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(239,72,44,0.5)] group relative overflow-hidden"
+        aria-label="Open Chat"
+    >
+        <div
+            class="absolute inset-0 bg-brand-red opacity-0 group-hover:opacity-10 transition-opacity"
+        >
+        </div>
+        <span class="text-brand-red group-hover:scale-110 transition-transform">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg
+            >
+        </span>
+        <!-- Notification Dot -->
+        <span
+            class="absolute top-0 right-0 w-3 h-3 bg-brand-amber rounded-full border-2 border-brand-void animate-pulse"
+        ></span>
+    </button>
+
+    <!-- Chat Window -->
+    <div
+        id="chat-window"
+        class="absolute bottom-20 right-0 w-[350px] max-w-[calc(100vw-48px)] h-[500px] bg-brand-void border-2 border-brand-red rounded-2xl overflow-hidden flex flex-col shadow-2xl transition-all duration-300 transform scale-95 opacity-0 pointer-events-none translate-y-4"
+    >
+        <!-- Header -->
+        <div
+            class="bg-brand-red p-4 flex justify-between items-center text-white"
+        >
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M12 8V4H8"></path><rect
+                            width="16"
+                            height="12"
+                            x="4"
+                            y="8"
+                            rx="2"></rect><path d="M16 8V4h4"></path></svg
+                    >
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm m-0 leading-none">
+                        TIBCERT Assistant
+                    </h3>
+                    <span
+                        class="text-[10px] opacity-80 uppercase tracking-widest font-mono"
+                        >Gemini-Powered</span
+                    >
+                </div>
+            </div>
+            <button
+                id="close-chat"
+                class="p-1 hover:bg-white/20 rounded-lg transition-colors cursor-pointer"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><path d="M18 6 6 18"></path><path d="m6 6 12 12"
+                    ></path></svg
+                >
+            </button>
+        </div>
+
+        <!-- Messages Container -->
+        <div
+            id="chat-messages"
+            class="flex-grow overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-brand-red/20 scrollbar-track-transparent"
+        >
+            <!-- Welcome Message -->
+            <div class="flex gap-2 max-w-[85%] animate-fade-in">
+                <div
+                    class="w-8 h-8 rounded-full bg-brand-surface border border-brand-red/20 flex-shrink-0 flex items-center justify-center text-brand-red"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="M12 8V4H8"></path><rect
+                            width="16"
+                            height="12"
+                            x="4"
+                            y="8"
+                            rx="2"></rect><path d="M16 8V4h4"></path></svg
+                    >
+                </div>
+                <div
+                    class="bg-brand-surface p-3 rounded-2xl rounded-tl-none border border-brand-red/10 text-sm"
+                >
+                    <p class="m-0">
+                        Tashi Delek! How can I help you today with digital
+                        security or TIBCERT information?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 border-t border-brand-red/10 bg-brand-surface/30">
+            <form id="chat-form" class="flex gap-2">
+                <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Type your message..."
+                    class="flex-grow bg-brand-void border border-brand-red/30 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    id="send-button"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path d="m22 2-7 20-4-9-9-4Z"></path><path
+                            d="M22 2 11 13"></path></svg
+                    >
+                </button>
+            </form>
+            <p class="text-[9px] text-center mt-2 opacity-50 font-mono">
+                ENCRYPTED PROTOCOL ACTIVE | VER 1.0.4
+            </p>
+        </div>
+
+        <!-- Scanline Effect for Window -->
+        <div
+            class="absolute inset-0 pointer-events-none opacity-[0.03] overflow-hidden rounded-2xl"
+        >
+            <div
+                class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] animate-scan"
+            >
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+    }
+
+    #chat-window.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1) translateY(0);
+    }
+
+    /* Cyber Loading dots */
+    .typing-dot {
+        width: 4px;
+        height: 4px;
+        background: currentColor;
+        border-radius: 50%;
+        animation: typing 1.4s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+        0%,
+        80%,
+        100% {
+            transform: scale(0);
+        }
+        40% {
+            transform: scale(1);
+        }
+    }
+
+    /* Scanline Animation */
+    @keyframes scan {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 0 100%;
+        }
+    }
+
+    .animate-scan {
+        animation: scan 2s linear infinite;
+    }
+</style>
+
+<script>
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+
+    // Note: For a static site, this will attempt to get the key from process.env if available during build,
+    // or window.GEMINI_API_KEY if defined globally.
+    // CRITICAL: Remind the user to set this in their .env file or Cloudflare dashboard.
+    const API_KEY = import.meta.env.PUBLIC_GEMINI_API_KEY || "";
+
+    // UI Elements
+    const toggleBtn = document.getElementById("chat-toggle");
+    const chatWindow = document.getElementById("chat-window");
+    const closeBtn = document.getElementById("close-chat");
+    const form = document.getElementById("chat-form") as HTMLFormElement;
+    const input = document.getElementById("chat-input") as HTMLInputElement;
+    const messagesContainer = document.getElementById("chat-messages");
+    const sendBtn = document.getElementById("send-button") as HTMLButtonElement;
+
+    let chat: any = null;
+
+    // Initialize Gemini
+    async function initGemini() {
+        if (!API_KEY) {
+            console.warn(
+                "Gemini API Key is missing. Follow implementation plan to add it.",
+            );
+            return null;
+        }
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+        // Setup chat with context
+        return model.startChat({
+            history: [],
+            generationConfig: {
+                maxOutputTokens: 500,
+            },
+        });
+    }
+
+    // Toggle Window
+    toggleBtn?.addEventListener("click", () => {
+        chatWindow?.classList.toggle("open");
+        if (chatWindow?.classList.contains("open")) {
+            input?.focus();
+            if (!chat) initGemini().then((c) => (chat = c));
+        }
+    });
+
+    closeBtn?.addEventListener("click", () => {
+        chatWindow?.classList.remove("open");
+    });
+
+    // Message Helper
+    function appendMessage(text: string, isUser: boolean) {
+        if (!messagesContainer) return;
+
+        const messageDiv = document.createElement("div");
+        messageDiv.className = `flex gap-2 max-w-[85%] animate-fade-in ${isUser ? "ml-auto flex-row-reverse" : ""}`;
+
+        const iconHtml = isUser
+            ? `<div class="w-8 h-8 rounded-full bg-brand-red text-white flex-shrink-0 flex items-center justify-center text-xs font-bold">U</div>`
+            : `<div class="w-8 h-8 rounded-full bg-brand-surface border border-brand-red/20 flex-shrink-0 flex items-center justify-center text-brand-red">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M16 8V4h4"/></svg>
+        </div>`;
+
+        messageDiv.innerHTML = `
+      ${iconHtml}
+      <div class="${isUser ? "bg-brand-red text-white" : "bg-brand-surface"} p-3 rounded-2xl ${isUser ? "rounded-tr-none" : "rounded-tl-none"} border border-brand-red/10 text-sm shadow-sm">
+        <p class="m-0">${text}</p>
+      </div>
+    `;
+
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function showLoadingIndicator() {
+        if (!messagesContainer) return;
+        const loadingDiv = document.createElement("div");
+        loadingDiv.id = "chat-loading";
+        loadingDiv.className = "flex gap-2 max-w-[85%] animate-fade-in";
+        loadingDiv.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-brand-surface border border-brand-red/20 flex-shrink-0 flex items-center justify-center text-brand-red">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M16 8V4h4"/></svg>
+      </div>
+      <div class="bg-brand-surface p-3 rounded-2xl rounded-tl-none border border-brand-red/10 flex items-center gap-1">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    `;
+        messagesContainer.appendChild(loadingDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function removeLoadingIndicator() {
+        document.getElementById("chat-loading")?.remove();
+    }
+
+    // Handle Form Submission
+    form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const message = input.value.trim();
+        if (!message) return;
+
+        // UI Feedback
+        input.value = "";
+        appendMessage(message, true);
+
+        if (!API_KEY) {
+            appendMessage(
+                "Error: Gemini API Key not configured. Please add PUBLIC_GEMINI_API_KEY to your environment variables.",
+                false,
+            );
+            return;
+        }
+
+        try {
+            showLoadingIndicator();
+            input.disabled = true;
+            sendBtn.disabled = true;
+
+            if (!chat) {
+                chat = await initGemini();
+            }
+
+            if (chat) {
+                const result = await chat.sendMessage(message);
+                const responseText = result.response.text();
+                removeLoadingIndicator();
+                appendMessage(responseText, false);
+            } else {
+                throw new Error("Failed to initialize chat");
+            }
+        } catch (error) {
+            console.error("Gemini Error:", error);
+            removeLoadingIndicator();
+            appendMessage(
+                "Sorry, I encountered an error. Please try again later.",
+                false,
+            );
+        } finally {
+            input.disabled = false;
+            sendBtn.disabled = false;
+            input.focus();
+        }
+    });
+</script>
