@@ -1,51 +1,73 @@
 <button
     id="theme-toggle"
-    class="relative inline-flex h-12 w-24 items-center rounded-full bg-[#333333] transition-colors focus:outline-none group overflow-hidden"
+    class="relative inline-flex h-9 w-19 items-center rounded-full bg-[#333333] transition-colors focus:outline-none group overflow-hidden"
     aria-label="Toggle theme"
 >
     <!-- Background Track -->
     <div class="absolute inset-0 bg-[#333333]"></div>
 
-    <!-- Right Icon (Moon - visible when handle is on left/Light mode) -->
-    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-        <svg
-            class="w-5 h-5 text-white opacity-100 transition-opacity duration-300"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-        >
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
-    </div>
-
-    <!-- Left Icon (Sun - typically hidden by handle in light mode, visible in dark mode) -->
-    <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
-        <svg
-            class="w-5 h-5 text-white opacity-100 transition-opacity duration-300"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <circle cx="12" cy="12" r="4"></circle>
-            <path
-                d="M12 2v2M12 20v2m-7.07-15.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2m-15.07 7.07 1.41-1.41M19.07 4.93l-1.41-1.41"
-            ></path>
-        </svg>
-    </div>
-
     <!-- Sliding Handle -->
     <div
         id="theme-toggle-handle"
-        class="relative block h-10 w-10 rounded-full bg-white shadow-lg transition-transform duration-500 cubic-bezier-[0.34,1.56,0.64,1] transform translate-x-1 dark:translate-x-13"
+        class="relative flex items-center justify-center h-7 w-7 rounded-full bg-white shadow-lg transition-transform duration-500 cubic-bezier-[0.34,1.56,0.64,1] transform translate-x-1"
     >
     </div>
+
+    <!-- Sun Icon (fixed on left) -->
+    <svg
+        class="sun-icon w-4 h-4 transition-all duration-300 absolute left-[10px] z-10 pointer-events-none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <circle cx="12" cy="12" r="4"></circle>
+        <path
+            d="M12 2v2M12 20v2m-7.07-15.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2m-15.07 7.07 1.41-1.41M19.07 4.93l-1.41-1.41"
+        ></path>
+    </svg>
+
+    <!-- Moon Icon (fixed on right) -->
+    <svg
+        class="moon-icon w-4 h-4 transition-all duration-300 absolute right-[10px] z-10 pointer-events-none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+    >
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
 </button>
 
 <style>
+    /* Icon Colors based on theme/handle position */
+    .sun-icon,
+    .moon-icon {
+        color: white;
+        opacity: 0.5;
+    }
+
+    :global(.dark) .moon-icon {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    :not(:global(.dark)) .sun-icon {
+        color: #333333;
+        opacity: 1;
+    }
+
+    :global(.dark) .sun-icon {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+
+    :not(:global(.dark)) .moon-icon {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
     /* Custom spring easing for the handle */
     #theme-toggle-handle {
         transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -54,8 +76,8 @@
     /* Dark mode handle position adjustment */
     :global(.dark) #theme-toggle-handle {
         transform: translateX(
-            52px
-        ); /* Adjust based on track width (24*4 = 96px, handle 40px, padding 4px -> 96-40-4 = 52) */
+            40px
+        ); /* Adjust based on track width (18*4 = 72px, handle 28px, padding 4px -> 72-28-4 = 40) */
     }
 
     /* Track color in dark mode (optional, keeping it dark as per reference) */
