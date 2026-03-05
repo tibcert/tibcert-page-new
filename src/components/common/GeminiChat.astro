@@ -1,10 +1,12 @@
 ---
 // GeminiChat.astro
+const GEMINI_API_KEY = import.meta.env.GEMINI_API_KEY || "";
 ---
 
 <div
     id="gemini-chat-container"
     class="fixed bottom-6 right-6 z-[200] font-sans"
+    data-api-key={GEMINI_API_KEY}
 >
     <!-- Chat Toggle Button -->
     <button
@@ -289,10 +291,10 @@
 <script>
     import { GoogleGenerativeAI } from "@google/generative-ai";
 
-    // Note: For a static site, this will attempt to get the key from process.env if available during build,
-    // or window.GEMINI_API_KEY if defined globally.
-    // CRITICAL: Remind the user to set this in their .env file or Cloudflare dashboard.
-    const API_KEY = import.meta.env.PUBLIC_GEMINI_API_KEY || "";
+    // Note: Since GEMINI_API_KEY doesn't have the PUBLIC_ prefix,
+    // we pass it from the Astro frontmatter to this script via a data attribute.
+    const container = document.getElementById("gemini-chat-container");
+    const API_KEY = container?.dataset.apiKey || "";
 
     // UI Elements
     const toggleBtn = document.getElementById("chat-toggle");
@@ -376,7 +378,7 @@
 
         if (!API_KEY) {
             appendMessage(
-                "Error: Gemini API Key not configured. Please add PUBLIC_GEMINI_API_KEY to your environment variables.",
+                "Error: Gemini API Key not configured. Please add GEMINI_API_KEY to your environment variables.",
                 false,
             );
             return;
