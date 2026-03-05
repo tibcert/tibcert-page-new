@@ -147,11 +147,40 @@ If you see a "Rate Limit Reached" error, simply wait a minute before trying agai
 
 ### 🛡️ Local-First AI Knowledge (NEW)
 
-Your AI assistant now supports **Immediate Context Injection**. This means it will automatically read your `fine_tuning_final.json` file and use it as a "cheat sheet" for every conversation.
+Your AI assistant supports **Immediate Context Injection**. This allows the AI to gain expert knowledge without requiring a custom-trained model from Google AI Studio.
 
-- **How it works**: The `GeminiChat.astro` component imports the local JSON and injects it into the conversation history as "Few-Shot" examples.
-- **Benefit**: You don't need Google AI Studio for small datasets. The AI will immediately know about TIBCERT's mission, team, and specific threats (like BADBAZAAR) simply by having the file in your project.
-- **Priority**: If you provide a `PUBLIC_TUNED_MODEL_ID` in `.env`, the local injection is disabled to avoid redundant consumption of tokens.
+- **How it works**: The `GeminiChat.astro` component automatically reads `fine_tuning_final.json` and injects its content into every new chat session as "background context".
+- **Benefit**: No setup required. The AI will immediately know about TIBCERT's mission, specific threats (like BADBAZAAR), and team members as soon as you add the entries to the JSON file.
+- **Priority**: If you provide a `PUBLIC_TUNED_MODEL_ID` in your `.env`, the local injection is automatically disabled to save tokens and avoid redundant data.
+
+#### How to update the Knowledge Base
+
+1. Open `fine_tuning_final.json` in the root directory.
+2. Add a new object to the array following the "messages" structure:
+
+   ```json
+   {
+     "messages": [
+       { "role": "user", "content": "Your Question Here" },
+       { "role": "model", "content": "Your Expert Answer Here" }
+     ]
+   }
+   ```
+
+3. Save the file. The AI will use this new information in the next chat session.
+
+---
+
+### 🚨 Troubleshooting & API Errors
+
+If the AI assistant returns an error message, check the following common causes:
+
+| Error Message | Cause | Solution |
+| :--- | :--- | :--- |
+| **"API Key Error"** | Invalid or missing key. | Check your `.env` file for `GEMINI_API_KEY`. |
+| **"Rate Limit Reached"** | Too many requests on Free Tier. | Wait 60 seconds. Free tier is limited to 15 RPM. |
+| **"Model Not Found"** | Incorrect Model ID. | Ensure `PUBLIC_TUNED_MODEL_ID` is correct or leave it empty to use the default `1.5-flash`. |
+| **"Safety Filter Block"** | Request triggered safety guardrails. | Rephrase your question to be more technical or less sensitive. |
 
 ---
 
