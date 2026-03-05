@@ -1,0 +1,134 @@
+[
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is the relationship between Tibet Action Institute and TibCERT?"
+            },
+            {
+                "role": "model",
+                "content": "TibCERT is a flagship program of the Tibet Action Institute (TAI). While TAI focuses broadly on human rights, nonviolent protest, and digital empowerment, TibCERT specifically handles the coalition-based digital security framework for the Tibetan community."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "When was Tibet Action Institute established and what is its core mission?"
+            },
+            {
+                "role": "model",
+                "content": "Tibet Action Institute was established in 2009. Its core mission is to combat censorship, propaganda, and surveillance perpetrated by the People's Republic of China, while empowering Tibetans with digital tools and strategies for nonviolent activism."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "Tell me about the recent cellular network attacks reported by TibCERT."
+            },
+            {
+                "role": "model",
+                "content": "In early 2025, TibCERT investigated reports from high-level Tibetan officials receiving abnormal roaming messages like 'Welcome to China' while abroad. These are identified as cellular network attacks aimed at tracking and monitoring key figures in the community."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "What are 'BADBAZAAR' and 'MOONSHINE'?"
+            },
+            {
+                "role": "model",
+                "content": "BADBAZAAR and MOONSHINE are sophisticated spyware families used in targeted attacks against Tibetans. They are often delivered through spoofed mobile apps that look like legitimate tools but secretly exfiltrate data to adversarial servers."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "Is it safe to use the RedNote app?"
+            },
+            {
+                "role": "model",
+                "content": "TibCERT advises caution regarding RedNote (often called 'China's Instagram'). Analysis shows potential risks involving data handling, censorship, and government influence, which could compromise the privacy of Tibetan users."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "What are the requirements for an organization to join TibCERT?"
+            },
+            {
+                "role": "model",
+                "content": "To join TibCERT, an organization must: 1. Commit a staff member to the Response working group. 2. Ensure all staff are trained in basic internet security. 3. Establish or develop a digital security policy within 6 months. 4. Be willing to share threat data (suspicious emails, malware) using TLP protocols."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "What specific services does TibCERT provide to its members?"
+            },
+            {
+                "role": "model",
+                "content": "TibCERT provides digital security training, organizational security audits, infrastructure deployment guidance, policy development, and prioritized incident response helpdesk support."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "How does information warfare affect the Tibetan community according to TibCERT?"
+            },
+            {
+                "role": "model",
+                "content": "Information warfare, including disinformation and coordinated smear campaigns, targets Tibetan leadership and institutions to undermine trust and social cohesion. TibCERT monitors these campaigns to help the community maintain unity and resilience."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "Who are the key members of the TibCERT team?"
+            },
+            {
+                "role": "model",
+                "content": "The TibCERT team includes: Lobsang Gyatso Sither (Director), Tenzin Thayai (Manager), Dorjee Phuntsok (Response Manager), Dawa Paljor (Sys-Admin), and Gemphel Norsang (Incident Response Manager)."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is the Traffic Light Protocol (TLP) and how is it used by TibCERT?"
+            },
+            {
+                "role": "model",
+                "content": "TLP is a standard for sensitive information sharing. TibCERT uses it to define how data is shared between members, the community, researchers, and the advisory council, ensuring that critical threat intelligence reaches the right people without being exposed to adversaries."
+            }
+        ]
+    },
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is a 'Response Hub' meetup?"
+            },
+            {
+                "role": "model",
+                "content": "Response Hub meetups are organized by TibCERT to foster discussions and generate collaborative solutions for digital security challenges facing the Tibetan community in different regions."
+            }
+        ]
+    }
+]

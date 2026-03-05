@@ -134,6 +134,77 @@ To make the AI work in production, you must add the environment variable in Verc
   - **Value**: `[Your API Key]`
 - Redeploy your project for the changes to take effect.
 
+### 4. Rate Limits & Quotas
+
+The Gemini API **Free Tier** has specific usage limits:
+
+- **1.5 Flash**: 15 Requests Per Minute (RPM), 1,500 Requests Per Day (RPD).
+- **1.5 Pro**: 2 Requests Per Minute (RPM), 50 Requests Per Day (RPD).
+
+If you see a "Rate Limit Reached" error, simply wait a minute before trying again. For higher traffic requirements, consider upgrading to the "Pay-as-you-go" tier in Google AI Studio.
+
+---
+
+### 🛡️ Local-First AI Knowledge (NEW)
+
+Your AI assistant now supports **Immediate Context Injection**. This means it will automatically read your `fine_tuning_final.json` file and use it as a "cheat sheet" for every conversation.
+
+- **How it works**: The `GeminiChat.astro` component imports the local JSON and injects it into the conversation history as "Few-Shot" examples.
+- **Benefit**: You don't need Google AI Studio for small datasets. The AI will immediately know about TIBCERT's mission, team, and specific threats (like BADBAZAAR) simply by having the file in your project.
+- **Priority**: If you provide a `PUBLIC_TUNED_MODEL_ID` in `.env`, the local injection is disabled to avoid redundant consumption of tokens.
+
+---
+
+## 🎯 Fine-Tuning Your AI
+
+To make the TIBCERT AI more knowledgeable about your specific organization and community needs, you can **Fine-Tune** a custom Gemini model. I have expanded the dataset using official project content and external threat intelligence.
+
+### 1. Choose Your Dataset
+
+- **[fine_tuning_final.json](./fine_tuning_final.json) (Recommended)**: The master dataset containing 16+ high-quality Q&A pairs derived from `tibcert.org`, `blog.tibcert.org`, and internal documents. Covers team, mission, and specific technical threats.
+- **[fine_tuning_samples.json](./fine_tuning_samples.json)**: A basic template for quick testing.
+- **[advanced_fine_tuning.json](./advanced_fine_tuning.json)**: Focuses on deep organizational IDs and service internal logic.
+
+### 2. Setup in Google AI Studio
+
+> [!NOTE]
+> **Why use Google AI Studio?** While the `.json` files are stored locally, they are "textbooks" for the AI, not the "brain" itself. Fine-tuning is a computationally intensive process where Google's servers read your data to adjust the model's internal weights. Once trained, Google hosts the new "expert" model for you.
+
+1. Log in to [Google AI Studio](https://aistudio.google.com/).
+2. Click on **"Create Tuned Model"**.
+3. Choose a base model (e.g., `gemini-1.5-flash`).
+4. Select **"Import"** and upload your chosen JSON file (e.g., `fine_tuning_final.json`).
+5. **Crucial**: Copy the contents of your [System Instructions](./.gemini/antigravity/brain/9af17c23-1403-40dd-918d-719c9dfcf2b3/system_instructions.md) into the **System Instructions** field in AI Studio to set the expert persona.
+6. Click **"Tune"**. Google will generate a unique **Model ID** once complete.
+
+---
+
+## 🚀 Advanced Fine-Tuning (Expert Mode)
+
+For more precise results, you can use the **Advanced Tuning** options in Google AI Studio:
+
+### Hyperparameter Options
+
+- **Epochs**: Increase to 4-5 for better retention of specific terminology.
+- **Learning Rate**: Use a lower rate (e.g., 0.0001) for more stable training with technical data.
+
+### Threat Intelligence Coverage
+
+The `fine_tuning_final.json` dataset specifically includes intelligence on:
+
+- **Mobile Spyware**: BADBAZAAR and MOONSHINE analysis.
+- **Hardware Risks**: Vulnerabilities in Chinese-made Android devices (Vivo, Redmi, Oppo).
+- **Network Attacks**: Cellular roaming attacks ("Welcome to China" spoofing).
+- **Proactive Defense**: PWA benefits and secure browser configurations.
+
+### 3. Update Your Code
+
+Once your model is tuned, you will receive a custom **Model ID**. Update `src/components/common/GeminiChat.astro` to use your new model:
+
+```javascript
+const model = genAI.getGenerativeModel({ model: "tunedModels/your-custom-model-id" });
+```
+
 ---
 *Maintained by the TIBCERT Team.*
 
