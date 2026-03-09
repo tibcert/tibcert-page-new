@@ -9,42 +9,18 @@ interface Props {
 const {
     class: className = "",
     size = "w-64 h-64",
-    opacity = "opacity-5",
+    opacity = "opacity-2",
     color = "currentColor",
 } = Astro.props;
 ---
 
 <div class={`pointer-events-none select-none ${size} ${opacity} ${className}`}>
-    <svg
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-full"
-    >
+    <svg width="580" height="476" xmlns="http://www.w3.org/2000/svg">
         <path
-            d="M50 5L35 20L50 35L65 20L50 5Z M35 20L20 35L35 50L50 35L35 20Z M65 20L80 35L65 50L50 35L65 20Z M20 35L5 50L20 65L35 50L20 35Z M80 35L95 50L80 65L65 50L80 35Z M35 50L20 65L35 80L50 65L35 50Z M65 50L80 65L65 80L50 65L65 50Z M50 65L35 80L50 95L65 80L50 65Z"
-            stroke={color}
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        <!-- Simplified Endless Knot representation -->
-        <path
-            d="M50 20 L35 35 L50 50 L65 35 Z"
-            stroke={color}
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        <path
-            d="M35 50 L20 65 L35 80 L50 65 Z"
-            stroke={color}
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        <path
-            d="M65 50 L50 65 L65 80 L80 65 Z"
-            stroke={color}
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
+            d="M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z"
+            fill=""
+            stroke="#BF9545"
+            stroke-width=".1768"
+            transform="translate(240,188) rotate(90) scale(46.9)"></path>
     </svg>
 </div>

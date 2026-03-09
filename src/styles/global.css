@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --color-brand-void: #f1f5f9;
+  --color-brand-void: #fdf0dd;
   /* Slate 100 */
   --color-brand-surface: #e2e8f0;
   /* Slate 200 */
