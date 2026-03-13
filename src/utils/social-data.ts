@@ -50,12 +50,97 @@ const MOCK_SOCIAL_DATA: SocialPost[] = [
 ];
 
 export async function getLatestSocialPosts(): Promise<SocialPost[]> {
-    // In a real implementation with tokens:
-    // try {
-    //     const fbResponse = await fetch(`https://graph.facebook.com/v12.0/me/posts?access_token=${import.meta.env.FB_TOKEN}`);
-    //     ...
-    // } catch (e) {}
+    const FB_PAGE_ID = import.meta.env.FACEBOOK_PAGE_ID;
+    const IG_ACCOUNT_ID = import.meta.env.INSTAGRAM_ACCOUNT_ID;
+    const ACCESS_TOKEN = import.meta.env.META_ACCESS_TOKEN;
 
-    // For now, return mock data to ensure premium look immediately
-    return MOCK_SOCIAL_DATA;
+    // We need at least an access token to try fetching anything
+    if (!ACCESS_TOKEN) {
+        return MOCK_SOCIAL_DATA;
+    }
+
+    try {
+        const fetchTasks: Promise<SocialPost[]>[] = [];
+        
+        if (FB_PAGE_ID) {
+            fetchTasks.push(fetchFacebookPosts(FB_PAGE_ID, ACCESS_TOKEN));
+        }
+        
+        if (IG_ACCOUNT_ID) {
+            fetchTasks.push(fetchInstagramPosts(IG_ACCOUNT_ID, ACCESS_TOKEN));
+        }
+
+        const results = await Promise.allSettled(fetchTasks);
+        const allPosts: SocialPost[] = [];
+        
+        results.forEach(result => {
+            if (result.status === 'fulfilled') {
+                allPosts.push(...result.value);
+            }
+        });
+
+        // Sort by date
+        allPosts.sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+
+        // If we found live posts, return them. Otherwise fall back to mock data.
+        return allPosts.length > 0 ? allPosts.slice(0, 4) : MOCK_SOCIAL_DATA;
+    } catch (error) {
+        console.error('Error fetching social posts:', error);
+        return MOCK_SOCIAL_DATA;
+    }
+}
+
+async function fetchFacebookPosts(pageId: string, token: string): Promise<SocialPost[]> {
+    try {
+        const url = `https://graph.facebook.com/v25.0/${pageId}/posts?fields=id,message,created_time,full_picture,permalink_url&limit=5&access_token=${token}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.error || !data.data) {
+            return [];
+        }
+
+        return data.data.map((post: any) => ({
+            id: post.id,
+            platform: 'facebook',
+            content: post.message || '',
+            imageUrl: post.full_picture,
+            date: post.created_time.split('T')[0],
+            link: post.permalink_url,
+            metrics: {
+                likes: 0,
+                comments: 0,
+                shares: 0
+            }
+        }));
+    } catch (e) {
+        return [];
+    }
+}
+
+async function fetchInstagramPosts(accountId: string, token: string): Promise<SocialPost[]> {
+    try {
+        const url = `https://graph.facebook.com/v21.0/${accountId}/media?fields=id,caption,media_type,media_url,permalink,timestamp,like_count,comments_count&limit=5&access_token=${token}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!data.data) return [];
+
+        return data.data.map((post: any) => ({
+            id: post.id,
+            platform: 'instagram',
+            content: post.caption || '',
+            imageUrl: post.media_url,
+            date: post.timestamp.split('T')[0],
+            link: post.permalink,
+            metrics: {
+                likes: post.like_count || 0,
+                comments: post.comments_count || 0
+            }
+        }));
+    } catch (e) {
+        return [];
+    }
 }
