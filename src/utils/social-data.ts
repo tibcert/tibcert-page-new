@@ -98,9 +98,15 @@ async function fetchFacebookPosts(pageId: string, token: string): Promise<Social
         const response = await fetch(url);
         const data = await response.json();
 
-        if (data.error || !data.data) {
+        if (data.error) {
+            console.error('[Facebook API Error]', data.error.message);
+            if (data.error.code === 190) {
+                console.error('ACTION REQUIRED: Meta Access Token has expired. Please refresh it in .env');
+            }
             return [];
         }
+
+        if (!data.data) return [];
 
         return data.data.map((post: any) => ({
             id: post.id,
@@ -115,16 +121,22 @@ async function fetchFacebookPosts(pageId: string, token: string): Promise<Social
                 shares: 0
             }
         }));
-    } catch (e) {
+    } catch (e: any) {
+        console.error('Facebook Fetch Exception:', e.message);
         return [];
     }
 }
 
 async function fetchInstagramPosts(accountId: string, token: string): Promise<SocialPost[]> {
     try {
-        const url = `https://graph.facebook.com/v21.0/${accountId}/media?fields=id,caption,media_type,media_url,permalink,timestamp,like_count,comments_count&limit=5&access_token=${token}`;
+        const url = `https://graph.facebook.com/v25.0/${accountId}/media?fields=id,caption,media_type,media_url,permalink,timestamp,like_count,comments_count&limit=5&access_token=${token}`;
         const response = await fetch(url);
         const data = await response.json();
+
+        if (data.error) {
+            console.error('[Instagram API Error]', data.error.message);
+            return [];
+        }
 
         if (!data.data) return [];
 
@@ -140,7 +152,8 @@ async function fetchInstagramPosts(accountId: string, token: string): Promise<So
                 comments: post.comments_count || 0
             }
         }));
-    } catch (e) {
+    } catch (e: any) {
+        console.error('Instagram Fetch Exception:', e.message);
         return [];
     }
 }
