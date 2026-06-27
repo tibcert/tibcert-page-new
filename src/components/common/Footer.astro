@@ -3,222 +3,197 @@ const currentYear = new Date().getFullYear();
 import Logo from "./Logo.astro";
 ---
 
-<footer class="bg-brand-void border-t border-brand-text/5 py-12 mt-auto">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <!-- Brand & Trust -->
-        <div class="col-span-1 md:col-span-1">
-            <a href="/" class="block mb-4" aria-label="TIBCERT">
-                <Logo class="h-8 w-auto text-brand-text" />
-            </a>
-            <p
-                class="text-brand-maroon dark:text-brand-red font-medium text-xs mb-4 opacity-80"
-            >
-                བོད་ཀྱི་ཀམ་པུ་ཊར་ཛ་དྲག་གནད་དོན་ལ་བརྡ་ལན་ཚོགས་པ།
-            </p>
-            <p class="text-brand-muted text-sm mb-4">
-                Tibetan Computer Emergency Readiness Team. Dedicated to
-                protecting the digital security of the Tibetan community
-                worldwide.
-            </p>
-            <div class="flex items-center gap-3">
-                <a
-                    href="https://instagram.com/tibcert"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-brand-muted hover:text-brand-red transition-all group"
-                    aria-label="Instagram"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><rect x="2" y="2" width="20" height="20" rx="5" ry="5"
-                        ></rect><path
-                            d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                        ></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"
-                        ></line></svg
+<footer class="bg-brand-void border-t border-brand-text/5 py-16 mt-auto">
+    <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand & Trust -->
+                <div class="col-span-1 md:col-span-1">
+                    <a href="/" class="block mb-4" aria-label="TIBCERT">
+                        <Logo class="h-8 w-auto text-brand-text" />
+                    </a>
+                    <p
+                        class="text-brand-maroon dark:text-brand-red font-medium text-xs mb-4 opacity-80"
                     >
-                </a>
-                <a
-                    href="https://x.com/tibcert"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-brand-muted hover:text-brand-red transition-all group"
-                    aria-label="X (Twitter)"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        ><path
-                            d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                        ></path></svg
+                    </p>
+                    <p class="text-brand-muted text-sm mb-4">
+                        Tibetan Computer Emergency Readiness Team. Near Dalai
+                        Lama Temple, Mcleod Ganj, Distt Kangra, HP
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a
+                            href="https://instagram.com/tibcert"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-brand-muted hover:text-brand-red transition-all group cursor-pointer"
+                            aria-label="Instagram"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                    ry="5"></rect><path
+                                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                                ></path><line
+                                    x1="17.5"
+                                    y1="6.5"
+                                    x2="17.51"
+                                    y2="6.5"></line></svg
+                            >
+                        </a>
+                        <a
+                            href="https://x.com/tibcert"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-brand-muted hover:text-brand-red transition-all group cursor-pointer"
+                            aria-label="X (Twitter)"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                                ></path></svg
+                            >
+                        </a>
+                        <a
+                            href="https://facebook.com/tibcert"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-brand-muted hover:text-brand-red transition-all group cursor-pointer"
+                            aria-label="Facebook"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path
+                                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                                ></path></svg
+                            >
+                        </a>
+                        <a
+                            href="https://github.com/tibcert"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-brand-muted hover:text-brand-red transition-all group cursor-pointer"
+                            aria-label="GitHub"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                                ></path></svg
+                            >
+                        </a>
+                    </div>
+                </div>
+                <!-- Column 1 -->
+                <div></div>
+                <!-- Column 2 -->
+                <div>
+                    <h3
+                        class="text-brand-text font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
                     >
-                </a>
-                <a
-                    href="https://facebook.com/tibcert"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-brand-muted hover:text-brand-red transition-all group"
-                    aria-label="Facebook"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path
-                            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                        ></path></svg
+                        <span class="w-1 h-1 bg-brand-red"></span>
+                        COMMS_CHANNEL
+                    </h3>
+                    <ul class="space-y-3 text-sm text-brand-muted font-light">
+                        <li>
+                            <a
+                                href="/contact"
+                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                            >
+                                <span
+                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                                ></span>
+                                Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/contact#pgp"
+                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                            >
+                                <span
+                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                                ></span>
+                                PGP Key
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h3
+                        class="text-brand-text font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
                     >
-                </a>
-                <a
-                    href="https://github.com/tibcert"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-brand-muted hover:text-brand-red transition-all group"
-                    aria-label="GitHub"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path
-                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                        ></path></svg
-                    >
-                </a>
+                        <span class="w-1 h-1 bg-brand-red"></span>
+                        MAP_INDEX
+                    </h3>
+                    <ul class="space-y-3 text-sm text-brand-muted font-light">
+                        <li>
+                            <a
+                                href="/code-of-conduct"
+                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                            >
+                                <span
+                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                                ></span>
+                                Code of Conduct
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/RFC2350.pdf"
+                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                            >
+                                <span
+                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
+                                ></span>
+                                TIBCERT RFC-2350
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <!-- Column 1 -->
-        <div></div>
-        <!-- Column 2 -->
-        <div>
-            <h3
-                class="text-brand-text font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
+            <div
+                class="mt-16 pt-8 border-t border-brand-text/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-brand-muted/40 uppercase tracking-[0.2em]"
             >
-                <span class="w-1 h-1 bg-brand-red"></span>
-                COMMS_CHANNEL
-            </h3>
-            <ul class="space-y-3 text-sm text-brand-muted font-light">
-                <li>
-                    <a
-                        href="/contact"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        Contact Us
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="/contact#pgp"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        PGP Key
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="/contact"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        Privacy Policy
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="/contact"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        Terms of Service
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- Column 3 -->
-        <div>
-            <h3
-                class="text-brand-text font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
-            >
-                <span class="w-1 h-1 bg-brand-red"></span>
-                MAP_INDEX
-            </h3>
-            <ul class="space-y-3 text-sm text-brand-muted font-light">
-                <li>
-                    <a
-                        href="/blog"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        Latest Reports
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="/blog"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        Reports Feed
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="/blog"
-                        class="hover:text-brand-red transition-colors flex items-center gap-2 group"
-                    >
-                        <span
-                            class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                        ></span>
-                        Blog
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div
-        class="container mx-auto px-4 mt-16 pt-8 border-t border-brand-text/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-brand-muted/40 uppercase tracking-[0.2em]"
-    >
-        <div>&copy; {currentYear} TIBCERT // ROOT_DIR_ACCESS_GRANTED</div>
-        <div class="flex items-center gap-4">
-            <span>Lat: 32.2276° N</span>
-            <span class="text-brand-red/20">|</span>
-            <span>Lon: 76.3231° E</span>
+                <div>
+                    &copy; {currentYear} TibCERT is a program of Tibet Action Institute
+                    <div class="flex items-center gap-4"></div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

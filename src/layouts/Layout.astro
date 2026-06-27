@@ -2,9 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/common/Navbar.astro";
 import Footer from "../components/common/Footer.astro";
-import AlertBanner from "../components/common/AlertBanner.astro";
 import ScrollToTop from "../components/common/ScrollToTop.astro";
-import GeminiChat from "../components/common/GeminiChat.astro";
 
 interface Props {
     title: string;
@@ -25,7 +23,6 @@ const {
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-
         <!-- Google Fonts: Inter and JetBrains Mono -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,9 +30,7 @@ const {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
             rel="stylesheet"
         />
-
         <title>{title} | TIBCERT</title>
-
         <!-- Inline script to detect theme and prevent flashing -->
         <script is:inline>
             if (
@@ -70,14 +65,12 @@ const {
         </div>
         <Footer />
         <ScrollToTop />
-        <GeminiChat />
         <script>
             function initScrollReveal() {
                 const observerOptions = {
                     threshold: 0.1,
                     rootMargin: "0px 0px -50px 0px",
                 };
-
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
@@ -87,11 +80,9 @@ const {
                         }
                     });
                 }, observerOptions);
-
                 const revealElements = document.querySelectorAll(".reveal");
                 revealElements.forEach((el) => observer.observe(el));
             }
-
             // Support for View Transitions and regular loads
             document.addEventListener("astro:page-load", initScrollReveal);
             initScrollReveal();

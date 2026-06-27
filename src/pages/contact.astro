@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionDivider from "../components/common/SectionDivider.astro";
 
 const contactMethods = [
     {
         id: "INFO",
-        tag: "Inquiries",
-        email: "info(@)tibcert.org",
-        title: "General Information",
-        description: "For general inquiries, collaborations, and partnership requests.",
+        tag: "General Inquiries",
+        email: "info@tibcert.org",
+        title: "General Info",
+        description: "For partnership requests, general inquiries, press, and organizational collaborations.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`,
         pgp: "0x3FDE820A",
         fingerprint: "4A6E 9C23 8B12 0F5D 7E21 A348 9D90 12CC 3FDE 820A",
@@ -65,10 +66,10 @@ Ae1K3xfDtkfy
     },
     {
         id: "SUPPORT",
-        tag: "Emergency",
-        email: "support(@)tibcert.org",
+        tag: "Emergency Support",
+        email: "support@tibcert.org",
         title: "Support & Assistance",
-        description: "Direct technical support for individuals and organizations in need of security help.",
+        description: "Direct technical support for individuals and organizations in need of digital security help.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`,
         pgp: "0xF0D565FC",
         fingerprint: "8EC0 A593 60D4 5625 78E6 6FCD F0D5 65FC 191A 2136",
@@ -127,10 +128,10 @@ TLqo0fsP6oej8w==
     },
     {
         id: "SUBMIT",
-        tag: "Incidents",
-        email: "submit(@)tibcert.org",
-        title: "Malware Submission",
-        description: "Secure channel for reporting malware, phishing, and targeted digital attacks.",
+        tag: "Malware Submission",
+        email: "submit@tibcert.org",
+        title: "Report Attacks",
+        description: "Submit suspected phishing emails, spyware, or malware samples for technical analysis.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         pgp: "0x868D72F7",
         fingerprint: "CA53 1690 E79A AB62 298B BA75 868D 72F7 E1DC ADEE",
@@ -180,134 +181,117 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
 ---
 
 <Layout title="Contact | TIBCERT">
-    <main class="pt-32 pb-24 relative overflow-hidden">
+    <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <!-- Premium Radial Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"></div>
 
         <!-- Background Grid -->
         <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] -z-10"></div>
 
-        <div class="container mx-auto px-4">
-            <!-- Header Section -->
-            <div class="max-w-4xl mb-24 reveal relative">
-                <!-- Technical Brackets -->
-                <div class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20 uppercase opacity-60"></div>
-                
-                <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">SECURE_COMMUNICATION // DIRECT_ACCESS</span>
-                <h1 class="text-5xl md:text-8xl font-black mb-8 text-brand-text leading-none uppercase tracking-tighter italic">
-                    Establish <span class="text-brand-red">Contact</span>
-                </h1>
-                <p class="text-brand-muted text-lg font-light leading-relaxed max-w-2xl">
-                    Encrypted channels for incident reporting, technical assistance, and organizational collaboration.
-                </p>
-            </div>
-
-            <!-- Contact Methods (Technical Blocks) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-text/5 border border-brand-text/5 mb-24 reveal">
-                {
-                    contactMethods.map((method, index) => (
-                        <div 
-                            class="bg-brand-void group relative overflow-hidden cursor-pointer pgp-method-card"
-                            data-method={method.id}
-                        >
-                            <!-- Technical Border Accents -->
-                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
-                            
-                            <div class="p-8 md:p-10 hover:bg-brand-red/[0.01] transition-all duration-500 h-full flex flex-col relative text-center items-center">
-                                <span class="font-mono text-[8px] text-brand-red tracking-[0.3em] mb-4 uppercase opacity-60">CHANNEL_0{index + 1}</span>
-                                
-                                <div class="w-16 h-16 bg-brand-red/5 border border-brand-red/20 flex items-center justify-center text-brand-red mb-6" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">
-                                    <Fragment set:html={method.icon} />
-                                </div>
-                                
-                                <h3 class="text-xl font-black text-brand-text mb-2 uppercase tracking-tight italic">
-                                    {method.title}
-                                </h3>
-                                <p class="text-brand-muted text-[10px] font-mono mb-8 uppercase tracking-widest opacity-60">
-                                    {method.tag}
-                                </p>
-                                
-                                <div class="mt-auto w-full">
-                                    <button
-                                        class="inline-block w-full py-4 border border-brand-text/5 bg-brand-text/[0.02] font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] hover:bg-brand-red hover:text-white hover:border-brand-red transition-all"
-                                    >
-                                        [ SELECT_KEY ]
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-
-            <!-- PGP Public Key Section -->
-            <div id="pgp" class="mb-24 reveal">
-                <div class="mb-12">
-                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">SECURITY_MODULE // PGP_ENCRYPTION</span>
-                    <h2 class="text-3xl font-black text-brand-text uppercase tracking-tight italic">
-                        PGP Public <span class="text-brand-red">Key</span>
-                    </h2>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <!-- Header Section -->
+                <div class="max-w-4xl mb-20 reveal relative">
+                    <!-- Technical Brackets -->
+                    <div class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20 uppercase opacity-60"></div>
+                    
+                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">SECURE_COMMUNICATION // DIRECT_ACCESS</span>
+                    <h1 class="text-5xl md:text-8xl font-black mb-8 text-brand-text leading-none uppercase tracking-tighter italic">
+                        Establish <span class="text-brand-red">Contact</span>
+                    </h1>
+                    <SectionDivider class="text-brand-red w-48 mb-8" />
+                    <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
+                        Need assistance or want to coordinate? Reach out directly through our specific secure channels.
+                    </p>
                 </div>
 
-                <div class="grid lg:grid-cols-3 gap-12 items-start">
-                    <div class="lg:col-span-1 space-y-6">
-                        <div class="p-6 bg-brand-void border border-brand-text/5 relative">
-                            <div class="absolute top-0 right-0 p-2 font-mono text-[8px] text-brand-red/40 uppercase">META_DATA</div>
-                            <div class="space-y-4 font-mono text-[10px] uppercase tracking-widest">
+                <!-- Contact Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24 reveal">
+                    {
+                        contactMethods.map((method, index) => (
+                            <div class="bg-brand-void/40 border border-brand-text/5 p-8 relative group overflow-hidden transition-all duration-300 hover:border-brand-red/35 flex flex-col justify-between h-full">
+                                <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
+                                <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
+
                                 <div>
-                                    <span class="text-brand-muted opacity-40">KEY_ID:</span>
-                                    <span id="pgp-key-id" class="text-brand-text block mt-1">{contactMethods[0].pgp}</span>
+                                    <div class="flex items-center justify-between mb-6">
+                                        <span class="font-mono text-[9px] text-brand-red tracking-[0.3em] font-bold">CHANNEL_0{index + 1}</span>
+                                        <div class="w-10 h-10 border border-brand-text/5 flex items-center justify-center text-brand-red/40 group-hover:text-brand-red group-hover:border-brand-red/20 transition-all">
+                                            <Fragment set:html={method.icon} />
+                                        </div>
+                                    </div>
+
+                                    <h3 class="text-2xl font-black text-brand-text mb-1 uppercase tracking-tight italic">
+                                        {method.title}
+                                    </h3>
+                                    <span class="font-mono text-[9px] text-brand-muted/50 uppercase tracking-widest block mb-4">
+                                        {method.tag}
+                                    </span>
+                                    
+                                    <p class="text-brand-muted text-sm leading-relaxed mb-6 font-light">
+                                        {method.description}
+                                    </p>
                                 </div>
-                                <div>
-                                    <span class="text-brand-muted opacity-40">FINGERPRINT:</span>
-                                    <span id="pgp-fingerprint" class="text-brand-text block mt-1 break-all">{contactMethods[0].fingerprint}</span>
+
+                                <div class="mt-auto pt-6 border-t border-brand-text/5 space-y-4">
+                                    <div>
+                                        <span class="font-mono text-[8px] uppercase tracking-widest text-brand-muted/40 block mb-1">Email Address:</span>
+                                        <a href={`mailto:${method.email}`} class="text-sm font-mono text-brand-red hover:underline break-all">{method.email}</a>
+                                    </div>
+
+                                    <!-- Collapsible PGP Section -->
+                                    <details class="group border-t border-brand-text/5 pt-4">
+                                        <summary class="list-none flex items-center justify-between text-[9px] font-mono text-brand-muted/70 hover:text-brand-red uppercase tracking-widest cursor-pointer select-none">
+                                            <span>[ PGP_KEY_DETAILS ]</span>
+                                            <span class="transition-transform group-open:rotate-180 font-bold">&darr;</span>
+                                        </summary>
+                                        
+                                        <div class="space-y-4 text-left font-mono text-[9px] uppercase tracking-widest text-brand-muted mt-4 bg-black/40 p-4 border border-brand-text/5">
+                                            <div>
+                                                <span class="opacity-40">Key ID:</span>
+                                                <span class="text-brand-text block mt-0.5 select-all">{method.pgp}</span>
+                                            </div>
+                                            <div>
+                                                <span class="opacity-40">Fingerprint:</span>
+                                                <span class="text-brand-text block mt-0.5 break-all select-all">{method.fingerprint}</span>
+                                            </div>
+                                            <div class="pt-2 flex gap-4 border-t border-brand-text/5">
+                                                <button
+                                                    class="copy-pgp-btn text-brand-red hover:text-white transition-colors cursor-pointer"
+                                                    data-key={method.keyBlock}
+                                                >
+                                                    [ COPY_BLOCK ]
+                                                </button>
+                                                <span class="opacity-20">|</span>
+                                                <a
+                                                    href={`data:text/plain;charset=utf-8,${encodeURIComponent(method.keyBlock)}`}
+                                                    download={`tibcert-key-${method.id.toLowerCase()}.asc`}
+                                                    class="text-brand-muted hover:text-brand-red transition-colors"
+                                                >
+                                                    [ DOWNLOAD ]
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </details>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex flex-col gap-4">
-                            <button
-                                id="copy-pgp"
-                                class="inline-flex items-center gap-4 font-mono text-[10px] text-brand-red uppercase tracking-[0.2em] group/copy"
-                            >
-                                <span id="copy-text" class="transition-transform group-hover/copy:translate-x-1">[ COPY_KEY_BLOCK ]</span>
-                                <div class="h-px w-8 bg-brand-red/40 group-hover/copy:w-12 transition-all"></div>
-                            </button>
-                            
-                            <button
-                                id="download-pgp"
-                                class="inline-flex items-center gap-4 font-mono text-[10px] text-brand-muted uppercase tracking-[0.2em] group/down hover:text-brand-red transition-colors"
-                            >
-                                <span class="transition-transform group-hover/down:translate-x-1">[ DOWNLOAD_SOURCE ]</span>
-                                <div class="h-px w-8 bg-brand-muted/40 group-hover/down:bg-brand-red/40 group-hover/down:w-12 transition-all"></div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-2 relative">
-                        <div class="absolute -top-3 left-4 px-2 bg-brand-void z-10 font-mono text-[9px] text-brand-red uppercase tracking-widest">TERMINAL_VIEWER.EXE</div>
-                        <div class="bg-black/40 border border-brand-text/10 p-8 font-mono text-[11px] text-brand-muted/80 leading-relaxed overflow-hidden relative group h-64">
-                            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brand-void via-brand-void/80 to-transparent z-10 pointer-events-none"></div>
-                            <div class="absolute inset-0 bg-brand-red/[0.01] pointer-events-none"></div>
-                            <code id="pgp-key-block" class="block whitespace-pre-wrap break-all select-all pb-12">
-                                {contactMethods[0].keyBlock}
-                            </code>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
-            </div>
 
-            <!-- Additional Warning/Info -->
-            <div class="max-w-4xl mx-auto p-12 bg-brand-red/[0.03] border border-brand-red/20 relative reveal">
-                <div class="absolute top-0 left-0 w-2 h-2 bg-brand-red"></div>
-                <div class="flex gap-8 items-start">
-                    <div class="text-brand-red text-3xl opacity-50">⚠️</div>
-                    <div>
-                        <h4 class="text-brand-text font-black uppercase tracking-tight mb-4 italic">Important Security Notice</h4>
-                        <p class="text-brand-muted text-sm leading-relaxed font-light">
-                            When reporting sensitive incidents, we strongly recommend using encrypted communication. 
-                            If you believe your current communication channel is compromised, please use a secure, 
-                            secondary device or network to reach out to us.
-                        </p>
+                <!-- Additional Security Notice -->
+                <div class="max-w-4xl mx-auto p-10 bg-brand-red/[0.03] border border-brand-red/20 relative reveal">
+                    <div class="absolute top-0 left-0 w-2 h-2 bg-brand-red"></div>
+                    <div class="flex flex-col sm:flex-row gap-6 items-start">
+                        <div class="text-brand-red text-3xl opacity-50 shrink-0">⚠️</div>
+                        <div>
+                            <h4 class="text-brand-text font-black uppercase tracking-tight mb-3 italic">Important Security Notice</h4>
+                            <p class="text-brand-muted text-sm leading-relaxed font-light">
+                                When reporting sensitive security incidents, we strongly recommend encrypting your email using PGP. 
+                                If you suspect your network or current device is actively compromised, please utilize a secondary 
+                                secure network and device to establish contact.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -315,79 +299,25 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
     </main>
 </Layout>
 
-<script define:vars={{ contactMethods }}>
-    const cards = document.querySelectorAll('.pgp-method-card');
-    const keyIdEl = document.getElementById('pgp-key-id');
-    const fingerprintEl = document.getElementById('pgp-fingerprint');
-    const keyBlockEl = document.getElementById('pgp-key-block');
-    const downloadBtn = document.getElementById('download-pgp');
-    const copyBtn = document.getElementById('copy-pgp');
-    const copyText = document.getElementById('copy-text');
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            // Remove active state from all cards
-            cards.forEach(c => c.classList.remove('active'));
-            // Add active state to clicked card
-            card.classList.add('active');
-
-            const methodId = card.getAttribute('data-method');
-            const method = contactMethods.find(m => m.id === methodId);
-            
-            if (method) {
-                // Update text with a small typing effect/flicker
-                keyIdEl.classList.add('opacity-0');
-                fingerprintEl.classList.add('opacity-0');
-                keyBlockEl.classList.add('opacity-0');
-
-                setTimeout(() => {
-                    keyIdEl.textContent = method.pgp;
-                    fingerprintEl.textContent = method.fingerprint;
-                    keyBlockEl.textContent = method.keyBlock;
-                    
-                    keyIdEl.classList.remove('opacity-0');
-                    fingerprintEl.classList.remove('opacity-0');
-                    keyBlockEl.classList.remove('opacity-0');
-
-                    // Reset copy button text if needed
-                    if (copyText) copyText.textContent = "[ COPY_KEY_BLOCK ]";
-
-                    // Scroll to PGP section
-                    document.getElementById('pgp').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 200);
+<script>
+    document.querySelectorAll('.copy-pgp-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const keyBlock = btn.getAttribute('data-key');
+            if (keyBlock) {
+                try {
+                    await navigator.clipboard.writeText(keyBlock.trim());
+                    const originalText = btn.textContent;
+                    btn.textContent = "[ COPIED! ]";
+                    btn.classList.add('text-green-400');
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.classList.remove('text-green-400');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy PGP key', err);
+                }
             }
         });
-    });
-
-    // Handle dummy download
-    downloadBtn?.addEventListener('click', () => {
-        const text = keyBlockEl.textContent;
-        const blob = new Blob([text], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `tibcert-key-${keyIdEl.textContent}.asc`;
-        a.click();
-        window.URL.revokeObjectURL(url);
-    });
-
-    // Handle copy to clipboard
-    copyBtn?.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(keyBlockEl.textContent);
-            const originalText = copyText.textContent;
-            copyText.textContent = "[ COPIED_TO_CLIPBOARD ]";
-            copyBtn.classList.add('text-green-400');
-            copyBtn.classList.remove('text-brand-red');
-            
-            setTimeout(() => {
-                copyText.textContent = originalText;
-                copyBtn.classList.remove('text-green-400');
-                copyBtn.classList.add('text-brand-red');
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy!', err);
-        }
     });
 </script>
 
@@ -402,12 +332,11 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
         transform: translateY(0);
     }
     
-    #pgp-key-id, #pgp-fingerprint, #pgp-key-block {
-        transition: opacity 0.2s ease-in-out;
+    /* Remove default details marker */
+    details summary::-webkit-details-marker {
+        display: none;
     }
-    
-    .pgp-method-card.active {
-        border-color: rgba(239, 72, 44, 0.4);
-        background-color: rgba(239, 72, 44, 0.02);
+    details summary {
+        list-style: none;
     }
 </style>

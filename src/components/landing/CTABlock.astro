@@ -18,7 +18,7 @@ const {
 
 <section
     class:list={[
-        "py-16 border-y border-brand-text/5 relative overflow-hidden reveal",
+        "py-24 border-y border-brand-text/5 relative overflow-hidden reveal",
         inverted ? "bg-brand-red" : "bg-brand-void",
     ]}
 >
@@ -31,7 +31,8 @@ const {
     >
     </div>
 
-    <div class="container mx-auto px-4 text-center relative z-10">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
         <!-- Technical Label -->
         <div class="flex items-center justify-center gap-3 mb-6 opacity-40">
             <span
@@ -54,7 +55,7 @@ const {
 
             <h2
                 class:list={[
-                    "text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight",
+                    "text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight italic",
                     inverted ? "text-white" : "text-brand-text",
                 ]}
             >
@@ -62,7 +63,7 @@ const {
             </h2>
             <p
                 class:list={[
-                    "max-w-2xl mx-auto mb-10 text-xl font-light leading-relaxed",
+                    "max-w-2xl mx-auto mb-10 text-base md:text-lg font-light leading-relaxed",
                     inverted ? "text-brand-text/90" : "text-brand-muted",
                 ]}
             >

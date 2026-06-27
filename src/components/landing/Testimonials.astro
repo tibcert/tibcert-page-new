@@ -3,52 +3,41 @@ import SectionDivider from "../common/SectionDivider.astro";
 
 const testimonials = [
     {
-        quote: "TIBCERT is an invaluable partner for securing our community's digital space. Their expertise is essential.",
-        author: "Tenzin Rabgyal",
-        organization: "Tibetan Community Center",
-        role: "IT Director"
+        quote: "TibCERT has been instrumental in strengthening the Tibetan Youth Congress’s digital security and assisting us with technical issues. We greatly appreciate their timely support, expertise in digital empowerment, and dedication to resolving technical challenges.",
+        author: "Gompo Dhondup",
+        organization: "Tibetan Youth Congress",
+        role: "Former President"
     },
+    
     {
-        quote: "The incident response and training programs have significantly raised our organizational security.",
-        author: "Kelsang Dolma",
-        organization: "Digital Rights Advocacy",
-        role: "Executive Director"
-    },
-    {
-        quote: "A beacon of trust for Tibetans worldwide. Reliable, prompt and professional technical support.",
-        author: "Pema Tseten",
-        organization: "NGO Partner",
-        role: "Operation Manager"
-    },
-    {
-        quote: "They understand the unique threats we face every day in the media sector. Truly indispensable.",
-        author: "Lobsang Wangdu",
-        organization: "Media House",
-        role: "Journalist"
-    },
-    {
-        quote: "Culturally sensitive technical support that respects our language and values.",
-        author: "Dechen Wangmo",
-        organization: "Education Center",
-        role: "Director"
-    },
-    {
-        quote: "Protecting our digital heritage and identity with technical excellence and deep understanding.",
-        author: "Tashi Namgyal",
-        organization: "Library of Works",
-        role: "Chief Librarian"
-    },
-    {
-        quote: "Essential for any Tibetan organization navigating the complexities of the digital age safely.",
-        author: "Dolkar Tso",
-        organization: "Youth Federation",
+        quote: "We sincerely appreciate Tibet Action’s outstanding IT support services for our organization. TibCERT’s team consistently responds promptly to our calls and efficiently to technical issues. Their excellent service has significantly contributed to our office's productivity and smooth operations.",
+        author: "Tsering Dolma",
+        organization: "Central Tibetan Women's Association",
         role: "President"
     },
     {
-        quote: "Technical excellence combined with deep community roots. A mandatory partner for us.",
-        author: "Karma Dorjee",
-        organization: "Health Initiative",
-        role: "Program Manager"
+        quote: "VOT has worked with TibCERT for more than a decade. Apart from supporting our digital security needs and providing guidance and support for different technical needs, TibCERT has been instrumental in managing our website, analyzing our statistics and in providing feedback and solutions for enhanced engagement with our viewers.",
+        author: "Tenzin Paldon",
+        organization: "Voice Of TIbet",
+        role: "Editor in Cheif"
+    },
+     {
+        quote: "The Tibetan Centre for Human Rights and Democracy operates in a highly challenging environment where surveillance, phishing, and cyber threats remain constant risks. TibCERT’s timely support and digital security guidance have played a critical role in helping protect our systems, resources, and sensitive information, while strengthening the broader digital resilience of the Tibetan community.",
+        author: "Tenzin Dawa",
+        organization: "TCHRD",
+        role: "Executive Director"
+    },
+    {
+        quote: "The Tibet Action Institute and TibCERT team have been instrumental in providing digital security training, cybersecurity guidance, and ongoing technical support. Their timely assistance in addressing emerging security concerns and resolving technical challenges has greatly strengthened our organization’s digital resilience and overall digital well-being.",
+        author: "Wangden Kyab",
+        organization: "Tibet Watch",
+        role: "Research Mangager"
+    },
+    {
+        quote: "TibCERT has been a true digital warrior, a vital shield protecting Tibetan communities from malicious attacks, especially those originating from the CCP. SFT-India recognizes digital security as an integral practice and, for this reason, has consistently placed our trust in TibCERT and Tibet Action Network for guidance on our digital security policies.",
+        author: "Tenzin Passang",
+        organization: "SFT India",
+        role: "National Director"
     }
 ];
 
@@ -57,16 +46,19 @@ const row1 = [...testimonials.slice(0, 4)];
 const row2 = [...testimonials.slice(4)];
 ---
 
-<section class="py-24 relative overflow-hidden reveal">
+<section class="py-32 relative overflow-hidden reveal">
     <!-- Static Headline -->
-    <div class="container mx-auto px-4 mb-20 text-center">
-        <h2 class="text-4xl md:text-6xl font-bold mb-4">
-            Voices from the <span class="text-brand-red">Community</span>
-        </h2>
-        <SectionDivider class="text-brand-red w-64 mx-auto mb-8" />
-        <p class="text-xl text-gray-600 dark:text-brand-muted max-w-2xl mx-auto">
-            Partnering with organizations to ensure a safer digital future for all Tibetans.
-        </p>
+    <div class="container mx-auto px-6 mb-20 text-center">
+        <div class="max-w-7xl mx-auto">
+            <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">TESTIMONIALS // COMMUNITY_VOICES</span>
+            <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight italic">
+                Voices from the <span class="text-brand-red">Community</span>
+            </h2>
+            <SectionDivider class="text-brand-red w-48 mx-auto mb-8" />
+            <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl mx-auto">
+                Partnering with organizations to ensure a safer digital future for all Tibetans.
+            </p>
+        </div>
     </div>
 
     <!-- Marquee Rows -->
@@ -75,10 +67,10 @@ const row2 = [...testimonials.slice(4)];
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-red/5 blur-[120px] rounded-full pointer-events-none"></div>
 
         <!-- Row 1: Left to Right -->
-        <div class="flex marquee-container overflow-hidden group">
-            <div class="flex gap-8 marquee-content-left items-center group-hover:[animation-play-state:paused]">
+        <div class="flex marquee-container overflow-hidden group py-4">
+            <div class="flex gap-8 marquee-content-left items-stretch group-hover:[animation-play-state:paused]">
                 {[...row1, ...row1, ...row1].map((item, index) => (
-                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] min-h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
                         <!-- Technical Accents -->
                         <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
                         <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
@@ -93,7 +85,7 @@ const row2 = [...testimonials.slice(4)];
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                             
-                            <p class="text-brand-text text-base leading-relaxed font-light mb-8 line-clamp-4">
+                            <p class="text-brand-text text-base leading-relaxed font-light mb-8">
                                 "{item.quote}"
                             </p>
                         </div>
@@ -114,10 +106,10 @@ const row2 = [...testimonials.slice(4)];
         </div>
 
         <!-- Row 2: Right to Left -->
-        <div class="flex marquee-container overflow-hidden group">
-            <div class="flex gap-8 marquee-content-right items-center group-hover:[animation-play-state:paused]">
+        <div class="flex marquee-container overflow-hidden group py-4">
+            <div class="flex gap-8 marquee-content-right items-stretch group-hover:[animation-play-state:paused]">
                 {[...row2, ...row2, ...row2].map((item, index) => (
-                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] min-h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
                         <!-- Technical Accents -->
                         <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
                         <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
@@ -132,7 +124,7 @@ const row2 = [...testimonials.slice(4)];
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                             
-                            <p class="text-brand-text text-base leading-relaxed font-light mb-8 line-clamp-4">
+                            <p class="text-brand-text text-base leading-relaxed font-light mb-8">
                                 "{item.quote}"
                             </p>
                         </div>
