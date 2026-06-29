@@ -19,69 +19,57 @@ import SectionHeader from "../components/common/SectionHeader.astro";
                     <!-- Left: About Text -->
                     <div class="reveal relative max-w-4xl">
                         <div class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20"></div>
-                        <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">ORG_MISSION // IDENTITY_ROOT</span>
+                        <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60"></span>
                         <h1 class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic">
-                            About <span class="text-brand-red">Us</span>
+                            About <span class="text-brand-red"></span>
                         </h1>
                         <div class="w-48 h-px bg-brand-red/60 mb-6"></div>
                         <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
-                            The Tibetan Computer Emergency Readiness Team
-                            (TibCERT) seeks to create a formal, coalition-based
-                            structure for reducing and mitigating online threats
-                            in the Tibetan community.
+                           The Tibetan Computer Emergency Readiness Team (TibCERT) seeks to create a formal, coalition-based structure for reducing and mitigating online threats in the Tibetan community, as well as to expand Tibetans’ technical research capacity on threats in the diaspora and surveillance and censorship inside Tibet, ultimately ensuring greater online freedom and security for Tibetan society as a whole.
                         </p>
                     </div>
 
-                    <!-- Right: Mission Points (Grid Style) -->
-                    <div
-                        class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal"
-                        style="animation-delay: 0.2s;"
-                    >
+                    <!-- Right: Mission Points (List Style) -->
+                    <div class="reveal space-y-4" style="animation-delay: 0.2s;">
                         {
                             [
                                 {
                                     id: "COLLAB_01",
                                     title: "Long-term Collaboration",
-                                    desc: "Create and sustain a platform for long term collaboration between stakeholders in the Tibetan community on digital security issues.",
+                                    desc: "Create and sustain a platform for long term collaboration between stakeholders in the Tibetan community on digital security issues and needs.",
                                     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2Zm-6 0a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2Zm6-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg>`,
                                 },
                                 {
                                     id: "NETWORK_02",
                                     title: "Global Network",
-                                    desc: "Deepen connections between Tibetans and global cybersecurity researchers to ensure mutually beneficial threat sharing.",
+                                    desc: "Deepen connections and develop a formal process for collaboration between Tibetans and global malware and cybersecurity researchers to ensure mutually beneficial sharing.",
                                     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.5-2.4 4-5.2 4-8.5A8.9 8.9 0 0 0 12 3a8.9 8.9 0 0 0-4 9.5c0 3.3 1.5 6.1 4 8.5Zm0 0V3" /></svg>`,
                                 },
                                 {
                                     id: "RESOURCES_03",
                                     title: "Resource Mobilization",
-                                    desc: "Increase the resources available to Tibetans to defend against online attacks by regularly publicizing threat intelligence.",
+                                    desc: "Increase the resources available to Tibetans to defend against and mitigate online attacks by regularly publicizing information and recommendations on threats facing the community.",
                                     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M7 15v4m5-6v10m5-8v8" /></svg>`,
                                 },
                                 {
                                     id: "FREEDOM_04",
                                     title: "Censorship Circumvention",
-                                    desc: "Help Tibetans circumvent censorship and surveillance by providing regular, detailed analysis and technical solutions.",
+                                    desc: "Help Tibetans in Tibet circumvent censorship and surveillance by providing regular, detailed information and analysis, as well as potential solutions.",
                                     icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.2-2.6 7.8-7 10-4.4-2.2-7-5.8-7-10V6l7-3Zm0 5v5" /></svg>`,
                                 },
                             ].map((m) => (
-                                <div class="group relative flex flex-col justify-between p-6 border border-brand-text/5 hover:border-brand-red/30 transition-all duration-300 bg-brand-void/40 backdrop-blur-xs h-full">
-                                    <div class="relative z-10">
-                                        <div class="flex justify-between items-center mb-4">
-                                            <span class="font-mono text-[9px] text-brand-red tracking-widest uppercase opacity-40">{m.id}</span>
-                                            <div class="w-10 h-10 border border-brand-text/5 flex items-center justify-center text-brand-red/40 group-hover:text-brand-red group-hover:border-brand-red/20 transition-all duration-300">
-                                                <span class="opacity-80 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" set:html={m.icon}></span>
-                                            </div>
-                                        </div>
-                                        <h3 class="text-base font-black text-brand-red mb-3 uppercase tracking-tight group-hover:text-brand-red transition-colors italic">
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-brand-red">
+                                        <span aria-hidden="true" set:html={m.icon}></span>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <h4 class="text-sm font-bold text-brand-text mb-1 uppercase tracking-tight">
                                             {m.title}
-                                        </h3>
-                                        <p class="text-xs text-brand-muted leading-relaxed font-light">
+                                        </h4>
+                                        <p class="text-sm leading-relaxed font-light text-brand-muted">
                                             {m.desc}
                                         </p>
                                     </div>
-                                    <!-- Technical Accents -->
-                                    <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
-                                    <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
                                 </div>
                             ))
                         }
@@ -159,13 +147,13 @@ import SectionHeader from "../components/common/SectionHeader.astro";
                                         <div class="flex-none w-56 group/card pt-16 relative">
                                             <!-- Technical ID Tag -->
                                             <div class="absolute top-12 left-1/2 -translate-x-1/2 font-mono text-[8px] text-brand-red tracking-[0.3em] opacity-40 group-hover/card:opacity-100 transition-opacity">
-                                                ID_NODE_{String(index + 1).padStart(2, '0')}
+                                               
                                             </div>
 
                                             <div class="relative w-40 h-40 mx-auto">
                                                 <!-- Container for Portrait (Sharp/Technical) -->
                                                 <div
-                                                    class={`absolute inset-0 ${member.color} overflow-hidden transition-all duration-500 group-hover/card:scale-105 border border-brand-text/10 group-hover:border-brand-red/40`}
+                                                    class={`absolute inset-0 ${member.color} overflow-hidden transition-all duration-500 group-hover/card:scale-105  border border-brand-text/10 group-hover:border-brand-red/40`}
                                                     style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);"
                                                 >
                                                     <Image
