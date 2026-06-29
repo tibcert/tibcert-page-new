@@ -1,12 +1,11 @@
 ---
-import TibetanPattern from "../common/TibetanPattern.astro";
-import SectionDivider from "../common/SectionDivider.astro";
+import SectionShell from "../common/SectionShell.astro";
+import SectionHeader from "../common/SectionHeader.astro";
 import StaffIcon from "../../assets/icons/staff-commitment.svg?raw";
 import TrainingIcon from "../../assets/icons/security-training.svg?raw";
 import PolicyIcon from "../../assets/icons/security-policy.svg?raw";
 import ComputerShieldIcon from "../../assets/icons/computer-shield.svg?raw";
 import ProtocolIcon from "../../assets/icons/protocol-adherence.svg?raw";
-import JoinIcon from "../../assets/icons/join-plus.svg?raw";
 
 const criteria = [
     {
@@ -58,9 +57,11 @@ const protocol = {
 };
 ---
 
-<section
+<SectionShell
     id="membership"
-    class="py-32 bg-brand-void relative overflow-hidden reveal"
+    class="pt-20 pb-16 bg-brand-void reveal"
+    containerClass="mx-auto px-6"
+    contentClass="max-w-7xl mx-auto"
 >
     <!-- Background visual -->
     <div
@@ -68,33 +69,18 @@ const protocol = {
     >
     </div>
 
-    <!-- Tibetan Pattern Decoration -->
-    <TibetanPattern
-        class="absolute -left-32 top-20 rotate-45"
-        size="w-96 h-96"
-        color="var(--color-brand-maroon)"
-        opacity="opacity-[0.03] dark:opacity-5"
-    />
-
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="relative z-10">
         <div class="max-w-7xl mx-auto">
             <div
-                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16"
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-8"
             >
-                <div class="max-w-3xl">
-                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">MEMBERSHIP_PROTOCOL // JOIN_COALITION</span>
-                    <h2
-                        class="text-4xl md:text-5xl font-black text-brand-text mb-6 uppercase tracking-tight italic"
-                    >
-                        Join the <span class="text-brand-red">Coalition</span>
-                    </h2>
-                    <SectionDivider class="text-brand-red w-48 mb-8" />
-                    <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
-                        A collaborative membership model designed to build mutual
-                        defense and shared digital resilience for the Tibetan
-                        community.
-                    </p>
-                </div>
+                <SectionHeader
+                    eyebrow="MEMBERSHIP_PROTOCOL // JOIN_COALITION"
+                    title="Join the"
+                    titleAccent="Coalition"
+                    description="A collaborative membership model designed to build mutual defense and shared digital resilience for the Tibetan community."
+                    class="max-w-3xl"
+                />
                 <div class="flex-shrink-0">
                     <div
                         class="bg-brand-void border border-brand-text/5 px-6 py-3 rounded-sm flex items-center gap-4 font-mono text-[10px] uppercase tracking-widest"
@@ -274,13 +260,9 @@ const protocol = {
                 class="flex flex-col md:flex-row items-center justify-between gap-8"
             >
                 <div class="flex items-center gap-8">
-                    <div
-                        class="font-mono text-3xl opacity-20 select-none tracking-tighter"
-                    >
-                        SUSTAIN_0x0
-                    </div>
+                   
                     <div>
-                        <h3
+                        <!-- <h3
                             class="text-xl font-black text-brand-text mb-1 uppercase tracking-tight"
                         >
                             Sustainability & Cost
@@ -291,7 +273,7 @@ const protocol = {
                             [ STATUS: <span class="text-brand-red font-bold"
                                 >NO_FEE_LOGGED</span
                             > ]
-                        </p>
+                        </p> -->
                     </div>
                 </div>
                 <p
@@ -305,7 +287,7 @@ const protocol = {
         </div>
         </div>
     </div>
-</section>
+</SectionShell>
 
 <style is:global>
     #membership svg {

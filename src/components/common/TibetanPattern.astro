@@ -9,17 +9,17 @@ interface Props {
 const {
     class: className = "",
     size = "w-64 h-64",
-    opacity = "opacity-2",
+    opacity = "opacity-20",
     color = "currentColor",
 } = Astro.props;
 ---
 
 <div class={`pointer-events-none select-none ${size} ${opacity} ${className}`}>
-    <svg width="580" height="476" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 580 476" preserveAspectRatio="xMidYMid meet" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z"
-            fill=""
-            stroke="#BF9545"
+            fill="none"
+            stroke={color}
             stroke-width=".1768"
             transform="translate(240,188) rotate(90) scale(46.9)"></path>
     </svg>

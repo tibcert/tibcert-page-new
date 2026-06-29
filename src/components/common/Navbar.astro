@@ -8,6 +8,22 @@ const navItems = [
     { name: "Contact", href: "/contact" },
 ];
 
+const currentPath = Astro.url.pathname;
+const normalizePath = (path: string) => (path === "/" ? "/" : path.replace(/\/+$/, ""));
+const isActiveLink = (href: string) => {
+    const normalizedCurrentPath = normalizePath(currentPath);
+    const normalizedHref = normalizePath(href);
+
+    if (normalizedHref === "/") {
+        return normalizedCurrentPath === "/";
+    }
+
+    return (
+        normalizedCurrentPath === normalizedHref ||
+        normalizedCurrentPath.startsWith(`${normalizedHref}/`)
+    );
+};
+
 import Logo from "./Logo.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
@@ -24,16 +40,25 @@ import ThemeToggle from "./ThemeToggle.astro";
         <!-- Desktop Nav -->
         <ul class="hidden md:flex items-center gap-8">
             {
-                navItems.map((item) => (
-                    <li>
-                        <a
-                            href={item.href}
-                            class="text-sm font-medium text-brand-text hover:text-brand-red transition-colors"
-                        >
-                            {item.name}
-                        </a>
-                    </li>
-                ))
+                navItems.map((item) => {
+                    const active = isActiveLink(item.href);
+
+                    return (
+                        <li>
+                            <a
+                                href={item.href}
+                                aria-current={active ? "page" : undefined}
+                                class={`text-sm font-medium transition-colors ${
+                                    active
+                                        ? "text-brand-red "
+                                        : "text-brand-text hover:text-brand-red"
+                                }`}
+                            >
+                                {item.name}
+                            </a>
+                        </li>
+                    );
+                })
             }
         </ul>
 

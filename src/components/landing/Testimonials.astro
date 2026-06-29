@@ -1,5 +1,6 @@
 ---
 import SectionDivider from "../common/SectionDivider.astro";
+import SectionShell from "../common/SectionShell.astro";
 
 const testimonials = [
     {
@@ -46,15 +47,18 @@ const row1 = [...testimonials.slice(0, 4)];
 const row2 = [...testimonials.slice(4)];
 ---
 
-<section class="py-32 relative overflow-hidden reveal">
+<SectionShell
+    class="py-20 relative overflow-hidden reveal"
+    containerClass="mx-auto px-6"
+    contentClass="max-w-7xl mx-auto text-center relative z-10"
+>
     <!-- Static Headline -->
-    <div class="container mx-auto px-6 mb-20 text-center">
-        <div class="max-w-7xl mx-auto">
-            <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">TESTIMONIALS // COMMUNITY_VOICES</span>
-            <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight italic">
+    <div class="mb-12">
+            <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">TESTIMONIALS // COMMUNITY_VOICES</span>
+            <h2 class="text-4xl md:text-5xl font-black mb-3 uppercase tracking-tight italic">
                 Voices from the <span class="text-brand-red">Community</span>
             </h2>
-            <SectionDivider class="text-brand-red w-48 mx-auto mb-8" />
+            <SectionDivider class="text-brand-red w-48 mx-auto mb-4" />
             <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl mx-auto">
                 Partnering with organizations to ensure a safer digital future for all Tibetans.
             </p>
@@ -62,7 +66,7 @@ const row2 = [...testimonials.slice(4)];
     </div>
 
     <!-- Marquee Rows -->
-    <div class="space-y-8 relative">
+    <div class="space-y-4 relative">
         <!-- Background Accents -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-red/5 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -70,7 +74,7 @@ const row2 = [...testimonials.slice(4)];
         <div class="flex marquee-container overflow-hidden group py-4">
             <div class="flex gap-8 marquee-content-left items-stretch group-hover:[animation-play-state:paused]">
                 {[...row1, ...row1, ...row1].map((item, index) => (
-                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] min-h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-6 w-[320px] min-h-[320px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
                         <!-- Technical Accents -->
                         <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
                         <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
@@ -81,17 +85,17 @@ const row2 = [...testimonials.slice(4)];
                         </div>
 
                         <div>
-                            <svg class="w-8 h-8 text-brand-red/40 mb-8 group-hover/card:text-brand-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-8 h-8 text-brand-red/40 mb-6 group-hover/card:text-brand-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                             
-                            <p class="text-brand-text text-base leading-relaxed font-light mb-8">
+                            <p class="text-brand-text text-base leading-relaxed font-light mb-6">
                                 "{item.quote}"
                             </p>
                         </div>
                         
                         <!-- Author Info -->
-                        <div class="flex items-center gap-4 border-t border-brand-text/5 pt-6">
+                        <div class="flex items-center gap-4 border-t border-brand-text/5 pt-4">
                             <div class="w-10 h-10 rounded-sm bg-brand-void border border-brand-text/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
                                 {item.author.charAt(0)}
                             </div>
@@ -109,7 +113,7 @@ const row2 = [...testimonials.slice(4)];
         <div class="flex marquee-container overflow-hidden group py-4">
             <div class="flex gap-8 marquee-content-right items-stretch group-hover:[animation-play-state:paused]">
                 {[...row2, ...row2, ...row2].map((item, index) => (
-                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-8 w-[340px] min-h-[340px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
+                    <div class="flex-shrink-0 bg-brand-void border border-brand-text/5 p-6 w-[320px] min-h-[320px] transition-all relative group/card cursor-default flex flex-col justify-between overflow-hidden">
                         <!-- Technical Accents -->
                         <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
                         <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-brand-text/10 group-hover/card:border-brand-red/40 transition-colors"></div>
@@ -120,17 +124,17 @@ const row2 = [...testimonials.slice(4)];
                         </div>
 
                         <div>
-                            <svg class="w-8 h-8 text-brand-red/40 mb-8 group-hover/card:text-brand-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-8 h-8 text-brand-red/40 mb-6 group-hover/card:text-brand-red transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                             
-                            <p class="text-brand-text text-base leading-relaxed font-light mb-8">
+                            <p class="text-brand-text text-base leading-relaxed font-light mb-6">
                                 "{item.quote}"
                             </p>
                         </div>
                         
                         <!-- Author Info -->
-                        <div class="flex items-center gap-4 border-t border-brand-text/5 pt-6">
+                        <div class="flex items-center gap-4 border-t border-brand-text/5 pt-4">
                             <div class="w-10 h-10 rounded-sm bg-brand-void border border-brand-text/10 flex items-center justify-center text-brand-red font-mono font-bold text-sm flex-shrink-0 group-hover/card:border-brand-red/40 transition-colors line-height-0">
                                 {item.author.charAt(0)}
                             </div>
@@ -144,7 +148,7 @@ const row2 = [...testimonials.slice(4)];
             </div>
         </div>
     </div>
-</section>
+</SectionShell>
 
 <style>
     .marquee-container {

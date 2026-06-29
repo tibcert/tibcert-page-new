@@ -1,5 +1,6 @@
 ---
-import SectionDivider from "../common/SectionDivider.astro";
+import SectionShell from "../common/SectionShell.astro";
+import SectionHeader from "../common/SectionHeader.astro";
 
 const groups = [
     {
@@ -65,7 +66,7 @@ const tlpLevels = [
 ];
 ---
 
-<section class="py-32 bg-brand-void relative overflow-hidden reveal">
+<SectionShell class="pt-20 pb-16 bg-brand-void reveal" containerClass="mx-auto px-6" contentClass="max-w-7xl mx-auto">
     <!-- Sophisticated Background Elements -->
     <div
         class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,#ef482c08_0%,transparent_40%)] pointer-events-none"
@@ -76,20 +77,16 @@ const tlpLevels = [
     >
     </div>
 
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="relative z-10">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
-            <div class="max-w-4xl mb-16">
-                <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">SHARING_STANDARDS // TLP_PROTOCOL</span>
-                <h2 class="text-4xl md:text-5xl font-black text-brand-text mb-6 uppercase tracking-tight italic">
-                    Traffic Light <span class="text-brand-red">Protocol (TLP)</span>
-                </h2>
-                <SectionDivider class="text-brand-red w-48 mb-8" />
-                <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl mb-8">
-                    This TLP defines how TibCERT facilitates greater sharing of
-                    information and is part of the TibCERT policy in terms of
-                    information sharing between our core stakeholders.
-                </p>
+            <div class="mb-8">
+                <SectionHeader
+                    eyebrow="SHARING_STANDARDS // TLP_PROTOCOL"
+                    title="Traffic Light"
+                    titleAccent="Protocol (TLP)"
+                    description="This TLP defines how TibCERT facilitates greater sharing of information and is part of the TibCERT policy in terms of information sharing between our core stakeholders."
+                />
                 <button
                     id="open-tlp-modal"
                     class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-void border border-brand-text/10 text-brand-text font-bold hover:bg-brand-red hover:border-brand-red transition-all duration-300 shadow-lg group cursor-pointer"
@@ -102,7 +99,7 @@ const tlpLevels = [
             </div>
 
         <!-- Info Sharing Groups: Tech Specification Design -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-text/5 border border-brand-text/5 mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-text/5 border border-brand-text/5 mb-16">
             {
                 groups.map((group, index) => (
                     <div class="group relative bg-brand-void p-8 overflow-hidden">
@@ -159,7 +156,7 @@ const tlpLevels = [
             </div>
         </div>
     </div>
-</section>
+</SectionShell>
 
 <!-- Modal Implementation -->
 <div

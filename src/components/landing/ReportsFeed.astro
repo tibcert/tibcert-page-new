@@ -1,6 +1,7 @@
 ---
 import BackgroundGlow from "../common/BackgroundGlow.astro";
 import SectionDivider from "../common/SectionDivider.astro";
+import SectionShell from "../common/SectionShell.astro";
 import { Image } from "astro:assets";
 
 // Using a basic fetch and simple parsing for the RSS feed
@@ -66,7 +67,12 @@ try {
 }
 ---
 
-<section id="reports" class="py-32 bg-brand-void relative overflow-hidden reveal">
+<SectionShell
+    id="reports"
+    class="pt-8 pb-8 bg-brand-void relative overflow-hidden reveal"
+    containerClass="mx-auto px-6"
+    contentClass="max-w-7xl mx-auto relative z-10"
+>
     <!-- Sophisticated Background Glows -->
     <BackgroundGlow 
         color="fill-brand-red" 
@@ -81,18 +87,16 @@ try {
         class="top-12 -right-24" 
     />
 
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 reveal relative">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6 reveal relative">
                 <!-- Technical Brackets -->
                 <div class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20 opacity-60"></div>
 
                 <div class="max-w-2xl">
-                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">EXTERNAL_INTELLIGENCE // DATA_STREAM</span>
-                    <h3 class="text-4xl md:text-5xl font-black text-brand-text mb-6 uppercase tracking-tight italic">
+                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">EXTERNAL_INTELLIGENCE // DATA_STREAM</span>
+                    <h3 class="text-4xl md:text-5xl font-black text-brand-text mb-3 uppercase tracking-tight italic">
                         TIBCERT <span class="text-brand-red">Reports</span>
                     </h3>
-                    <SectionDivider class="text-brand-red w-48 mb-6" />
+                    <SectionDivider class="text-brand-red w-48 mb-4" />
                     <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
                         TibCERT’s have significantly increased awareness of adversary threat tactics, and improves Tibetan community’s understanding of evolving cyber threats and digital risks. By documenting cyber-espionage campaigns, phishing attacks, disinformation efforts, and emerging threat actors targeting Tibetans, these reports provide timely, evidence-based insights that enable individuals and organizations to make informed security decisions. They have also contributed to greater resilience across Tibetan civil society by fostering a culture of security, encouraging proactive risk management, and supporting advocacy efforts aimed at protecting the community’s digital rights and safety.
                     </p>
@@ -169,4 +173,4 @@ try {
             </div>
         </div>
     </div>
-</section>
+</SectionShell>

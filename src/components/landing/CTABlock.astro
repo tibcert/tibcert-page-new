@@ -1,4 +1,6 @@
 ---
+import SectionShell from "../common/SectionShell.astro";
+
 interface Props {
     title: string;
     description: string;
@@ -16,11 +18,13 @@ const {
 } = Astro.props;
 ---
 
-<section
+<SectionShell
     class:list={[
-        "py-24 border-y border-brand-text/5 relative overflow-hidden reveal",
+        "pt-12 pb-10 border-y border-brand-text/5 relative overflow-hidden reveal",
         inverted ? "bg-brand-red" : "bg-brand-void",
     ]}
+    containerClass="mx-auto px-6"
+    contentClass="max-w-7xl mx-auto relative z-10"
 >
     <!-- Background element -->
     <div
@@ -31,9 +35,7 @@ const {
     >
     </div>
 
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-        <!-- Technical Label -->
+    <!-- Technical Label -->
         <div class="flex items-center justify-center gap-3 mb-6 opacity-40">
             <span
                 class="font-mono text-[9px] tracking-[0.4em] uppercase text-brand-text/80"
@@ -42,7 +44,7 @@ const {
             <div class="h-px w-6 bg-brand-text/20"></div>
         </div>
 
-        <div class="relative max-w-4xl mx-auto py-12 px-8">
+        <div class="relative max-w-4xl mx-auto py-8 px-6 md:px-8">
             <!-- Decorative Brackets -->
             <div
                 class="absolute top-0 left-0 w-8 h-8 border-t border-l border-brand-text/20"
@@ -103,4 +105,4 @@ const {
             </div>
         </div>
     </div>
-</section>
+</SectionShell>
