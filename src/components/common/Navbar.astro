@@ -4,12 +4,14 @@ const navItems = [
     // { name: "Response Hub", href: "/response-hub" },
     // { name: "Blog", href: "/blog" },
     { name: "Resources", href: "/resources" },
+    { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
 ];
 
 const currentPath = Astro.url.pathname;
-const normalizePath = (path: string) => (path === "/" ? "/" : path.replace(/\/+$/, ""));
+const normalizePath = (path: string) =>
+    path === "/" ? "/" : path.replace(/\/+$/, "");
 const isActiveLink = (href: string) => {
     const normalizedCurrentPath = normalizePath(currentPath);
     const normalizedHref = normalizePath(href);
