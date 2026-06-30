@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import Membership from "../components/landing/Membership.astro";
 import TLPSection from "../components/landing/TLPSection.astro";
 import SectionHeader from "../components/common/SectionHeader.astro";
+import SectionDivider from "../components/common/SectionDivider.astro";
 ---
 
 <Layout title="About TIBCERT">
@@ -23,7 +24,7 @@ import SectionHeader from "../components/common/SectionHeader.astro";
                         <h1 class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic">
                             About <span class="text-brand-red"></span>
                         </h1>
-                        <div class="w-48 h-px bg-brand-red/60 mb-6"></div>
+                         <SectionDivider class="text-brand-red w-48 mb-8" />
                         <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
                            The Tibetan Computer Emergency Readiness Team (TibCERT) seeks to create a formal, coalition-based structure for reducing and mitigating online threats in the Tibetan community, as well as to expand Tibetans’ technical research capacity on threats in the diaspora and surveillance and censorship inside Tibet, ultimately ensuring greater online freedom and security for Tibetan society as a whole.
                         </p>

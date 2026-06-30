@@ -4,7 +4,14 @@ const navItems = [
     // { name: "Response Hub", href: "/response-hub" },
     // { name: "Blog", href: "/blog" },
     { name: "Resources", href: "/resources" },
-    { name: "Services", href: "/services" },
+    { 
+        name: "Services", 
+        href: "/services",
+        dropdown: [
+            { name: "General Services", href: "/services" },
+            { name: "Paid Services", href: "/paid-services" }
+        ]
+    },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
 ];
@@ -44,6 +51,44 @@ import ThemeToggle from "./ThemeToggle.astro";
             {
                 navItems.map((item) => {
                     const active = isActiveLink(item.href);
+
+                    if (item.dropdown) {
+                        return (
+                            <li class="relative group py-2">
+                                <a
+                                    href={item.href}
+                                    aria-current={active ? "page" : undefined}
+                                    class={`text-sm font-medium transition-colors flex items-center gap-1 py-1 ${
+                                        active
+                                            ? "text-brand-red"
+                                            : "text-brand-text hover:text-brand-red"
+                                    }`}
+                                >
+                                    {item.name}
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-300">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <div class="absolute top-full left-0 mt-1 w-48 bg-brand-void/95 border border-brand-text/10 py-2 rounded-sm shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 backdrop-blur-md">
+                                    {item.dropdown.map((subItem) => {
+                                        const subActive = isActiveLink(subItem.href);
+                                        return (
+                                            <a
+                                                href={subItem.href}
+                                                class={`block px-4 py-2 text-xs font-mono tracking-wider uppercase transition-colors ${
+                                                    subActive
+                                                        ? "text-brand-red bg-brand-red/5"
+                                                        : "text-brand-text hover:text-brand-red hover:bg-white/5"
+                                                }`}
+                                            >
+                                                // {subItem.name}
+                                            </a>
+                                        );
+                                    })}
+                                </div>
+                            </li>
+                        );
+                    }
 
                     return (
                         <li>

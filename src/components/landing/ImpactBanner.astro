@@ -1,0 +1,121 @@
+---
+import SectionShell from "../common/SectionShell.astro";
+
+const stats = [
+    {
+        number: "100+",
+        label: "Organizations Supported",
+        code: "ORG_SUPPORTED"
+    },
+    {
+        number: "700+",
+        label: "Incident Response",
+        code: "INCIDENT_RESPONSE"
+    },
+    {
+        number: "500+",
+        label: "Trainings and Workshops",
+        code: "TRAINING_WORKSHOPS"
+    },
+    {
+        number: "3000+",
+        label: "Support and Coordinations",
+        code: "SUPPORT_COORDINATIONS"
+    }
+];
+---
+
+<SectionShell
+    class="pt-20 pb-16 border-y border-brand-text/5 bg-brand-red relative overflow-hidden reveal"
+    containerClass="mx-auto px-6"
+    contentClass="max-w-7xl mx-auto relative z-10"
+>
+    <!-- Background element -->
+    <div class="absolute inset-0 pointer-events-none"></div>
+
+    <!-- Technical Label -->
+    <div class="flex items-center justify-center gap-3 mb-6 opacity-40">
+        <div class="h-px w-6 bg-white/25"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto py-8 px-6 md:px-8 text-center mb-16">
+        <!-- Decorative Brackets -->
+        <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20"></div>
+        <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20"></div>
+
+        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight italic text-white mb-4">
+            Collective <span class="text-white/80">Defense</span>
+        </h2>
+        <p class="text-sm md:text-base text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
+            Hardening digital infrastructure, coordinating incident response operations, and scaling security capacity to protect Tibetan civil society globally.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 items-center justify-center text-center">
+        {stats.map((stat) => (
+            <div class="group relative flex flex-col items-center p-6 bg-white/10 border border-white/10 hover:border-white/30 transition-all duration-500 backdrop-blur-sm">
+                <!-- Technical Corner Accents for each stat item -->
+                <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20 group-hover:border-white/60 transition-colors"></div>
+                <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20 group-hover:border-white/60 transition-colors"></div>
+
+                <!-- Code tag -->
+                <span class="font-mono text-[8px] text-white/50 uppercase tracking-widest mb-3 block">
+                    // {stat.code}
+                </span>
+
+                <!-- Giant stat number -->
+                <span 
+                    class="text-4xl md:text-5xl lg:text-6xl font-black font-mono text-white group-hover:scale-105 transition-transform duration-500 mb-2 select-none tracking-tight block stat-number"
+                    data-target={stat.number.replace("+", "")}
+                >
+                    0+
+                </span>
+
+                <!-- Description label -->
+                <span class="font-mono text-[9px] md:text-[10px] text-white uppercase tracking-widest font-semibold max-w-[180px] leading-relaxed block">
+                    {stat.label}
+                </span>
+            </div>
+        ))}
+    </div>
+</SectionShell>
+
+<script>
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const countUp = (el: HTMLElement) => {
+        const target = parseInt(el.getAttribute('data-target') || '0', 10);
+        const duration = 1800; // 1.8 seconds
+        const startTime = performance.now();
+        
+        const updateCount = (currentTime: number) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            // Easing function: easeOutQuad
+            const easeProgress = progress * (2 - progress);
+            
+            const currentVal = Math.floor(easeProgress * target);
+            el.textContent = `${currentVal}+`;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
+            } else {
+                el.textContent = `${target}+`;
+            }
+        };
+        
+        requestAnimationFrame(updateCount);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                countUp(entry.target as HTMLElement);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    counters.forEach(counter => observer.observe(counter));
+</script>
