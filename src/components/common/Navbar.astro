@@ -4,13 +4,13 @@ const navItems = [
     // { name: "Response Hub", href: "/response-hub" },
     // { name: "Blog", href: "/blog" },
     { name: "Resources", href: "/resources" },
-    { 
-        name: "Services", 
+    {
+        name: "Services",
         href: "/services",
         dropdown: [
-            { name: "General Services", href: "/services" },
-            { name: "Paid Services", href: "/paid-services" }
-        ]
+            { name: "Standard Services", href: "/services" },
+            { name: "Premium Services", href: "/paid-services" },
+        ],
     },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
@@ -65,13 +65,24 @@ import ThemeToggle from "./ThemeToggle.astro";
                                     }`}
                                 >
                                     {item.name}
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-300">
-                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-300"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clip-rule="evenodd"
+                                        />
                                     </svg>
                                 </a>
                                 <div class="absolute top-full left-0 mt-1 w-48 bg-brand-void/95 border border-brand-text/10 py-2 rounded-sm shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 backdrop-blur-md">
                                     {item.dropdown.map((subItem) => {
-                                        const subActive = isActiveLink(subItem.href);
+                                        const subActive = isActiveLink(
+                                            subItem.href,
+                                        );
                                         return (
                                             <a
                                                 href={subItem.href}
