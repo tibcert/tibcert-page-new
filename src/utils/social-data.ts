@@ -50,12 +50,13 @@ const MOCK_SOCIAL_DATA: SocialPost[] = [
 ];
 
 export async function getLatestSocialPosts(): Promise<SocialPost[]> {
-    const FB_PAGE_ID = import.meta.env.FACEBOOK_PAGE_ID;
-    const IG_ACCOUNT_ID = import.meta.env.INSTAGRAM_ACCOUNT_ID;
-    const ACCESS_TOKEN = import.meta.env.META_ACCESS_TOKEN;
+    const FB_PAGE_ID = import.meta.env.FACEBOOK_PAGE_ID?.trim();
+    const IG_ACCOUNT_ID = import.meta.env.INSTAGRAM_ACCOUNT_ID?.trim();
+    const ACCESS_TOKEN = import.meta.env.META_ACCESS_TOKEN?.trim();
 
     // We need at least an access token to try fetching anything
     if (!ACCESS_TOKEN) {
+        console.warn('WARNING: META_ACCESS_TOKEN is missing or empty. Social feed is falling back to mock data.');
         return MOCK_SOCIAL_DATA;
     }
 
@@ -68,6 +69,11 @@ export async function getLatestSocialPosts(): Promise<SocialPost[]> {
         
         if (IG_ACCOUNT_ID) {
             fetchTasks.push(fetchInstagramPosts(IG_ACCOUNT_ID, ACCESS_TOKEN));
+        }
+
+        if (fetchTasks.length === 0) {
+            console.warn('WARNING: Neither FACEBOOK_PAGE_ID nor INSTAGRAM_ACCOUNT_ID was provided. Social feed is falling back to mock data.');
+            return MOCK_SOCIAL_DATA;
         }
 
         const results = await Promise.allSettled(fetchTasks);
@@ -85,7 +91,12 @@ export async function getLatestSocialPosts(): Promise<SocialPost[]> {
         );
 
         // If we found live posts, return them. Otherwise fall back to mock data.
-        return allPosts.length > 0 ? allPosts.slice(0, 4) : MOCK_SOCIAL_DATA;
+        if (allPosts.length > 0) {
+            return allPosts.slice(0, 4);
+        } else {
+            console.warn('WARNING: Failed to fetch any live Facebook or Instagram posts (all requests returned empty or error). Falling back to mock data.');
+            return MOCK_SOCIAL_DATA;
+        }
     } catch (error) {
         console.error('Error fetching social posts:', error);
         return MOCK_SOCIAL_DATA;
