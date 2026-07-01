@@ -47,7 +47,7 @@ const platformIcons = {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {posts.slice(0, 3).map((post) => (
+            {posts.map((post) => (
                 <a 
                     href={post.link} 
                     target="_blank" 
@@ -109,42 +109,6 @@ const platformIcons = {
                     </div>
                 </a>
             ))}
-
-            <!-- Twitter / X Timeline Embed Card -->
-            <div class="relative bg-brand-surface/30 border border-brand-text/10 p-6 flex flex-col h-full hover:border-brand-red/30 transition-all duration-500 overflow-hidden min-h-[380px] lg:h-[450px] group">
-                <!-- Animated Hover Background -->
-                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                <!-- Platform Header -->
-                <div class="flex items-center justify-between mb-6 relative z-10">
-                    <div class="flex items-center gap-2">
-                        <div class="w-6 h-6 rounded-sm flex items-center justify-center text-brand-text bg-brand-text/10">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </div>
-                        <span class="font-mono text-[9px] text-brand-text uppercase tracking-[0.2em]">Twitter / X</span>
-                    </div>
-                    <span class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-widest">LIVE</span>
-                </div>
-
-                <!-- Timeline Widget -->
-                <div class="flex-grow overflow-y-auto custom-scrollbar relative z-10 max-h-[320px]">
-                    <a 
-                        class="twitter-timeline" 
-                        data-height="320" 
-                        data-theme="dark" 
-                        data-chrome="noheader nofooter noborders transparent"
-                        href="https://twitter.com/tibcert?ref_src=twsrc%5Etfw"
-                    >
-                        Tweets by @tibcert
-                    </a>
-                    <script is:inline async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-
-                <!-- Corner Accents -->
-                <div class="absolute top-0 right-0 w-8 h-8 pointer-events-none overflow-hidden">
-                    <div class="absolute top-0 right-0 w-[141%] h-px bg-brand-red/20 rotate-45 translate-x-1/2 -translate-y-1/2 group-hover:bg-brand-red transition-colors"></div>
-                </div>
-            </div>
         </div>
 
         <div class="mt-10 flex justify-center">
