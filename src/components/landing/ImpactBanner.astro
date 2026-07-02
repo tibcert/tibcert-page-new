@@ -3,21 +3,26 @@ import SectionShell from "../common/SectionShell.astro";
 
 const stats = [
     {
+        id: "orgs",
         number: "100+",
         label: "Organizations Supported",
-        code: "ORG_SUPPORTED"
+        code: "ORG_SUPPORTED",
+        sparkPath: "M 10 47.5 C 38 47.5, 38 39, 66 39 C 94 39, 94 28, 122 28 C 150 28, 150 16, 178 16 C 206 16, 206 9, 234 9 C 262 9, 262 5, 290 5"
     },
     {
+        id: "incidents",
         number: "700+",
         label: "Incident Response",
-        code: "INCIDENT_RESPONSE"
+        code: "INCIDENT_RESPONSE",
+        sparkPath: "M 10 49 C 38 49, 38 40, 66 40 C 94 40, 94 28, 122 28 C 150 28, 150 18.5, 178 18.5 C 206 18.5, 206 9.5, 234 9.5 C 262 9.5, 262 5, 290 5"
     },
     {
+        id: "trainings",
         number: "500+",
         label: "Trainings and Workshops",
-        code: "TRAINING_WORKSHOPS"
-    },
-   
+        code: "TRAINING_WORKSHOPS",
+        sparkPath: "M 10 49 C 38 49, 38 40, 66 40 C 94 40, 94 27, 122 27 C 150 27, 150 16, 178 16 C 206 16, 206 9, 234 9 C 262 9, 262 5, 290 5"
+    }
 ];
 ---
 
@@ -67,6 +72,34 @@ const stats = [
                     0+
                 </span>
 
+                <!-- Simple, beautiful SVG sparkline trend graph -->
+                <div class="w-full max-w-[200px] h-[45px] my-3 relative">
+                    <svg viewBox="0 0 300 60" class="w-full h-full overflow-visible">
+                        <defs>
+                            <linearGradient id={`sparkline-grad-${stat.id}`} x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+                                <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Sparkline path fill -->
+                        <path
+                            d={`${stat.sparkPath} L 290 60 L 10 60 Z`}
+                            fill={`url(#sparkline-grad-${stat.id})`}
+                        />
+                        <!-- Sparkline line -->
+                        <path
+                            d={stat.sparkPath}
+                            fill="none"
+                            stroke="#ffffff"
+                            stroke-width="2.5"
+                            class="sparkline-path"
+                        />
+                        <!-- Pulsing current data point dot -->
+                        <circle cx="290" cy="5" r="3.5" fill="#ffffff" />
+                        <circle cx="290" cy="5" r="7" fill="#ffffff" fill-opacity="0.3" class="animate-pulse" />
+                    </svg>
+                </div>
+
                 <!-- Description label -->
                 <span class="font-mono text-[9px] md:text-[10px] text-white uppercase tracking-widest font-semibold max-w-[180px] leading-relaxed block">
                     {stat.label}
@@ -77,6 +110,7 @@ const stats = [
 </SectionShell>
 
 <script>
+    // Count up animation for stat numbers
     const counters = document.querySelectorAll('.stat-number');
     
     const countUp = (el: HTMLElement) => {
@@ -104,6 +138,29 @@ const stats = [
         requestAnimationFrame(updateCount);
     };
 
+    // Animated drawing for sparkline path on intersection
+    const setupSparklines = () => {
+        const sparklines = document.querySelectorAll('.sparkline-path');
+        sparklines.forEach(line => {
+            const path = line as SVGPathElement;
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = length.toString();
+            path.style.strokeDashoffset = length.toString();
+            path.style.transition = "stroke-dashoffset 2s cubic-bezier(0.22, 1, 0.36, 1)";
+            
+            const sparkObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        path.style.strokeDashoffset = "0";
+                        sparkObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sparkObserver.observe(path);
+        });
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -114,4 +171,8 @@ const stats = [
     }, { threshold: 0.1 });
 
     counters.forEach(counter => observer.observe(counter));
+
+    // Support view transitions and page load
+    document.addEventListener("astro:page-load", setupSparklines);
+    setupSparklines();
 </script>
