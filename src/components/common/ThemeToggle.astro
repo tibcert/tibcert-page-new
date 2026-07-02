@@ -1,6 +1,5 @@
 <button
-    id="theme-toggle"
-    class="relative inline-flex h-9 w-19 items-center rounded-full bg-[#333333] transition-colors focus:outline-none group overflow-hidden"
+    class="theme-toggle-btn relative inline-flex h-9 w-19 items-center rounded-full bg-[#333333] transition-colors focus:outline-none group overflow-hidden"
     aria-label="Toggle theme"
 >
     <!-- Background Track -->
@@ -8,8 +7,7 @@
 
     <!-- Sliding Handle -->
     <div
-        id="theme-toggle-handle"
-        class="relative flex items-center justify-center h-7 w-7 rounded-full bg-white shadow-lg transition-transform duration-500 cubic-bezier-[0.34,1.56,0.64,1] transform translate-x-1"
+        class="theme-toggle-handle relative flex items-center justify-center h-7 w-7 rounded-full bg-white shadow-lg transition-transform duration-500 cubic-bezier-[0.34,1.56,0.64,1] transform translate-x-1"
     >
     </div>
 
@@ -69,44 +67,46 @@
         transform: scale(0.9);
     }
     /* Custom spring easing for the handle */
-    #theme-toggle-handle {
+    .theme-toggle-handle {
         transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     /* Dark mode handle position adjustment */
-    :global(.dark) #theme-toggle-handle {
+    :global(.dark) .theme-toggle-handle {
         transform: translateX(
             40px
         ); /* Adjust based on track width (18*4 = 72px, handle 28px, padding 4px -> 72-28-4 = 40) */
     }
 
     /* Track color in dark mode (optional, keeping it dark as per reference) */
-    #theme-toggle {
+    .theme-toggle-btn {
         background-color: #333333;
     }
 </style>
 
 <script>
     function setupThemeToggle() {
-        const themeToggleBtn = document.getElementById("theme-toggle");
-        if (!themeToggleBtn) return;
-
-        const handle = document.getElementById("theme-toggle-handle");
+        const themeToggleBtns = document.querySelectorAll(".theme-toggle-btn");
+        if (themeToggleBtns.length === 0) return;
 
         const updateTheme = () => {
             const isDark = document.documentElement.classList.contains("dark");
             localStorage.setItem("color-theme", isDark ? "dark" : "light");
         };
 
-        themeToggleBtn.addEventListener("click", () => {
-            // Apply a brief stretch effect for better feel
-            if (handle) {
-                handle.style.transition =
-                    "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
-            }
+        themeToggleBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const handles = document.querySelectorAll(".theme-toggle-handle");
+                handles.forEach((handle) => {
+                    if (handle instanceof HTMLElement) {
+                        handle.style.transition =
+                            "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
+                    }
+                });
 
-            document.documentElement.classList.toggle("dark");
-            updateTheme();
+                document.documentElement.classList.toggle("dark");
+                updateTheme();
+            });
         });
     }
 
@@ -115,3 +115,4 @@
     // Initial setup
     setupThemeToggle();
 </script>
+

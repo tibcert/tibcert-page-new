@@ -134,21 +134,162 @@ import ThemeToggle from "./ThemeToggle.astro";
             </a>
         </div>
 
-        <!-- Mobile Menu Button (Placeholder) -->
-        <button class="md:hidden text-brand-text">
+        <!-- Mobile Menu Button -->
+        <button
+            id="mobile-menu-button"
+            class="md:hidden text-brand-text focus:outline-none p-1"
+            aria-expanded="false"
+            aria-label="Toggle navigation menu"
+        >
+            <!-- Burger Icon -->
             <svg
+                class="burger-icon w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
             >
                 <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+            </svg>
+            <!-- Close Icon -->
+            <svg
+                class="close-icon w-6 h-6 hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                />
             </svg>
         </button>
     </nav>
+
+    <!-- Mobile Menu Drawer -->
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-brand-surface bg-brand-void/98 backdrop-blur-md shadow-xl"
+    >
+        <div class="px-4 py-6 space-y-6">
+            <nav class="space-y-4">
+                {
+                    navItems.map((item) => {
+                        const active = isActiveLink(item.href);
+
+                        if (item.dropdown) {
+                            return (
+                                <div class="space-y-2">
+                                    <div class="text-xs font-mono uppercase tracking-wider text-brand-muted px-3 flex items-center gap-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-muted/40"></span>
+                                        {item.name}
+                                    </div>
+                                    <div class="pl-4 border-l border-brand-surface space-y-1">
+                                        {item.dropdown.map((subItem) => {
+                                            const subActive = isActiveLink(subItem.href);
+                                            return (
+                                                <a
+                                                    href={subItem.href}
+                                                    class={`block px-3 py-2 text-sm font-medium transition-colors rounded-sm ${
+                                                        subActive
+                                                            ? "text-brand-red bg-brand-red/5"
+                                                            : "text-brand-text hover:text-brand-red hover:bg-brand-surface/5"
+                                                    }`}
+                                                >
+                                                    // {subItem.name}
+                                                </a>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            );
+                        }
+
+                        return (
+                            <a
+                                href={item.href}
+                                class={`block px-3 py-2 text-sm font-medium transition-colors rounded-sm ${
+                                    active
+                                        ? "text-brand-red bg-brand-red/5"
+                                        : "text-brand-text hover:text-brand-red hover:bg-brand-surface/5"
+                                }`}
+                            >
+                                {item.name}
+                            </a>
+                        );
+                    })
+                }
+            </nav>
+
+            <!-- Actions Row (ThemeToggle and Report button) -->
+            <div class="pt-6 border-t border-brand-surface flex items-center justify-between gap-4 px-3">
+                <ThemeToggle />
+                <a
+                    href="/contact"
+                    class="bg-brand-red hover:bg-[#d13d25] text-white font-mono text-[10px] uppercase tracking-[0.2em] px-5 py-3 rounded-sm transition-all shadow-lg shadow-brand-red/10 flex items-center gap-2"
+                >
+                    <span
+                        class="w-1.5 h-1.5 rounded-full bg-brand-text animate-pulse"
+                    ></span>
+                    [ REPORT_INCIDENT ]
+                </a>
+            </div>
+        </div>
+    </div>
 </header>
+
+<script>
+    function setupMobileMenu() {
+        const burgerBtn = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (!burgerBtn || !mobileMenu) return;
+
+        const burgerIcon = burgerBtn.querySelector(".burger-icon");
+        const closeIcon = burgerBtn.querySelector(".close-icon");
+
+        const toggleMenu = () => {
+            const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
+            const willExpand = !isExpanded;
+
+            burgerBtn.setAttribute("aria-expanded", willExpand.toString());
+
+            if (willExpand) {
+                mobileMenu.classList.remove("hidden");
+                burgerIcon?.classList.add("hidden");
+                closeIcon?.classList.remove("hidden");
+            } else {
+                mobileMenu.classList.add("hidden");
+                burgerIcon?.classList.remove("hidden");
+                closeIcon?.classList.add("hidden");
+            }
+        };
+
+        // Remove any old event listener to prevent multiples
+        burgerBtn.removeEventListener("click", toggleMenu);
+        burgerBtn.addEventListener("click", toggleMenu);
+
+        // Close menu on screen resize (if screen becomes desktop size)
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add("hidden");
+                burgerBtn.setAttribute("aria-expanded", "false");
+                burgerIcon?.classList.remove("hidden");
+                closeIcon?.classList.add("hidden");
+            }
+        });
+    }
+
+    // Support Astro View Transitions page load
+    document.addEventListener("astro:page-load", setupMobileMenu);
+    // Initial setup
+    setupMobileMenu();
+</script>
