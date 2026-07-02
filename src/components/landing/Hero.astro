@@ -6,20 +6,20 @@ import TibetanPattern from "../common/TibetanPattern.astro";
 <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
     <!-- Dynamic Background -->
     <div class="absolute inset-0 bg-brand-void z-0">
+        <!-- Tibetan Pattern Accent -->
+        <TibetanPattern
+            class="absolute -right-24 -top-24 md:-right-48 md:-top-48 rotate-45 text-brand-maroon dark:text-brand-red"
+            size="w-[500px] h-[500px] md:w-[800px] md:h-[800px]"
+            color="currentColor"
+            opacity="opacity-10 dark:opacity-20"
+        />
+
         <div
             class="absolute inset-0
 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)]
 bg-[size:24px_24px]"
         >
         </div>
-
-        <!-- Tibetan Pattern Accent -->
-        <TibetanPattern
-            class="absolute -right-20 -top-20 md:-right-32 md:-top-32 rotate-12"
-            size="w-96 h-96 md:w-[600px] md:h-[600px]"
-            color="var(--color-brand-maroon)"
-            opacity="opacity-5 dark:opacity-10"
-        />
 
         <div
             class="absolute left-0 right-0 top-0 -z-10

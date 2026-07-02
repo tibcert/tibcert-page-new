@@ -14,13 +14,115 @@ const {
 } = Astro.props;
 ---
 
-<div class={`pointer-events-none select-none ${size} ${opacity} ${className}`}>
-    <svg viewBox="0 0 580 476" preserveAspectRatio="xMidYMid meet" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<div
+    class={`pointer-events-none select-none relative ${size} ${opacity} ${className}`}
+>
+    <svg
+        viewBox="0 0 580 476"
+        preserveAspectRatio="xMidYMid meet"
+        class="w-full h-full tibetan-pattern-svg"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <defs>
+            <filter
+                id="glow-pattern"
+                x="-20%"
+                y="-20%"
+                width="140%"
+                height="140%"
+            >
+                <feGaussianBlur stdDeviation="0.5" result="blur"
+                ></feGaussianBlur>
+                <feMerge>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- 1. Base Static Pattern -->
         <path
+            class="pattern-base"
             d="M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z"
             fill="none"
             stroke={color}
-            stroke-width=".1768"
+            stroke-width="0.1768"
+            transform="translate(240,188) rotate(90) scale(46.9)"></path>
+
+        <!-- 2. Forward Tracing Dots (Data flow direction A) -->
+        <path
+            class="pattern-tracer pattern-tracer-forward"
+            d="M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z"
+            fill="none"
+            stroke={color}
+            stroke-width="0.24"
+            filter="url(#glow-pattern)"
+            transform="translate(240,188) rotate(90) scale(46.9)"></path>
+
+        <!-- 3. Backward Tracing Dots (Data flow direction B) -->
+        <path
+            class="pattern-tracer pattern-tracer-backward"
+            d="M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z"
+            fill="none"
+            stroke={color}
+            stroke-width="0.2"
             transform="translate(240,188) rotate(90) scale(46.9)"></path>
     </svg>
 </div>
+
+<style>
+    .pattern-base {
+        opacity: 0.35;
+    }
+
+    .pattern-tracer {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* Forward moving dots + pulse */
+    .pattern-tracer-forward {
+        stroke-dasharray: 1.2 14;
+        animation:
+            pattern-travel-forward 24s linear infinite,
+            pattern-pulse 4s ease-in-out infinite alternate;
+    }
+
+    /* Backward moving dots + pulse */
+    .pattern-tracer-backward {
+        stroke-dasharray: 0.8 18;
+        animation:
+            pattern-travel-backward 30s linear infinite,
+            pattern-pulse 6s ease-in-out infinite alternate-reverse;
+    }
+
+    /* Travel Forward Keyframe */
+    @keyframes pattern-travel-forward {
+        from {
+            stroke-dashoffset: 120;
+        }
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    /* Travel Backward Keyframe */
+    @keyframes pattern-travel-backward {
+        from {
+            stroke-dashoffset: 0;
+        }
+        to {
+            stroke-dashoffset: 150;
+        }
+    }
+
+    /* Opacity Pulse Keyframe */
+    @keyframes pattern-pulse {
+        0% {
+            opacity: 0.25;
+        }
+        100% {
+            opacity: 0.95;
+        }
+    }
+</style>
