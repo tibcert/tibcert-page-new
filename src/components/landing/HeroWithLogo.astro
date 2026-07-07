@@ -2,6 +2,7 @@
 import BackgroundGlow from "../common/BackgroundGlow.astro";
 import SectionShell from "../common/SectionShell.astro";
 import TibetanPattern from "../common/TibetanPattern.astro";
+import SectionDivider from "../common/SectionDivider.astro";
 ---
 
 <section
@@ -39,7 +40,7 @@ bg-[size:24px_24px]"
         >
             <div class="h-px w-8 bg-brand-red/30"></div>
             <span
-                class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-red/80"
+                class="font-mono text-xs md:text-lg tracking-[0.3em] uppercase text-brand-red/80"
                 >Tibetan Computer Emergency Readiness Team</span
             >
             <div class="h-px w-8 bg-brand-red/30"></div>
@@ -275,11 +276,20 @@ bg-[size:24px_24px]"
         >
         </div>
 
-        <p
-            class="text-xl md:text-2xl text-brand-muted leading-relaxed text-center"
-        >
-            Strengthening security and building technical excellence of Tibetan
-            organizations through collaboration and knowledge sharing
+        <p class="text-xl md:text-xl leading-relaxed text-center">
+            Strengthening security and building the technical excellence of the
+            Tibetan community
+        </p>
+        <div class="text-brand-red mx-auto mb-4">
+            <SectionDivider />
+        </div>
+
+        <p class="text-brand-muted pt-3 text-center">
+            TibCERT combines deep technical expertise with strategic leadership
+            to deliver high-level digital security services. Our experienced
+            team helps organizations within and beyond the Tibetan community
+            strengthen resilience, manage cyber risk, and navigate an evolving
+            digital threat landscape.
         </p>
     </div>
 
@@ -317,24 +327,27 @@ transition-all flex items-center justify-center gap-2 hover:bg-brand-text/5"
         >
             SEARCH_DATABASE
         </a>
+        <!-- Enhanced Shortcut Navigation at Bottom Center -->
+        <div
+            class="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-wrap items-center justify-center gap-6 w-full px-4 animate-fade-in-up z-20"
+            style="animation-delay: 1.2s;"
+        >
+            <a
+                href="#reports"
+                class="px-8 py-4 rounded-sm bg-brand-void/80 border border-brand-red/30 text-brand-text font-mono text-[12px] uppercase tracking-[0.3em] hover:text-brand-red hover:border-brand-red hover:shadow-[0_0_30px_rgba(239,72,44,0.2)] transition-all group backdrop-blur-md"
+            >
+                <span class="text-brand-red group-hover:animate-pulse mr-2"
+                    >&gt;</span
+                > TIBCERT_REPORTS
+            </a>
+            <a
+                href="about/#membership"
+                class="px-8 py-4 rounded-sm bg-brand-void/80 border border-brand-red/30 text-brand-text font-mono text-[12px] uppercase tracking-[0.3em] hover:text-brand-red hover:border-brand-red hover:shadow-[0_0_30px_rgba(239,72,44,0.2)] transition-all group backdrop-blur-md"
+            >
+                <span class="text-brand-red group-hover:animate-pulse mr-2"
+                    >&gt;</span
+                > JOIN_COALITION
+            </a>
+        </div>
     </div>
 </section>
-
-<!-- Enhanced Shortcut Navigation at Bottom Center -->
-<div
-    class="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-wrap items-center justify-center gap-6 w-full px-4 animate-fade-in-up"
-    style="animation-delay: 1.2s;"
->
-    <a
-        href="#reports"
-        class="px-8 py-4 rounded-sm bg-brand-void/80 border border-brand-red/30 text-brand-text font-mono text-[12px] uppercase tracking-[0.3em] hover:text-brand-red hover:border-brand-red hover:shadow-[0_0_30px_rgba(239,72,44,0.2)] transition-all group backdrop-blur-md"
-    >
-        <span class="text-brand-red group-hover:animate-pulse mr-2">&gt;</span> TIBCERT_REPORTS
-    </a>
-    <a
-        href="about/#membership"
-        class="px-8 py-4 rounded-sm bg-brand-void/80 border border-brand-red/30 text-brand-text font-mono text-[12px] uppercase tracking-[0.3em] hover:text-brand-red hover:border-brand-red hover:shadow-[0_0_30px_rgba(239,72,44,0.2)] transition-all group backdrop-blur-md"
-    >
-        <span class="text-brand-red group-hover:animate-pulse mr-2">&gt;</span> JOIN_COALITION
-    </a>
-</div>

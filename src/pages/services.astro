@@ -19,24 +19,38 @@ import ServicesPreview from "../components/landing/ServicesPreview.astro";
         </div>
 
         <!-- Page Heading (Same style as about page) -->
-        <div class="container mx-auto px-6 relative z-10 pb-16 pt-8">
-            <div class="max-w-7xl mx-auto">
+        <div class="container mx-auto px-4 relative z-10 pb-16 pt-8">
                 <div class="reveal relative max-w-4xl">
-                    <div class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20"></div>
-                    <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">TibCERT Capabilities //</span>
-                    <h1 class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic">
+                    <div
+                        class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20"
+                    >
+                    </div>
+                    <span
+                        class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block opacity-60 uppercase"
+                        >TibCERT Capabilities //</span
+                    >
+                    <h1
+                        class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic"
+                    >
                         Our <span class="text-brand-red">Services</span>
                     </h1>
                     <SectionDivider class="text-brand-red w-48 mb-8" />
-                    <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
-                        Tailored cybersecurity services, intensive training programs, and direct incident response capabilities that help Tibetan and Tibet Support organizations build digital resilience.
+                    <p
+                        class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl"
+                    >
+                        Tailored cybersecurity services, intensive training
+                        programs, and direct incident response capabilities that
+                        help Tibetan and Tibet Support organizations build
+                        digital resilience.
                     </p>
                 </div>
-            </div>
         </div>
 
         <!-- Services Grid (Moved from home page) -->
-        <ServicesPreview hideHeader={true} class="pb-16 bg-brand-void relative overflow-hidden reveal" />
+        <ServicesPreview
+            hideHeader={true}
+            class="pb-16 bg-brand-void relative overflow-hidden reveal"
+        />
     </main>
 </Layout>
 

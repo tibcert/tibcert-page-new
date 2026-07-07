@@ -1,6 +1,6 @@
 ---
 const navItems = [
-    { name: "Home", href: "/" },
+    // { name: "Home", href: "/" },
     // { name: "Response Hub", href: "/response-hub" },
     // { name: "Blog", href: "/blog" },
     { name: "Resources", href: "/resources" },
@@ -153,8 +153,7 @@ import ThemeToggle from "./ThemeToggle.astro";
                 <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
             </svg>
             <!-- Close Icon -->
             <svg
@@ -168,8 +167,7 @@ import ThemeToggle from "./ThemeToggle.astro";
                 <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                />
+                    d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
     </nav>
@@ -189,12 +187,14 @@ import ThemeToggle from "./ThemeToggle.astro";
                             return (
                                 <div class="space-y-2">
                                     <div class="text-xs font-mono uppercase tracking-wider text-brand-muted px-3 flex items-center gap-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-muted/40"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-muted/40" />
                                         {item.name}
                                     </div>
                                     <div class="pl-4 border-l border-brand-surface space-y-1">
                                         {item.dropdown.map((subItem) => {
-                                            const subActive = isActiveLink(subItem.href);
+                                            const subActive = isActiveLink(
+                                                subItem.href,
+                                            );
                                             return (
                                                 <a
                                                     href={subItem.href}
@@ -230,7 +230,9 @@ import ThemeToggle from "./ThemeToggle.astro";
             </nav>
 
             <!-- Actions Row (ThemeToggle and Report button) -->
-            <div class="pt-6 border-t border-brand-surface flex items-center justify-between gap-4 px-3">
+            <div
+                class="pt-6 border-t border-brand-surface flex items-center justify-between gap-4 px-3"
+            >
                 <ThemeToggle />
                 <a
                     href="/contact"
@@ -257,7 +259,8 @@ import ThemeToggle from "./ThemeToggle.astro";
         const closeIcon = burgerBtn.querySelector(".close-icon");
 
         const toggleMenu = () => {
-            const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
+            const isExpanded =
+                burgerBtn.getAttribute("aria-expanded") === "true";
             const willExpand = !isExpanded;
 
             burgerBtn.setAttribute("aria-expanded", willExpand.toString());
