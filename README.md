@@ -1,8 +1,19 @@
 # TIBCERT (Tibetan Computer Emergency Response Team)
+```text
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@==========@==*@*=====#:::::::::::@#:::::::::::@%::::::::::-@:::::::::-@@
+@@@@@@*==@@@@@==*@*==@@@=:-@%%@@@@@@@@@@@@@@@@@@@@:::@@@@@@::=@@@@::=@@@@@@
+@@@@@@*==@@@@@==*@*==========*@@@@@@=::::::::::+@%:::::::::::@@@@+::@@@@@@@
+@@@@@@*==@@@@@==*@*==@@%@@@#==@@@@@@@@@@@@@@@@@@@::-@-::=@@@@@@@@::=@@@@@@@
+@@@@@@*==@@@@@==*@*==========#=::=@=::::::::::*@+::%@@#:::#@@@@@+::@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+```
 
 This is the official website for **TIBCERT**, a digital security initiative dedicated to enhancing cybersecurity for the Tibetan community. Built with **Astro** and **Tailwind CSS**, this platform provides critical security resources, reports, and AI-driven assistance.
 
 ---
+
 ![screenshot](public/screenshot.png)
 
 ## 📖 Project Documentation
