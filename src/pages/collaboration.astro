@@ -1,0 +1,298 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionDivider from "../components/common/SectionDivider.astro";
+
+const inappropriateBehaviors = [
+    "Verbal comments or nonverbal communication that reinforce oppression related to gender, race, ethnicity, regional identity, gender identity & expression, sexual orientation, political opinion, disability, physical appearance, body size, age, or religion.",
+    "Sexual images or inappropriate nudity in public spaces (including presentation materials).",
+    "Verbal threats or demands.",
+    "Deliberate intimidation, stalking, or following.",
+    "Harassing photography or recording.",
+    "Sustained disruption of discussions, whether in person or virtual.",
+    "Inappropriate physical contact or unwelcome sexual attention.",
+    "Tampering with or forcing consumption of food, drink, or other substances.",
+    "Imitating or making fun of accents or grammatical errors, or giving unsolicited grammar corrections.",
+    "Enlisting the help of others, whether in person or online, to target another individual engaging in virtual or physical spaces.",
+    "Advocating for, or encouraging any of the above behavior.",
+];
+
+const references = [
+    {
+        name: "OTF Code of Conduct",
+        url: "https://we.opentech.fund/t/otf-code-of-conduct/585",
+    },
+    {
+        name: "Internet Freedom Festival Code of Conduct",
+        url: "https://www.internetfreedomfestival.org/wiki/index.php/Code_of_Conduct",
+    },
+    {
+        name: "Geek Feminism Anti-Harassment Policy",
+        url: "http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy",
+    },
+];
+---
+
+<Layout title="Code of Conduct | TIBCERT">
+    <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
+        <!-- Premium Radial Glow -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"
+        >
+        </div>
+
+        <!-- Background Grid -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] -z-10 opacity-[0.05]"
+        >
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Header Section -->
+            <div class="max-w-4xl mb-20 reveal relative">
+                <!-- Technical Brackets -->
+                <div
+                    class="absolute -top-8 -left-8 w-12 h-12 border-t border-l border-brand-red/20 uppercase"
+                >
+                </div>
+
+                <span
+                    class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60"
+                    >ORGANIZATIONAL_POLICIES // CONDUCT_STANDARDS</span
+                >
+                <h1
+                    class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none tracking-tighter italic"
+                >
+                    Our <span class="text-brand-red">Collaboration</span>
+                </h1>
+                <SectionDivider class="text-brand-red w-48 mb-8" />
+
+                <div
+                    class="space-y-6 text-base md:text-lg text-brand-muted leading-relaxed font-light"
+                >
+                    <p>
+                        TibCERT online community is an online space where
+                        Tibetans can come together to share experiences towards
+                        creating a resilient digital security community. As
+                        such, we are committed to providing inclusive and
+                        harassment-free spaces, regardless of gender, race,
+                        ethnicity, gender identity and expression, sexual
+                        orientation, disability, physical appearance, body size,
+                        age, or religion.
+                    </p>
+                    <p>
+                        Consequently, we do not tolerate harassment of any kind
+                        in our spaces, both online and in-person. The TibCERT
+                        Online Community is committed to providing a welcoming
+                        and respectful environment, so individuals engaging in
+                        TibCERT virtual spaces are expected to refrain from
+                        engaging in any type of unacceptable behavior.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Guidelines Section -->
+            <div class="mb-24 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="font-mono text-[10px] text-brand-red uppercase tracking-[0.3em]"
+                        >PART_01 // INAPPROPRIATE_BEHAVIOR</span
+                    >
+                    <div class="h-px flex-grow bg-brand-text/5"></div>
+                </div>
+
+                <h2
+                    class="text-2xl md:text-3xl font-black uppercase italic text-brand-text mb-8"
+                >
+                    Guidelines of What Constitutes Inappropriate Behavior
+                </h2>
+
+                <ul
+                    class="space-y-4 text-brand-muted text-sm md:text-base font-light leading-relaxed max-w-4xl"
+                >
+                    {
+                        inappropriateBehaviors.map((behavior) => (
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 bg-brand-red shrink-0 mt-2" />
+                                <span>{behavior}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
+            <!-- Incident Response & Contact -->
+            <div class="mb-24 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="font-mono text-[10px] text-brand-red uppercase tracking-[0.3em]"
+                        >PART_02 // REPORTING_CHANNEL</span
+                    >
+                    <div class="h-px flex-grow bg-brand-text/5"></div>
+                </div>
+
+                <h2
+                    class="text-2xl md:text-3xl font-black uppercase italic text-brand-text mb-8"
+                >
+                    Addressing Issues and Concerns
+                </h2>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Instructions -->
+                    <div
+                        class="lg:col-span-7 bg-brand-void/25 border border-brand-text/5 p-8 relative flex flex-col justify-center"
+                    >
+                        <div
+                            class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-text/10"
+                        >
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-text/10"
+                        >
+                        </div>
+
+                        <div
+                            class="space-y-4 text-xs md:text-sm text-brand-muted leading-relaxed font-light"
+                        >
+                            <p>
+                                If someone makes you or anyone else feel unsafe
+                                or unwelcome in any TibCERT Online Community
+                                space, please contact our Code of Conduct
+                                Incident Response team immediately. We are here
+                                for you. You can contact a TibCERT Online
+                                Community staff member or designated
+                                representative listed below.
+                            </p>
+                            <p>
+                                Please note that we understand that some time
+                                may pass before a victim or witness of
+                                inappropriate behavior comes to realize the
+                                inappropriate nature of the action and decides
+                                to report it.
+                            </p>
+                            <p>
+                                Harassment and other code of conduct violations
+                                damage the experience for everyone. We want you
+                                to be happy and productive in our spaces. People
+                                like you make TibCERT Online Community a better
+                                place.
+                            </p>
+                            <p>
+                                Your concerns will be respectfully heard by the
+                                Code of Conduct Incident Response team. If your
+                                concern involves any TibCERT Online Community
+                                staff members, they will recuse themselves.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contacts -->
+                    <div class="lg:col-span-5 flex flex-col gap-4">
+                        <div
+                            class="bg-brand-red/10 border border-brand-red/30 p-8 relative flex-grow flex flex-col justify-center"
+                        >
+                            <div
+                                class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-red/40"
+                            >
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-red/40"
+                            >
+                            </div>
+
+                            <span
+                                class="font-mono text-[9px] text-brand-red uppercase tracking-[0.2em] mb-4 block"
+                                >DESIGNATED_REPRESENTATIVES</span
+                            >
+
+                            <div class="space-y-6">
+                                <div
+                                    class="border-l-2 border-brand-red/40 pl-4"
+                                >
+                                    <h4
+                                        class="font-black text-sm uppercase text-brand-text"
+                                    >
+                                        Dorjee Phuntsok
+                                    </h4>
+                                    <p
+                                        class="text-[9px] font-mono text-brand-red uppercase tracking-widest mt-1"
+                                    >
+                                        TibCERT Response Manager
+                                    </p>
+                                </div>
+                                <div
+                                    class="border-l-2 border-brand-red/40 pl-4"
+                                >
+                                    <h4
+                                        class="font-black text-sm uppercase text-brand-text"
+                                    >
+                                        Gemphel Norsang
+                                    </h4>
+                                    <p
+                                        class="text-[9px] font-mono text-brand-red uppercase tracking-widest mt-1"
+                                    >
+                                        TibCERT Response Coordinator
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- References -->
+            <div class="border-t border-brand-text/5 pt-12 reveal">
+                <span
+                    class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-[0.2em] mb-6 block"
+                    >REFERENCES & ACKNOWLEDGEMENTS</span
+                >
+                <div class="flex flex-wrap gap-x-8 gap-y-4">
+                    {
+                        references.map((ref) => (
+                            <a
+                                href={ref.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-mono text-[10px] text-brand-muted hover:text-brand-red transition-colors flex items-center gap-2 group"
+                            >
+                                <span>[ {ref.name} ]</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    class="opacity-40 group-hover:opacity-100 transition-opacity"
+                                >
+                                    <>
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </>
+                                </svg>
+                            </a>
+                        ))
+                    }
+                </div>
+
+                <div class="mt-8 text-[9px] font-mono text-brand-muted/30">
+                    * Note: This Code of Conduct may be subject to change in
+                    accordance with situations.
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
