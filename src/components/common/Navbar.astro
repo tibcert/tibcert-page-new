@@ -12,8 +12,9 @@ const navItems = [
         //     { name: "Services", href: "/paid-services" },
         // ],
     },
-    { name: "About", href: "/about" },
     { name: "Collaboration", href: "/collaboration" },
+    { name: "About", href: "/about" },
+    
     { name: "Contact", href: "/contact" },
 ];
 
@@ -122,16 +123,16 @@ import ThemeToggle from "./ThemeToggle.astro";
         </ul>
 
         <!-- Actions -->
-        <div class="hidden md:flex items-center gap-6">
+        <div class="hidden md:flex items-center gap-6 text-2xl">
             <ThemeToggle />
             <a
                 href="/contact"
-                class="bg-brand-red hover:bg-[#d13d25] text-white font-mono text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm transition-all shadow-lg shadow-brand-red/10 flex items-center gap-2"
+                class="bg-brand-red hover:bg-[#d13d25] text-white  font-mono text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm transition-all shadow-lg shadow-brand-red/10 flex items-center gap-2"
             >
                 <span
                     class="w-1.5 h-1.5 rounded-full bg-brand-text animate-pulse"
                 ></span>
-                [ REPORT_INCIDENT ]
+                Donate
             </a>
         </div>
 

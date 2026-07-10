@@ -6,7 +6,7 @@ import Logo from "./Logo.astro";
 <footer class="bg-brand-void border-t border-brand-text/5 py-16 mt-auto">
     <div class="container mx-auto px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Brand & Trust -->
                 <div class="col-span-1 md:col-span-1">
                     <a href="/" class="block mb-4" aria-label="TIBCERT">
@@ -117,10 +117,9 @@ import Logo from "./Logo.astro";
                         </a>
                     </div>
                 </div>
-                <!-- Column 1 -->
-                <div></div>
-                <!-- Column 2 -->
-                <div>
+                <div class="md:col-span-2 flex flex-col md:flex-row md:justify-end md:items-start gap-6 md:gap-8">
+                    <!-- Column 2 -->
+                    <div>
                     <!-- <h3
                         class="text-brand-text font-mono text-[10px] uppercase tracking-[0.3em] mb-6 flex items-center gap-2"
                     >
@@ -131,22 +130,18 @@ import Logo from "./Logo.astro";
                         <li>
                             <a
                                 href="/contact"
-                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                                class="relative hover:text-brand-red transition-colors group cursor-pointer pb-1"
                             >
-                                <span
-                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                                ></span>
+                                <span class="absolute left-0 bottom-0 h-px w-0 bg-brand-red transition-all group-hover:w-full"></span>
                                 Contact Us
                             </a>
                         </li>
                         <li>
                             <a
                                 href="/contact#pgp"
-                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                                class="relative hover:text-brand-red transition-colors group cursor-pointer pb-1"
                             >
-                                <span
-                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                                ></span>
+                                <span class="absolute left-0 bottom-0 h-px w-0 bg-brand-red transition-all group-hover:w-full"></span>
                                 PGP Key
                             </a>
                         </li>
@@ -164,23 +159,28 @@ import Logo from "./Logo.astro";
                         <li>
                             <a
                                 href="/code-of-conduct"
-                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                                class="relative hover:text-brand-red transition-colors group cursor-pointer pb-1"
                             >
-                                <span
-                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                                ></span>
+                                <span class="absolute left-0 bottom-0 h-px w-0 bg-brand-red transition-all group-hover:w-full"></span>
                                 Code of Conduct
                             </a>
                         </li>
                         <li>
                             <a
                                 href="/RFC2350.pdf"
-                                class="hover:text-brand-red transition-colors flex items-center gap-2 group cursor-pointer"
+                                class="relative hover:text-brand-red transition-colors group cursor-pointer pb-1"
                             >
-                                <span
-                                    class="w-0 group-hover:w-2 h-px bg-brand-red transition-all"
-                                ></span>
+                                <span class="absolute left-0 bottom-0 h-px w-0 bg-brand-red transition-all group-hover:w-full"></span>
                                 TIBCERT RFC-2350
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/contact"
+                                class="bg-brand-red hover:bg-[#d13d25] text-white font-mono text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 rounded-sm transition-all shadow-lg shadow-brand-red/10 flex items-center gap-2"
+                            >
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-text animate-pulse"></span>
+                                Donate
                             </a>
                         </li>
                     </ul>
