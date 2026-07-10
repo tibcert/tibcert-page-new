@@ -18,7 +18,6 @@ This is the official website for **TIBCERT**, a digital security initiative dedi
 
 ---
 
-![screenshot](public/screenshot.png)
 
 ## 📖 Project Documentation
 
