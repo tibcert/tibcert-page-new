@@ -63,16 +63,22 @@ const {
         >
             {title}
         </h2>
+        
         <p
             class:list={[
-                "max-w-2xl mx-auto mb-10 text-base md:text-md font-light leading-relaxed text-center",
+                "max-w-2xl mx-auto  text-base md:text-md font-light leading-relaxed text-center",
                 inverted ? "text-brand-text/90" : "text-brand-muted",
             ]}
         >
             {description}
+            
         </p>
+        <div class="w-full flex justify-center">
+				<hr class="w-1/5 border-2 my-4">
+			</div>
+
         <div
-            class="flex flex-col sm:flex-row items-center justify-center gap-6"
+            class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-4"
         >
             <a
                 href={primaryAction.href}

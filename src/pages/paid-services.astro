@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import SectionDivider from "../components/common/SectionDivider.astro";
 import SectionHeader from "../components/common/SectionHeader.astro";
-import SecuredByTibcertBanner from "../components/landing/SecuredByTibcertBanner.astro";
+
 
 const trainings = [
     {
@@ -190,9 +190,9 @@ const coreServices = [
                                                 <span class="font-mono text-[9px] text-brand-red bg-brand-red/5 border border-brand-red/20 px-2.5 py-0.5 tracking-wider uppercase font-semibold">
                                                     {training.duration}
                                                 </span>
-                                                <span class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-widest">
+                                                {/* <span class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-widest">
                                                     [ TRAINING ]
-                                                </span>
+                                                </span> */}
                                             </div>
 
                                             <!-- Card Header -->
@@ -287,7 +287,7 @@ const coreServices = [
                 </div>
 
         </div>
-        <SecuredByTibcertBanner/>
+        
     </main>
 </Layout>
 
