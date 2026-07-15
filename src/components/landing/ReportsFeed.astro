@@ -157,7 +157,7 @@ if (reports.length < 4) {
                     </h3>
                     <SectionDivider class="text-brand-red w-48 mb-4" />
                     <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
-                       TibCERT reports have significantly strengthened Tibetan digital security by exposing targeted campaigns targeting the community. These evidence-based insights empower our community to make informed digital security decisions.
+                        The TibCERT blog provides insight and information to our community on emerging cybersecurity news and threats, while showcasing our latest research and reports on digital transnational repression targeting the communities we serve.
                     </p>
                 </div>
                 <a href="https://blog.tibcert.org" target="_blank" rel="noopener noreferrer" class="text-brand-red font-black text-sm tracking-widest uppercase flex items-center gap-2 group hover:gap-4 transition-all pb-2 border-b-2 border-brand-red/10 hover:border-brand-red cursor-pointer">
@@ -197,11 +197,11 @@ if (reports.length < 4) {
                             <!-- Content Section -->
                             <div class="p-6 flex-grow flex flex-col justify-center relative">
                                 <div class="flex items-center gap-4 mb-4">
-                                    <span class="font-mono text-[9px] text-brand-red tracking-[0.3em] font-bold">
+                                    <span class="font-mono text-xs text-brand-red tracking-[0.3em] font-bold">
                                         REPORT_{String(index + 1).padStart(2, '0')}
                                     </span>
                                     <div class="h-px w-8 bg-brand-text/10"></div>
-                                    <time class="font-mono text-[9px] text-brand-muted/60 uppercase tracking-widest">
+                                    <time class="font-mono text-xs text-brand-muted/60 uppercase tracking-widest">
                                         {report.date}
                                     </time>
                                 </div>
@@ -214,12 +214,7 @@ if (reports.length < 4) {
                                     {report.blurb}
                                 </p>
                                 
-                                <div class="mt-auto flex items-center gap-4">
-                                    <span class="font-mono text-[10px] text-brand-red group-hover:translate-x-1 transition-transform">
-                                        [ ACCESS_DATA ]
-                                    </span>
-                                    <div class="h-px flex-grow bg-brand-text/5 group-hover:bg-brand-red/20 transition-colors"></div>
-                                </div>
+                               
                             </div>
                         </article>
                     </a>
