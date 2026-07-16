@@ -61,7 +61,7 @@ const networks = [
                 <div slot="right" class="space-y-6">
                     {
                         pillars.map((m) => (
-                            <div class="flex items-start gap-4 p-5 bg-brand-void/30 border border-brand-text/5 hover:border-brand-red/20 transition-all rounded-sm">
+                            <div class="flex items-start gap-4    transition-all rounded-sm">
                                 <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center text-brand-red">
                                     <span
                                         aria-hidden="true"
@@ -70,7 +70,7 @@ const networks = [
                                 </div>
                                 <div class="min-w-0">
                                     <h4 class="text-sm font-bold text-brand-text mb-1 uppercase tracking-tight font-mono">
-                                        [{m.id}] {m.title}
+                                        {m.title}
                                     </h4>
                                     <p class="text-sm leading-relaxed font-light text-brand-muted">
                                         {m.desc}
@@ -86,7 +86,7 @@ const networks = [
             <div class="reveal mt-16 pt-16 border-t border-brand-surface">
                 <div class="mb-12">
                     <SectionHeader
-                        eyebrow="PART_02 // COALITION_STRUCTURE"
+                        eyebrow=""
                         title="Our Partner"
                         titleAccent="Networks"
                         description="TibCERT works as an active node within the global digital security and human rights ecosystem."
@@ -101,10 +101,6 @@ const networks = [
                                 <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors" />
 
                                 <div>
-                                    <span class="font-mono text-[9px] text-brand-red tracking-[0.3em] font-bold block mb-4 uppercase opacity-60">
-                                        COLLAB_NODE_
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
                                     <h3 class="text-xl font-black text-brand-text leading-tight mb-2 uppercase tracking-tight italic">
                                         {net.name}
                                     </h3>
