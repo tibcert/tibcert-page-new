@@ -22,7 +22,7 @@
     <div class="mx-auto px-4 max-w-6xl relative z-10">
         <div class="text-center">
             <!-- Combined CTA container with decorative brackets -->
-            <div class="relative max-w-7xl mx-auto py-8 px-6 md:px-8">
+            <div class="relative max-w-7xl mx-auto px-6 md:px-8">
                 <!-- Decorative Brackets -->
                 <div
                     class="absolute top-0 left-0 w-6 h-6 border-t border-l border-white/20"
@@ -33,7 +33,11 @@
                 >
                 </div>
                 <!-- Icon -->
-                <div class="inline-block mb-6" id="secured-badge-container" style="perspective: 1000px; transform-style: preserve-3d;">
+                <div
+                    class="inline-block mb-6"
+                    id="secured-badge-container"
+                    style="perspective: 1000px; transform-style: preserve-3d;"
+                >
                     <img
                         src="/images/secured-by-tibcert.png"
                         alt="Secured by TibCert"
@@ -78,7 +82,7 @@
 </section>
 
 <script>
-    import { gsap } from 'gsap';
+    import { gsap } from "gsap";
 
     let mouseMoveHandler: ((e: MouseEvent) => void) | null = null;
     let mouseLeaveHandler: (() => void) | null = null;
@@ -86,16 +90,21 @@
     function setupTilt() {
         // Clean up previous listeners to prevent memory leaks in view transitions
         if (mouseMoveHandler && mouseLeaveHandler) {
-            const prevSection = document.getElementById('secured-by-tibcert-section');
+            const prevSection = document.getElementById(
+                "secured-by-tibcert-section",
+            );
             if (prevSection) {
-                prevSection.removeEventListener('mousemove', mouseMoveHandler);
-                prevSection.removeEventListener('mouseleave', mouseLeaveHandler);
+                prevSection.removeEventListener("mousemove", mouseMoveHandler);
+                prevSection.removeEventListener(
+                    "mouseleave",
+                    mouseLeaveHandler,
+                );
             }
         }
 
-        const section = document.getElementById('secured-by-tibcert-section');
-        const badge = document.getElementById('secured-badge');
-        const container = document.getElementById('secured-badge-container');
+        const section = document.getElementById("secured-by-tibcert-section");
+        const badge = document.getElementById("secured-badge");
+        const container = document.getElementById("secured-badge-container");
 
         if (!section || !badge || !container) return;
 
@@ -105,7 +114,7 @@
             transformStyle: "preserve-3d",
             rotateX: 0,
             rotateY: 0,
-            filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.35))"
+            filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.35))",
         });
 
         // Track mouse movement inside the banner section
@@ -139,9 +148,9 @@
                 rotateX: rotateX,
                 rotateY: rotateY,
                 filter: `drop-shadow(${shadowX}px ${shadowY + 12}px 25px rgba(0, 0, 0, 0.45))`,
-                ease: 'power2.out',
+                ease: "power2.out",
                 duration: 0.5,
-                overwrite: 'auto'
+                overwrite: "auto",
             });
         };
 
@@ -151,14 +160,14 @@
                 rotateX: 0,
                 rotateY: 0,
                 filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.35))",
-                ease: 'power3.out',
+                ease: "power3.out",
                 duration: 0.8,
-                overwrite: 'auto'
+                overwrite: "auto",
             });
         };
 
-        section.addEventListener('mousemove', mouseMoveHandler);
-        section.addEventListener('mouseleave', mouseLeaveHandler);
+        section.addEventListener("mousemove", mouseMoveHandler);
+        section.addEventListener("mouseleave", mouseLeaveHandler);
     }
 
     // Support Astro View Transitions page load
