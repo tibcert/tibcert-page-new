@@ -3,6 +3,7 @@
 ---
 
 <section
+    id="secured-by-tibcert-section"
     class="py-20 border-y border-brand-text/5 relative overflow-hidden bg-brand-red reveal filter-overlay"
 >
     <!-- Background image watermark -->
@@ -32,11 +33,13 @@
                 >
                 </div>
                 <!-- Icon -->
-                <div class="inline-block mb-6">
+                <div class="inline-block mb-6" id="secured-badge-container" style="perspective: 1000px; transform-style: preserve-3d;">
                     <img
                         src="/images/secured-by-tibcert.png"
                         alt="Secured by TibCert"
                         class="w-60 mx-auto"
+                        id="secured-badge"
+                        style="transform-style: preserve-3d; will-change: transform, filter;"
                     />
                 </div>
 
@@ -73,3 +76,93 @@
         </div>
     </div>
 </section>
+
+<script>
+    import { gsap } from 'gsap';
+
+    let mouseMoveHandler: ((e: MouseEvent) => void) | null = null;
+    let mouseLeaveHandler: (() => void) | null = null;
+
+    function setupTilt() {
+        // Clean up previous listeners to prevent memory leaks in view transitions
+        if (mouseMoveHandler && mouseLeaveHandler) {
+            const prevSection = document.getElementById('secured-by-tibcert-section');
+            if (prevSection) {
+                prevSection.removeEventListener('mousemove', mouseMoveHandler);
+                prevSection.removeEventListener('mouseleave', mouseLeaveHandler);
+            }
+        }
+
+        const section = document.getElementById('secured-by-tibcert-section');
+        const badge = document.getElementById('secured-badge');
+        const container = document.getElementById('secured-badge-container');
+
+        if (!section || !badge || !container) return;
+
+        // Set initial transform properties via GSAP to ensure clean starting state
+        gsap.set(badge, {
+            transformPerspective: 1000,
+            transformStyle: "preserve-3d",
+            rotateX: 0,
+            rotateY: 0,
+            filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.35))"
+        });
+
+        // Track mouse movement inside the banner section
+        mouseMoveHandler = (e: MouseEvent) => {
+            const rect = badge.getBoundingClientRect();
+            const badgeCenterX = rect.left + rect.width / 2;
+            const badgeCenterY = rect.top + rect.height / 2;
+
+            // Calculate distance from cursor to badge center
+            const rawDeltaX = e.clientX - badgeCenterX;
+            const rawDeltaY = e.clientY - badgeCenterY;
+
+            // Define max distance for scaling effect (in pixels)
+            const maxDistance = 450;
+
+            // Clamp distance and normalize to [-1, 1]
+            const normX = Math.max(-1, Math.min(1, rawDeltaX / maxDistance));
+            const normY = Math.max(-1, Math.min(1, rawDeltaY / maxDistance));
+
+            // Calculate rotations and shadow offsets
+            const maxTilt = 22; // Maximum tilt angle in degrees
+            const maxShadowOffset = 18; // Maximum shadow offset in pixels
+
+            const rotateX = -normY * maxTilt;
+            const rotateY = normX * maxTilt;
+            const shadowX = -normX * maxShadowOffset;
+            const shadowY = -normY * maxShadowOffset;
+
+            // Animate badge tilt and shadow movement
+            gsap.to(badge, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                filter: `drop-shadow(${shadowX}px ${shadowY + 12}px 25px rgba(0, 0, 0, 0.45))`,
+                ease: 'power2.out',
+                duration: 0.5,
+                overwrite: 'auto'
+            });
+        };
+
+        mouseLeaveHandler = () => {
+            // Animate back to original flat state
+            gsap.to(badge, {
+                rotateX: 0,
+                rotateY: 0,
+                filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.35))",
+                ease: 'power3.out',
+                duration: 0.8,
+                overwrite: 'auto'
+            });
+        };
+
+        section.addEventListener('mousemove', mouseMoveHandler);
+        section.addEventListener('mouseleave', mouseLeaveHandler);
+    }
+
+    // Support Astro View Transitions page load
+    document.addEventListener("astro:page-load", setupTilt);
+    // Initial run
+    setupTilt();
+</script>
