@@ -1,21 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --color-brand-void: #fdf0dd;
-  /* Slate 100 */
-  --color-brand-surface: #e2e8f0;
-  /* Slate 200 */
-  --color-brand-text: #020617;
-  /* Slate 950 */
-  --color-brand-muted: #475569;
-  /* Slate 600 */
-  --color-brand-red: #ef482c;
-  --color-brand-amber: #d97706;
-  --color-brand-maroon: #7a1b1b;
-  --color-brand-logo: #464444;
-}
-
-.dark {
   --color-brand-void: #12161a;
   /* Updated to requested deep navy for higher contrast */
   --color-brand-surface: #0f172a;
@@ -24,8 +9,12 @@
   /* Slate 50 */
   --color-brand-muted: #94a3b8;
   /* Slate 400 */
+  --color-brand-red: #ef482c;
+  --color-brand-amber: #d97706;
+  --color-brand-maroon: #7a1b1b;
   --color-brand-logo: var(--color-brand-text);
 }
+
 
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -101,19 +90,14 @@
     right: -6rem;
     width: min(32rem, 70vw);
     aspect-ratio: 580 / 476;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 580 476' preserveAspectRatio='xMidYMid meet'%3E%3Cstyle%3E.base %7B opacity: 0.25; stroke: %23BF9545; %7D.trace-f %7B stroke: %23BF9545; stroke-width: 0.24; stroke-linecap: round; stroke-dasharray: 1.2 14; animation: f 24s linear infinite, p 4s ease-in-out infinite alternate; %7D.trace-b %7B stroke: %23BF9545; stroke-width: 0.2; stroke-linecap: round; stroke-dasharray: 0.8 18; animation: b 30s linear infinite, p 6s ease-in-out infinite alternate-reverse; %7D@keyframes f %7B from %7B stroke-dashoffset: 120; %7D to %7B stroke-dashoffset: 0; %7D %7D@keyframes b %7B from %7B stroke-dashoffset: 0; %7D to %7B stroke-dashoffset: 150; %7D %7D@keyframes p %7B 0%25 %7B opacity: 0.25; %7D 100%25 %7B opacity: 0.95; %7D %7D%3C/style%3E%3Cpath class='base' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' stroke-width='.1768' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3Cpath class='trace-f' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3Cpath class='trace-b' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 580 476' preserveAspectRatio='xMidYMid meet'%3E%3Cstyle%3E.base %7B opacity: 0.25; stroke: %23EF482C; %7D.trace-f %7B stroke: %23EF482C; stroke-width: 0.24; stroke-linecap: round; stroke-dasharray: 1.2 14; animation: f 24s linear infinite, p 4s ease-in-out infinite alternate; %7D.trace-b %7B stroke: %23EF482C; stroke-width: 0.2; stroke-linecap: round; stroke-dasharray: 0.8 18; animation: b 30s linear infinite, p 6s ease-in-out infinite alternate-reverse; %7D@keyframes f %7B from %7B stroke-dashoffset: 120; %7D to %7B stroke-dashoffset: 0; %7D %7D@keyframes b %7B from %7B stroke-dashoffset: 0; %7D to %7B stroke-dashoffset: 150; %7D %7D@keyframes p %7B 0%25 %7B opacity: 0.25; %7D 100%25 %7B opacity: 0.95; %7D %7D%3C/style%3E%3Cpath class='base' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' stroke-width='.1768' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3Cpath class='trace-f' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3Cpath class='trace-b' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.08;
+    opacity: 0.14;
     pointer-events: none;
     z-index: 0;
     filter: saturate(0.2);
-  }
-
-  .dark main > section:not(:first-of-type)::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 580 476' preserveAspectRatio='xMidYMid meet'%3E%3Cstyle%3E.base %7B opacity: 0.25; stroke: %23EF482C; %7D.trace-f %7B stroke: %23EF482C; stroke-width: 0.24; stroke-linecap: round; stroke-dasharray: 1.2 14; animation: f 24s linear infinite, p 4s ease-in-out infinite alternate; %7D.trace-b %7B stroke: %23EF482C; stroke-width: 0.2; stroke-linecap: round; stroke-dasharray: 0.8 18; animation: b 30s linear infinite, p 6s ease-in-out infinite alternate-reverse; %7D@keyframes f %7B from %7B stroke-dashoffset: 120; %7D to %7B stroke-dashoffset: 0; %7D %7D@keyframes b %7B from %7B stroke-dashoffset: 0; %7D to %7B stroke-dashoffset: 150; %7D %7D@keyframes p %7B 0%25 %7B opacity: 0.25; %7D 100%25 %7B opacity: 0.95; %7D %7D%3C/style%3E%3Cpath class='base' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' stroke-width='.1768' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3Cpath class='trace-f' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3Cpath class='trace-b' d='M-.5.5h-4v-3h2v1h-1v1h3Zm-2 0v3h-1v-1h1v-1h-2v3h3V.5Zm1-2v-1h3v1Zm-1 1v-4h3v2h-1v-1h-1v3Zm5 0v-3h1v1h-1v1h2v-3h-3v4ZM.5.5h3v1h-1v1h2v-3H.5Zm1 0v3H.5v-1h-1v2h3V.5Zm-2-2h1v3h-1Zm-1 4v-1h3v1Z' fill='none' transform='translate(240,188) rotate(90) scale(46.9)' /%3E%3C/svg%3E");
-    opacity: 0.14;
   }
 
   main > section:not(:first-of-type) > * {

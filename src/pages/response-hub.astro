@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import PageHeader from "../components/common/PageHeader.astro";
 
 const hubs = [
     { id: "dharamshala", name: "Dharamshala" },
@@ -118,23 +119,14 @@ const projects = [
     description="A volunteer based community platform under TibCERT."
 >
     <main class="pt-32 pb-24 relative overflow-hidden">
-        <!-- Premium Radial Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
+        <div class="container mx-auto px-4">
             <!-- Header Section -->
-            <div class="max-w-4xl mb-24 reveal relative">
-                <!-- Technical Brackets -->
-                <div class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20 uppercase opacity-60"></div>
-                
-                <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60">HUB_CORE_INDEX // RESPONSE_NETWORK</span>
-                <h1 class="text-5xl md:text-8xl font-black mb-8 text-brand-text leading-none uppercase tracking-tighter italic">
-                    Response <span class="text-brand-red">Hub</span>
-                </h1>
-                <p class="text-brand-muted text-lg font-light leading-relaxed max-w-2xl">
-                    Our decentralized network of trained responders and community hubs providing localized digital security support.
-                </p>
-            </div>
+            <PageHeader
+                eyebrow="HUB_CORE_INDEX // RESPONSE_NETWORK"
+                title="Response"
+                titleAccent="Hub"
+                description="Our decentralized network of trained responders and community hubs providing localized digital security support."
+            />
 
     <!-- Intro Sections -->
     <section class="py-16 relative overflow-visible">

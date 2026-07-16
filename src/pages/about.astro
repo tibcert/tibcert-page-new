@@ -1,238 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import Membership from "../components/landing/Membership.astro";
+import Team from "../components/landing/Team.astro";
 import TLPSection from "../components/landing/TLPSection.astro";
-import SectionHeader from "../components/common/SectionHeader.astro";
-import SectionDivider from "../components/common/SectionDivider.astro";
+import PageHeader from "../components/common/PageHeader.astro";
 ---
 
 <Layout title="About TibCERT">
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
-         <!-- Premium Radial Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"></div>
-        <!-- Main Content Section: Two Columns -->
-         
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.1),transparent_70%)] pointer-events-none"></div>
-            <div class="container mx-auto px-4 relative z-10 pb-20">
-                    <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
-                    <!-- Left: About Text -->
-                    <div class="reveal relative max-w-4xl">
-                        <div class="absolute -top-12 -left-12 w-16 h-16 border-t border-l border-brand-red/20"></div>
-                        <span class="font-mono text-[10px] text-brand-red tracking-[0.4em] mb-4 block uppercase opacity-60"></span>
-                        <h1 class="text-5xl md:text-8xl font-black mb-6 text-brand-text leading-none uppercase tracking-tighter italic">
-                            About <span class="text-brand-red"></span>
-                        </h1>
-                         <SectionDivider class="text-brand-red w-48 mb-8" />
-                        <p class="text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl">
-                          The Tibetan Computer Emergency Readiness Team (TibCERT) is a coalition-based structure for reducing and mitigating online threats in the Tibetan community, as well expanding Tibetans’ technical research capacity on threats in the diaspora and surveillance and censorship inside Tibet, ultimately ensuring greater online freedom and security for Tibetan society as a whole.
-                        </p>
-                    </div>
-
-                    <!-- Right: Mission Points (List Style) -->
-                    <div class="reveal space-y-4" style="animation-delay: 0.2s;">
-                        {
-                            [
-                                {
-                                    id: "COLLAB_01",
-                                    title: "Long-term Collaboration",
-                                    desc: "Create and sustain a platform for long term collaboration between stakeholders in the Tibetan community on digital security issues and needs.",
-                                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2Zm-6 0a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2Zm6-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg>`,
-                                },
-                                {
-                                    id: "NETWORK_02",
-                                    title: "Global Network",
-                                    desc: "Deepen connections and develop a formal process for collaboration between Tibetans and global malware and cybersecurity researchers to ensure mutually beneficial sharing.",
-                                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.5-2.4 4-5.2 4-8.5A8.9 8.9 0 0 0 12 3a8.9 8.9 0 0 0-4 9.5c0 3.3 1.5 6.1 4 8.5Zm0 0V3" /></svg>`,
-                                },
-                                {
-                                    id: "RESOURCES_03",
-                                    title: "Resource Mobilization",
-                                    desc: "Increase the resources available to Tibetans to defend against and mitigate online attacks by regularly publicizing information and recommendations on threats facing the community.",
-                                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M7 15v4m5-6v10m5-8v8" /></svg>`,
-                                },
-                                {
-                                    id: "FREEDOM_04",
-                                    title: "Censorship Circumvention",
-                                    desc: "Help Tibetans in Tibet circumvent censorship and surveillance by providing regular, detailed information and analysis, as well as potential solutions.",
-                                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.2-2.6 7.8-7 10-4.4-2.2-7-5.8-7-10V6l7-3Zm0 5v5" /></svg>`,
-                                },
-                            ].map((m) => (
-                                <div class="flex items-start gap-4">
-                                    <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-brand-red">
-                                        <span aria-hidden="true" set:html={m.icon}></span>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <h4 class="text-sm font-bold text-brand-text mb-1 uppercase tracking-tight">
-                                            {m.title}
-                                        </h4>
-                                        <p class="text-sm leading-relaxed font-light text-brand-muted">
-                                            {m.desc}
-                                        </p>
-                                    </div>
+        <div class="container mx-auto px-4 pb-12">
+            <PageHeader
+                eyebrow=""
+                title="ABOUT"
+                titleAccent=""
+                description="The Tibetan Computer Emergency Readiness Team (TibCERT) is a coalition-based structure for reducing and mitigating online threats in the Tibetan community, as well expanding Tibetans’ technical research capacity on threats in the diaspora and surveillance and censorship inside Tibet, ultimately ensuring greater online freedom and security for Tibetan society as a whole."
+            >
+                <!-- Right: Mission Points (List Style) -->
+                <div slot="right" class="space-y-6">
+                    {
+                        [
+                            {
+                                id: "COLLAB_01",
+                                title: "Long-term Collaboration",
+                                desc: "Create and sustain a platform for long term collaboration between stakeholders in the Tibetan community on digital security issues and needs.",
+                                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2Zm-6 0a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3h2Zm6-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg>`,
+                            },
+                            {
+                                id: "NETWORK_02",
+                                title: "Global Network",
+                                desc: "Deepen connections and develop a formal process for collaboration between Tibetans and global malware and cybersecurity researchers to ensure mutually beneficial sharing.",
+                                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.5-2.4 4-5.2 4-8.5A8.9 8.9 0 0 0 12 3a8.9 8.9 0 0 0-4 9.5c0 3.3 1.5 6.1 4 8.5Zm0 0V3" /></svg>`,
+                            },
+                            {
+                                id: "RESOURCES_03",
+                                title: "Resource Mobilization",
+                                desc: "Increase the resources available to Tibetans to defend against and mitigate online attacks by regularly publicizing information and recommendations on threats facing the community.",
+                                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M7 15v4m5-6v10m5-8v8" /></svg>`,
+                            },
+                            {
+                                id: "FREEDOM_04",
+                                title: "Censorship Circumvention",
+                                desc: "Help Tibetans in Tibet circumvent censorship and surveillance by providing regular, detailed information and analysis, as well as potential solutions.",
+                                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.2-2.6 7.8-7 10-4.4-2.2-7-5.8-7-10V6l7-3Zm0 5v5" /></svg>`,
+                            },
+                        ].map((m) => (
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-brand-red">
+                                    <span
+                                        aria-hidden="true"
+                                        set:html={m.icon}
+                                    />
                                 </div>
-                            ))
-                        }
-                    </div>
-            </div>
-     
-
-        <!-- Team Section with Marquee -->
-        <section class="py-20 bg-brand-text/[0.01] relative overflow-hidden">
-            <div class="container mx-auto px-4 relative z-10">
-                    <div class="mb-10 reveal">
-                        <SectionHeader
-                            eyebrow=""
-                            title="Our"
-                            titleAccent="Team"
-                            description="Our team combines technical expertise and strategic leadership to advance digital resilience for the Tibetan community and beyond"
-                        />
-                    </div>
-
-            <!-- Marquee Container -->
-            <div class="w-full px-4">
-                <div
-                    class="relative flex overflow-hidden group [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]"
-                >
-                    <!-- Marquee Content (Repeated for Seamless Looping) -->
-                    <div
-                        class="flex animate-marquee space-x-8 px-4"
-                    >
-                        {
-                            [1, 2].map(() => (
-                                <>
-                                    {[
-                                        {
-                                            name: "Lobsang Gyatso Sither",
-                                            role: "Director of Technology",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/lobsang-gyatso.png",
-                                            pos: "object-left",
-                                        },
-                                        {
-                                            name: "Tenzin Thayai",
-                                            role: "TibCERT Secretary",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/tenzin-thayai.png",
-                                            pos: "object-right",
-                                        },
-                                        {
-                                            name: "Dawa Paljor",
-                                            role: "Senior Sys-Admin",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/dawa-paljor.png",
-                                        },
-                                        {
-                                            name: "Gemphel Norsang",
-                                            role: "TibCERT Response Manager",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/gemphel.png",
-                                        },
-                                        {
-                                            name: "Tenzin Gyal",
-                                            role: "Incident Response Coordinator",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/gyal.png",
-                                        },
-                                        {
-                                            name: "Tenzin Yegag",
-                                            role: "Web Administrator",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/yega.png",
-                                        },
-                                        {
-                                            name: "Ngawang Tashi",
-                                            role: "Digital Security Ambassador",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/ntash.png",
-                                        },
-                                        {
-                                            name: "Tenzin Tsering",
-                                            role: "Digital Security Ambassador",
-                                            color: "bg-[#ef482c]",
-                                            img: "/images/team/ttsering.png",
-                                        },
-                                    ].map((member, index) => (
-                                        <div class="flex-none w-56 group/card pt-16 relative">
-                                            <!-- Technical ID Tag -->
-                                            <div class="absolute top-12 left-1/2 -translate-x-1/2 font-mono text-[8px] text-brand-red tracking-[0.3em] opacity-40 group-hover/card:opacity-100 transition-opacity">
-                                               
-                                            </div>
-
-                                            <div class="relative w-40 h-40 mx-auto">
-                                                <!-- Container for Portrait (Sharp/Technical) -->
-                                                <div
-                                                    class={`absolute inset-0 ${member.color} overflow-hidden transition-all duration-500 group-hover/card:scale-105  border border-brand-text/10 group-hover:border-brand-red/40`}
-                                                    style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);"
-                                                >
-                                                    <Image
-                                                        src={member.img}
-                                                        alt={member.name}
-                                                        width={160}
-                                                        height={160}
-                                                        class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain transition-all duration-700 ${member.pos || ""}`}
-                                                        style="transform-origin: bottom center;"
-                                                    />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="mt-6 text-center">
-                                                <h3 class="text-sm font-black text-brand-red mb-1 group-hover/card:text-brand-red transition-colors uppercase tracking-tight">
-                                                    {member.name}
-                                                </h3>
-                                                <p class="text-[9px] text-brand-muted font-mono uppercase tracking-[0.2em] opacity-60">
-                                                    {member.role}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </>
-                            ))
-                        }
-                    </div>
+                                <div class="min-w-0">
+                                    <h4 class="text-sm font-bold text-brand-text mb-1 uppercase tracking-tight">
+                                        {m.title}
+                                    </h4>
+                                    <p class="text-sm leading-relaxed font-light text-brand-muted">
+                                        {m.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
-                    </div>
-            </div>
-        </section>
-
-        <Membership/>
-        <TLPSection/>
+            </PageHeader>
+        </div>
+        <!-- Main Content Section: Two Columns -->
     </main>
 
-    <style>
-        .reveal {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-        }
-
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-            display: flex;
-            width: max-content;
-        }
-
-        .group:hover .animate-marquee {
-            animation-play-state: paused;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <Team />
+    <TLPSection />
 </Layout>

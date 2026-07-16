@@ -16,7 +16,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
@@ -31,18 +31,6 @@ const {
             rel="stylesheet"
         />
         <title>{title} | TIBCERT</title>
-        <!-- Inline script to detect theme and prevent flashing -->
-        <script is:inline>
-            if (
-                localStorage.getItem("color-theme") === "dark" ||
-                (!("color-theme" in localStorage) &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-        </script>
     </head>
     <body class="bg-brand-void text-brand-text relative">
         <!-- Global Cyber Tech Overlays -->

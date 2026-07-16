@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/landing/HeroWithLogo.astro";
 import ComSercolAstroComponent from "../components/landing/com&Ser&col.astro";
 // import TrustLogos from "../components/landing/TrustLogos.astro";
-import CTABlock from "../components/landing/CTABlock.astro";
+
 import ReportsFeed from "../components/landing/ReportsFeed.astro";
 import SocialFeed from "../components/landing/SocialFeed.astro";
 import Testimonials from "../components/landing/Testimonials.astro";
 import ImpactBanner from "../components/landing/ImpactBanner.astro";
 import SecuredByTibcertBanner from "../components/landing/SecuredByTibcertBanner.astro";
+import Membership from "../components/landing/Membership.astro";
 ---
 
 <Layout title="Home">
@@ -17,15 +18,10 @@ import SecuredByTibcertBanner from "../components/landing/SecuredByTibcertBanner
 		<ComSercolAstroComponent />
 		<ReportsFeed />
 		<ImpactBanner />
-		<SocialFeed />
-		<SecuredByTibcertBanner/>
+		<!-- <SocialFeed /> -->
+		<Membership />
 		<Testimonials />
-		<CTABlock
-			title="Secure Your Organization"
-			description="Don't wait for an incident to happen. Contact TibCERT today for a security assessment."
-			primaryAction={{ label: "Contact Us", href: "/contact" }}
-			inverted={true}
-		/>
+		<SecuredByTibcertBanner />
 
 		<!-- <TrustLogos /> -->
 	</main>

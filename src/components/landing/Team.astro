@@ -1,0 +1,156 @@
+---
+import SectionHeader from "../common/SectionHeader.astro";
+---
+  <!-- Team Section with Marquee -->
+        <section class="py-20 bg-brand-text/[0.01] relative overflow-hidden">
+            <div class="container mx-auto px-4 relative z-10">
+                    <div class="mb-10 reveal">
+                        <SectionHeader
+                            eyebrow=""
+                            title="Our"
+                            titleAccent="Team"
+                            description="Our team combines technical expertise and strategic leadership to advance digital resilience for the Tibetan community and beyond"
+                        />
+                    </div>
+
+            <!-- Marquee Container -->
+            <div class="w-full px-4">
+                <div
+                    class="relative flex overflow-hidden group [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]"
+                >
+                    <!-- Marquee Content (Repeated for Seamless Looping) -->
+                    <div
+                        class="flex animate-marquee space-x-8 px-4"
+                    >
+                        {
+                            [1, 2].map(() => (
+                                <>
+                                    {[
+                                        {
+                                            name: "Lobsang Gyatso Sither",
+                                            role: "Director of Technology",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/lobsang-gyatso.png",
+                                            pos: "object-left",
+                                        },
+                                        {
+                                            name: "Tenzin Thayai",
+                                            role: "TibCERT Secretary",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/tenzin-thayai.png",
+                                            pos: "object-right",
+                                        },
+                                        {
+                                            name: "Dawa Paljor",
+                                            role: "Senior Sys-Admin",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/dawa-paljor.png",
+                                        },
+                                        {
+                                            name: "Gemphel Norsang",
+                                            role: "TibCERT Response Manager",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/gemphel.png",
+                                        },
+                                        {
+                                            name: "Tenzin Gyal",
+                                            role: "Incident Response Coordinator",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/gyal.png",
+                                        },
+                                        {
+                                            name: "Tenzin Yegag",
+                                            role: "Web Administrator",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/yega.png",
+                                        },
+                                        {
+                                            name: "Ngawang Tashi",
+                                            role: "Digital Security Ambassador",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/ntash.png",
+                                        },
+                                        {
+                                            name: "Tenzin Tsering",
+                                            role: "Digital Security Ambassador",
+                                            color: "bg-[#ef482c]",
+                                            img: "/images/team/ttsering.png",
+                                        },
+                                    ].map((member, index) => (
+                                        <div class="flex-none w-56 group/card pt-16 relative">
+                                            <!-- Technical ID Tag -->
+                                            <div class="absolute top-12 left-1/2 -translate-x-1/2 font-mono text-[8px] text-brand-red tracking-[0.3em] opacity-40 group-hover/card:opacity-100 transition-opacity">
+                                               
+                                            </div>
+
+                                            <div class="relative w-40 h-40 mx-auto">
+                                                <!-- Container for Portrait (Sharp/Technical) -->
+                                                <div
+                                                    class={`absolute inset-0 ${member.color} overflow-hidden transition-all duration-500 group-hover/card:scale-105  border border-brand-text/10 group-hover:border-brand-red/40`}
+                                                    style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);"
+                                                >
+                                                    <img
+                                                        src={member.img}
+                                                        alt={member.name}
+                                                        width={160}
+                                                        height={160}
+                                                        class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain transition-all duration-700 ${member.pos || ""}`}
+                                                        style="transform-origin: bottom center;"
+                                                    />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-6 text-center">
+                                                <h3 class="text-sm font-black text-brand-red mb-1 group-hover/card:text-brand-red transition-colors uppercase tracking-tight">
+                                                    {member.name}
+                                                </h3>
+                                                <p class="text-[9px] text-brand-muted font-mono uppercase tracking-[0.2em] opacity-60">
+                                                    {member.role}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+           <style>
+        .reveal {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+            display: flex;
+            width: max-content;
+        }
+
+        .group:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
