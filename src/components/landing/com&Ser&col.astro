@@ -6,6 +6,7 @@ const cards = [
 		description:
 			"Committed to safeguarding the digital space of the communities we serve through protection, awareness, and support needed to stay safe against evolving cyber threats.",
 		href: "/community",
+		icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-red/80 group-hover:text-brand-red transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>`,
 	},
 	{
 		label: "Services",
@@ -13,6 +14,7 @@ const cards = [
 		description:
 			"Rapid incident response, tailored security training, and capacity-building programs. Helping organizations move from reactive defense to proactive, sustainable security.",
 		href: "/paid-services",
+		icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-red/80 group-hover:text-brand-red transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>`,
 	},
 	{
 		label: "Collaboration",
@@ -20,6 +22,7 @@ const cards = [
 		description:
 			"Collaborating  with international cyber research organizations to investigate targeted attacks, advance threat intelligence and strengthen collective defense worldwide.",
 		href: "/collaboration",
+		icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-red/80 group-hover:text-brand-red transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>`,
 	},
 ];
 ---
@@ -33,36 +36,55 @@ const cards = [
 				What We Do
 			</h2>
 			<p
-				class="mt-4  text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-brand-text"
+				class="mt-4 text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-brand-text"
 			>
 				Explore how TibCERT supports the Tibetan community with secure
 				services, trusted community programs, and collaborative
 				partnerships.
 			</p>
 			<div class="w-full flex justify-center">
-				<hr class="w-1/5 border-2 mt-6">
+				<hr class="w-1/5 border-2 mt-6" />
 			</div>
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
 			{
 				cards.map((card) => (
-					<div class="group relative overflow-hidden bg-brand-surface hover:bg-brand-surface/80 border border-brand-text/5 hover:border-brand-surface/30 p-8 transition-all duration-500 flex flex-col justify-between">
+					<div class="group relative overflow-hidden bg-brand-surface hover:bg-brand-surface/80 border border-brand-text/5 hover:border-brand-red/35 p-8 transition-all duration-500 flex flex-col justify-between h-full">
+						{/* Technical Corner Accents */}
 						<div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors" />
+						<div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors" />
+						<div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors" />
+						<div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors" />
 						
-						<h3 class="text-2xl font-black uppercase tracking-tight mb-4 text-brand-red">
-							{card.title}
-						</h3>
-						<p class="text-brand-muted leading-relaxed mb-6">
-							{card.description}
-						</p>
-						{/* <a
-							href={card.href}
-							class="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-brand-red font-black hover:text-brand-text transition-colors"
-						>
-							Explore
-							<span>&rarr;</span>
-						</a> */}
+						{/* Hover Left Tech Line Accent */}
+						<div class="absolute left-0 top-0 w-[2px] h-0 bg-brand-red group-hover:h-full transition-all duration-500 pointer-events-none" />
+						
+						{/* Hover Tech Radial Glow Accent */}
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(239,72,44,0.08),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+						
+						<div class="relative z-10 flex flex-col justify-between h-full">
+							<div>
+								<div class="flex justify-between items-start mb-4">
+									<h3 class="text-2xl font-black uppercase tracking-tight text-brand-red">
+										{card.title}
+									</h3>
+									<Fragment set:html={card.icon} />
+								</div>
+								
+								<p class="text-brand-muted leading-relaxed font-light">
+									{card.description}
+								</p>
+							</div>
+							
+							{/* <a
+								href={card.href}
+								class="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-brand-red font-black hover:text-brand-text transition-colors mt-6"
+							>
+								Explore
+								<span>&rarr;</span>
+							</a> */}
+						</div>
 					</div>
 				))
 			}
