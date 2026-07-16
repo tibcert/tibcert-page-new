@@ -16,13 +16,12 @@ import ToolsAndResources from "../components/landing/ToolsAndResources.astro";
                 titleAccent=""
                 description="Tailored cybersecurity services, intensive training programs, and direct incident response capabilities that help Tibetan and Tibet Support organizations build digital resilience."
             />
+            <!-- Services Grid (Moved from home page) -->
+            <ServicesPreview
+                hideHeader={true}
+                class="pb-16 bg-brand-void relative overflow-hidden reveal"
+            />
         </div>
-
-        <!-- Services Grid (Moved from home page) -->
-        <ServicesPreview
-            hideHeader={true}
-            class="pb-16 bg-brand-void relative overflow-hidden reveal"
-        />
 
         <ToolsAndResources />
     </main>
