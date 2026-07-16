@@ -3,8 +3,15 @@
 ---
 
 <section
-    class="py-20 border-y border-brand-text/5 relative overflow-hidden bg-brand-red reveal"
+    class="py-20 border-y border-brand-text/5 relative overflow-hidden bg-brand-red reveal filter-overlay"
 >
+    <!-- Background image watermark -->
+    <div
+        class="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none"
+        style="background-image: url('/images/meetup1.jpg'); position: absolute !important; z-index: 0 !important; "
+    >
+    </div>
+
     <!-- Background glow -->
     <div
         class="absolute inset-0 from-brand-red/5 via-transparent to-transparent opacity-30 pointer-events-none"
