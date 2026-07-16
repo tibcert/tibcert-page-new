@@ -10,7 +10,7 @@ const groups = [
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
     },
     {
-        name: "Tibetan COMMUNITY",
+        name: "TIBETAN COMMUNITY",
         description:
             "",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
@@ -78,24 +78,28 @@ const tlpLevels = [
     </div>
 
     <div class="relative z-10">
-        <div class="max-w-7xl mx-auto">
+        <div class="">
             <!-- Header -->
-            <div class="mb-8">
-                <SectionHeader
-                    eyebrow="Communification Protocol // INFORMATION_SHARING"
-                    title="Traffic Light"
-                    titleAccent="Protocol (TLP)"
-                    description="This TLP defines how TibCERT facilitates greater sharing of information and is part of the TibCERT policy in terms of information sharing between our core stakeholders."
-                />
-                <button
-                    id="open-tlp-modal"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-void border border-brand-text/10 text-brand-text font-bold hover:bg-brand-red hover:border-brand-red transition-all duration-300 shadow-lg group cursor-pointer"
-                >
-                    <span
-                        class="w-2 h-2 rounded-full bg-brand-red group-hover:bg-white animate-pulse"
-                    ></span>
-                    TLP definition
-                </button>
+            <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="flex-grow max-w-4xl">
+                    <SectionHeader
+                        eyebrow="Communification Protocol // INFORMATION_SHARING"
+                        title="Traffic Light"
+                        titleAccent="Protocol (TLP)"
+                        description="This TLP defines how TibCERT facilitates greater sharing of information and is part of the TibCERT policy in terms of information sharing between our core stakeholders."
+                    />
+                </div>
+                <div class="shrink-0 pb-2">
+                    <button
+                        id="open-tlp-modal"
+                        class="inline-flex items-center gap-2.5 px-6 py-3 rounded-sm bg-brand-red border border-brand-red text-white font-mono text-xs uppercase tracking-[0.15em] hover:bg-[#d13d25] hover:border-[#d13d25] transition-all duration-300 shadow-lg shadow-brand-red/15 cursor-pointer group"
+                    >
+                        <span
+                            class="w-2 h-2 rounded-full bg-white animate-pulse"
+                        ></span>
+                        [ TLP DEFINITION ]
+                    </button>
+                </div>
             </div>
 
         <!-- Info Sharing Groups: Tech Specification Design -->
@@ -108,11 +112,9 @@ const tlpLevels = [
                         <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
                         
                         <div class="relative z-10 flex flex-col h-full">
-                            <div class="flex flex-col gap-4 mb-6">
-                                <span class="font-mono text-[9px] text-brand-red tracking-[0.3em] normal-case">
-                                    NODE_{String(index + 1).padStart(2, '0')}
-                                </span>
-                                <h3 class="text-xs font-mono font-black text-brand-text tracking-widest  group-hover:text-brand-red transition-colors">
+                            <div class="flex flex-col gap-4 ">
+                                
+                                <h3 class="text-lg font-mono  text-brand-text tracking-widest  group-hover:text-brand-red transition-colors text-center">
                                     {group.name}
                                 </h3>
                             </div>
@@ -162,7 +164,7 @@ const tlpLevels = [
     class="fixed inset-0 z-[9999] hidden items-center justify-center p-4 backdrop-blur-md bg-brand-void/80"
 >
     <div
-        class="bg-brand-void border border-brand-text/10 w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden relative"
+        class="bg-brand-void border border-brand-text/10 w-full max-w-5xl rounded-sm shadow-2xl overflow-hidden relative"
         id="tlp-modal-content"
     >
         <!-- Modal Glow -->
@@ -171,55 +173,58 @@ const tlpLevels = [
         >
         </div>
 
+        {/* Modal Corner Accents */}
+        <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-brand-red/40 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-brand-red/40 pointer-events-none"></div>
+
         <div class="p-8 md:p-12">
             <div class="flex items-center justify-between mb-12">
-                <h3 class="text-2xl md:text-4xl font-bold text-brand-text">
-                    Traffic Light <span class="text-brand-red">Protocol</span>
-                </h3>
+                <div class="relative">
+                    <span class="font-mono text-[9px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">TLP_POLICY // SECURE_SHARING</span>
+                    <h3 class="text-2xl md:text-3xl font-black text-brand-text uppercase tracking-tight italic">
+                        Traffic Light <span class="text-brand-red">Protocol</span>
+                    </h3>
+                </div>
                 <button
                     id="close-tlp-modal"
-                    class="p-2 rounded-full bg-brand-text/5 hover:bg-brand-red text-brand-text hover:text-white transition-colors group"
+                    class="font-mono text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-text hover:text-brand-red hover:border-brand-red px-4 py-2 transition-all duration-300 cursor-pointer rounded-sm"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
+                    [ CLOSE_WINDOW ]
                 </button>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                 {
                     tlpLevels.map((level) => (
-                        <div class="flex flex-col h-full rounded-2xl overflow-hidden border border-brand-text/5 bg-brand-void/50 group">
+                        <div class="flex flex-col h-full rounded-sm overflow-hidden border border-brand-text/5 bg-brand-surface/[0.01] hover:bg-brand-surface/[0.03] transition-all duration-300 relative group">
+                            {/* Technical Corner Accents */}
+                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/30 transition-colors"></div>
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/30 transition-colors"></div>
+
                             <div
-                                class={`h-16 flex items-center justify-center font-black text-sm tracking-[0.2em] ${level.textColor}`}
+                                class={`h-12 flex items-center justify-center font-mono text-xs uppercase tracking-[0.25em] font-black ${level.textColor}`}
                                 style={`background-color: ${level.color}`}
                             >
-                                {level.name}
+                                [ {level.name} ]
                             </div>
-                            <div class="p-6 flex-grow flex flex-col">
-                                <h4 class="text-[10px] font-bold text-brand-red uppercase tracking-widest mb-1">
-                                    Abbreviation
-                                </h4>
-                                <p class="text-xs font-bold text-brand-text mb-4 opacity-90">
-                                    {level.abbreviation}
-                                </p>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div class="mb-4">
+                                    <h4 class="text-[8px] font-mono font-bold text-brand-red/60 uppercase tracking-widest mb-1.5">
+                                        // ABBREVIATION
+                                    </h4>
+                                    <p class="text-xs font-bold text-brand-text mb-4 opacity-90">
+                                        {level.abbreviation}
+                                    </p>
+                                </div>
 
-                                <h4 class="text-[10px] font-bold text-brand-red uppercase tracking-widest mb-1">
-                                    Description
-                                </h4>
-                                <p class="text-xs font-medium text-brand-muted leading-relaxed group-hover:text-brand-text transition-colors">
-                                    {level.description}
-                                </p>
+                                <div>
+                                    <h4 class="text-[8px] font-mono font-bold text-brand-red/60 uppercase tracking-widest mb-1.5">
+                                        // DESCRIPTION
+                                    </h4>
+                                    <p class="text-xs font-light text-brand-muted leading-relaxed group-hover:text-brand-text transition-colors">
+                                        {level.description}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     ))
@@ -227,10 +232,10 @@ const tlpLevels = [
             </div>
 
             <div class="mt-12 pt-8 border-t border-brand-text/5 text-center">
-                <p
-                    class="text-brand-muted text-xs uppercase tracking-widest font-bold"
-                >
-                    Standardized Information Sharing
+                <p class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-[0.4em] flex items-center justify-center gap-4">
+                    <span class="h-px w-8 bg-brand-text/5"></span>
+                    STANDARDIZED // INFORMATION_SHARING // POLICY_FIRST
+                    <span class="h-px w-8 bg-brand-text/5"></span>
                 </p>
             </div>
         </div>

@@ -6,26 +6,26 @@ import SectionHeader from "../components/common/SectionHeader.astro";
 const pillars = [
     {
         id: "THREAT_INTEL",
-        title: "Threat Intelligence Sharing",
-        desc: "Exchanging telemetry and threat data with international partners to track targeted cyber espionage campaigns targeting Tibetan civil society.",
+        title: "Threat intelligence sharing",
+        desc: "Exchanging telemetry and threat data with international partners to jointly track cyber espionage campaigns targeting Tibetan diaspora community.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
     },
     {
-        id: "MALWARE_ANALYSIS",
-        title: "Malware & Threat Research",
-        desc: "Partnering with threat intelligence teams and academic research labs to analyze specialized spyware, mobile trojans, and phishing patterns.",
+        id: "",
+        title: "Capacity building & technical expertise sharing",
+        desc: "Partnering with trusted organizations to deploy and build in-house technical infrastructures, strengthening our long-term community resilience.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>`,
     },
     {
-        id: "CAPACITY_BUILDING",
-        title: "Joint Capacity Building",
-        desc: "Organizing shared security audits, technical bootcamps, and training-for-trainers programs in cooperation with digital rights groups.",
+        id: "",
+        title: "Collaborative research & joint reporting",
+        desc: "Working together with research partners to co-publish investigative reports to amplify the digital transnational repression.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>`,
     },
     {
-        id: "INCIDENT_COORD",
-        title: "Global Incident Coordination",
-        desc: "Coordinating with global hosting providers, registrars, and sister CERTs to handle rapid mitigation of compromised systems.",
+        id: "",
+        title: "Rapid Incident Response Coordination",
+        desc: "Working with our partners to rapidly respond to  incidents affecting organizations and removing threats before they cause further damage. ",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
     },
 ];
@@ -56,7 +56,7 @@ const networks = [
                 eyebrow=""
                 title="COLLABORATION"
                 titleAccent=""
-                description="We believe in the power of collective defense. By collaborating with international cyber research organizations, human rights networks, and global cybersecurity experts, we share critical intelligence to defend Tibetan civil society against targeted threats."
+                description="Through TibCERT’s long term collaborative initiatives, we believe collective defence is our strongest safeguard. By partnering with international cybersecurity researchers, Human rights organizations, and digital security experts, we exchange vital threat intelligence to protect the Tibetan community from persistent and targeted digital transnational repression. "
             >
                 <div slot="right" class="space-y-6">
                     {
@@ -81,19 +81,49 @@ const networks = [
                     }
                 </div>
             </PageHeader>
-
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xl">
+                <p
+                    class="bg-brand-void/50 border border-brand-text/5 p-8 relative group overflow-hidden transition-all duration-300 hover:border-brand-red/35 flex flex-col justify-between h-full"
+                >
+                    No single organization can track every threat actor. A
+                    shared intelligence network means gaps in one group’s
+                    visibility are covered by others creating a more complete
+                    picture of the threat landscape.
+                </p>
+                <p
+                    class="bg-brand-void/50 border border-brand-text/5 p-8 relative group overflow-hidden transition-all duration-300 hover:border-brand-red/35 flex flex-col justify-between h-full"
+                >
+                    Access to shared intelligence means earlier detection of
+                    threat campaigns and allowing us a faster and more
+                    coordinated response to mitigate threat and risk.
+                </p>
+            </div>
             <!-- Partners Network Section -->
             <div class="reveal mt-16 pt-16 border-t border-brand-surface">
-                <div class="mb-12">
+                <div class="mb-12 grid grid-cols-2 gap-2">
                     <SectionHeader
                         eyebrow=""
                         title="Our Partner"
                         titleAccent="Networks"
-                        description="TibCERT works as an active node within the global digital security and human rights ecosystem."
+                        description="TibCERT currently collaborates with researcher, threat intelligence analyst and cybersecurity firms working to protect Tibetan diaspora from targeted digital threats. Given the sensitive nature of our work, the long-term trust required to sustain these collaborations, and our adherence to the TrafficLight Protocol(TLP) for information sharing, we do not publicly disclose the identities of our partners.  This confidentiality protects both our partners and communities we serve. "
                     />
+                    <div
+                        class="text-white text-lg text-brand-muted mt-24 bg-brand-void/50 border border-brand-text/5 p-8 relative group overflow-hidden transition-all duration-300 hover:border-brand-red/35 font-light"
+                    >
+                        We currently collaborate with researchers, threat
+                        intelligence analysts, and cybersecurity firms working
+                        to protect the Tibetan diaspora from targeted digital
+                        threats. Due to the sensitive nature of our work, the
+                        long-term trust required to sustain these
+                        collaborations, and our adherence to the Traffic Light
+                        Protocol (TLP) for information sharing, we do not
+                        publicly disclose the identities of our partners. This
+                        confidentiality protects both our partners and the
+                        communities we serve.
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {
                         networks.map((net, index) => (
                             <div class="bg-brand-void/50 border border-brand-text/5 p-8 relative group overflow-hidden transition-all duration-300 hover:border-brand-red/35 flex flex-col justify-between h-full">
@@ -114,7 +144,7 @@ const networks = [
                             </div>
                         ))
                     }
-                </div>
+                </div> -->
             </div>
 
             <!-- Call to Action -->
@@ -128,14 +158,20 @@ const networks = [
                 <h3
                     class="text-2xl md:text-3xl font-black uppercase italic tracking-tight text-brand-text mb-4"
                 >
-                    Coordinate with <span class="text-brand-red">TibCERT</span>
+                    Join Our <span class="text-brand-red"
+                        >collaborative effort</span
+                    >
                 </h3>
                 <p
-                    class="text-brand-muted text-base max-w-xl mx-auto mb-8 font-light"
+                    class="text-brand-muted text-base max-w-5xl mx-auto mb-8 font-light"
                 >
-                    If you are a malware researcher, security analyst, or
-                    digital rights organization wanting to coordinate, get in
-                    touch through our secure PGP channels.
+                    If you are a researcher, threat intelligence analyst, or
+                    cybersecurity firm interested in contributing your expertise
+                    or sharing information that could support our mission, we
+                    welcome you to reach out . Whether through data sharing ,
+                    joint investigations, or technical collaboration. We're
+                    always open to building new trusted relationships that
+                    strengthen our collective defense.
                 </p>
                 <a
                     href="/contact"

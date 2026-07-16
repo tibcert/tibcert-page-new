@@ -1,0 +1,284 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/common/PageHeader.astro";
+---
+
+<Layout title="Donate | TibCERT">
+    <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
+        <!-- Page Heading -->
+        <div class="container mx-auto px-4 pb-16 pt-8">
+            <PageHeader
+                title="DONATE"
+                description="Your support helps TibCERT build cybersecurity resilience and defend the Tibetan community against targeted digital threats."
+            />
+        </div>
+
+        <!-- Donation Interactive Tab Widget -->
+        <div class="container mx-auto px-4 relative z-10 max-w-6xl">
+            <div class="donation-container">
+                <!-- Vertical Tabs Controls -->
+                <div class="tabs-sidebar">
+                    <button
+                        id="tab-one-time"
+                        class="w-full text-left font-mono text-md sm:text-xs uppercase tracking-[0.15em] border border-brand-red text-white bg-brand-red px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm shadow-lg shadow-brand-red/10 tab-btn"
+                        data-tab="one-time"
+                    >
+                        ONE TIME DONATION
+                    </button>
+                    <button
+                        id="tab-monthly"
+                        class="w-full text-left font-mono text-md sm:text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-muted hover:border-brand-red hover:text-white px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm tab-btn"
+                        data-tab="monthly"
+                    >
+                        MONTHLY DONATION
+                    </button>
+                    <button
+                        id="tab-other"
+                        class="w-full text-left font-mono text-sm sm:text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-muted hover:border-brand-red hover:text-white px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm tab-btn"
+                        data-tab="other"
+                    >
+                        SUPPORT OUR OTHER PROJECTS
+                    </button>
+                </div>
+
+                <!-- Tab Panels Wrapper -->
+                <div
+                    class="panels-content bg-brand-surface/[0.02] border border-brand-text/5 p-4 md:p-6 rounded-sm"
+                >
+                    <!-- Technical Corner Accents -->
+                    <div
+                        class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-red/40 pointer-events-none"
+                    >
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-red/40 pointer-events-none"
+                    >
+                    </div>
+
+                    <!-- One-Time Content Panel -->
+                    <div id="panel-one-time" class="tab-panel">
+                        <div
+                            class="w-full bg-white border border-brand-text/5 relative overflow-hidden"
+                            style="height: 900px;"
+                        >
+                            <!-- LGL One-Time Donation Form -->
+                            <iframe
+                                src="https://secure.lglforms.com/form_engine/s/hRg6ha5HS16oZxB4ehh6TQ"
+                                class="absolute inset-0 w-full h-full border-0 bg-white"
+                                title="One Time Donation Form"
+                                allowpaymentrequest="true"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Content Panel -->
+                    <div id="panel-monthly" class="tab-panel hidden">
+                        <div
+                            class="w-full bg-white border border-brand-text/5 relative overflow-hidden"
+                            style="height: 900px;"
+                        >
+                            <!-- LGL Monthly Donation Form -->
+                            <iframe
+                                src="https://secure.lglforms.com/form_engine/s/dUIZ2LeMSQRPeikH8dj7PQ"
+                                class="absolute inset-0 w-full h-full border-0 bg-white"
+                                title="Monthly Donation Form"
+                                allowpaymentrequest="true"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Other Project Content Panel -->
+                    <div id="panel-other" class="tab-panel hidden">
+                        <div
+                            class="w-full border border-brand-text/5 relative overflow-hidden p-6 md:p-10"
+                        >
+                            <!-- Other Projects Grid -->
+                            <div
+                                class="font-mono text-[9px] text-brand-red tracking-[0.4em] mb-8 uppercase opacity-60"
+                            >
+                                Other Projects
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Project Card 1: Tibet Action Institute -->
+                                <a
+                                    href="https://tibetaction.net"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group relative overflow-hidden bg-brand-surface/[0.2] hover:bg-brand-surface/40 border border-brand-text/5 hover:border-brand-red/30 p-6 transition-all duration-500 flex flex-col justify-between rounded-sm"
+                                >
+                                    <div
+                                        class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"
+                                    >
+                                    </div>
+                                    <div
+                                        class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"
+                                    >
+                                    </div>
+
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-lg font-black text-brand-text group-hover:text-brand-red transition-colors uppercase tracking-tight italic"
+                                        >
+                                            Tibet Action Institute
+                                        </h4>
+                                        <p
+                                            class="text-brand-muted text-xs leading-relaxed mt-2 font-light"
+                                        >
+                                            Strengthening the Tibetan movement
+                                            through digital security education,
+                                            secure communication technologies,
+                                            and nonviolent strategic action.
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        class="flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-brand-red/80 pt-4 border-t border-brand-text/5 group-hover:border-brand-red/20 mt-4"
+                                    >
+                                        <span>DONATE</span>
+                                        <span
+                                            class="group-hover:translate-x-1 transition-transform"
+                                            >&rarr;</span
+                                        >
+                                    </div>
+                                </a>
+
+                                <!-- Project Card 2: Rights Action Lab -->
+                                <a
+                                    href="https://rightsactionlab.org"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group relative overflow-hidden bg-brand-surface/[0.2] hover:bg-brand-surface/40 border border-brand-text/5 hover:border-brand-red/30 p-6 transition-all duration-500 flex flex-col justify-between rounded-sm"
+                                >
+                                    <div
+                                        class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"
+                                    >
+                                    </div>
+                                    <div
+                                        class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"
+                                    >
+                                    </div>
+
+                                    <div class="mb-6">
+                                        <h4
+                                            class="text-lg font-black text-brand-text group-hover:text-brand-red transition-colors uppercase tracking-tight italic"
+                                        >
+                                            Rights Action Lab
+                                        </h4>
+                                        <p
+                                            class="text-brand-muted text-xs leading-relaxed mt-2 font-light"
+                                        >
+                                            Empowering advocates and
+                                            organizations with secure tech
+                                            infrastructure, campaigning
+                                            training, and advanced security
+                                            support.
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        class="flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-brand-red/80 pt-4 border-t border-brand-text/5 group-hover:border-brand-red/20 mt-4"
+                                    >
+                                        <span>DONATE</span>
+                                        <span
+                                            class="group-hover:translate-x-1 transition-transform"
+                                            >&rarr;</span
+                                        >
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helpful technical footer log -->
+            <div class="mt-12 text-center">
+                <p
+                    class="font-mono text-[9px] text-brand-muted/30 uppercase tracking-[0.3em]"
+                >
+                    // CONNECTED TO SECURE_GATEWAY // LITTLE_GREEN_LIGHT_IFRAME
+                </p>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<script>
+    function initDonationTabs() {
+        const buttons = document.querySelectorAll(".tab-btn");
+        const panels = document.querySelectorAll(".tab-panel");
+
+        if (buttons.length === 0 || panels.length === 0) return;
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const target = btn.getAttribute("data-tab");
+
+                // Update button styles
+                buttons.forEach((b) => {
+                    b.classList.remove(
+                        "bg-brand-red",
+                        "text-white",
+                        "border-brand-red",
+                        "shadow-lg",
+                        "shadow-brand-red/10",
+                    );
+                    b.classList.add("border-brand-text/10", "text-brand-muted");
+                });
+                btn.classList.add(
+                    "bg-brand-red",
+                    "text-white",
+                    "border-brand-red",
+                    "shadow-lg",
+                    "shadow-brand-red/10",
+                );
+                btn.classList.remove(
+                    "border-brand-text/10",
+                    "text-brand-muted",
+                );
+
+                // Update panels visibility
+                panels.forEach((panel) => {
+                    if (panel.id === `panel-${target}`) {
+                        panel.classList.remove("hidden");
+                    } else {
+                        panel.classList.add("hidden");
+                    }
+                });
+            });
+        });
+    }
+
+    // Run on initialization and after view swaps/transitions
+    initDonationTabs();
+    document.addEventListener("astro:after-swap", initDonationTabs);
+</script>
+
+<style>
+    .donation-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .tabs-sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .panels-content {
+        flex-grow: 1;
+        position: relative;
+    }
+
+    @media (min-width: 768px) {
+        .donation-container {
+            flex-direction: row;
+        }
+
+        .tabs-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+    }
+</style>
