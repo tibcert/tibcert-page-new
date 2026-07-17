@@ -84,7 +84,7 @@ const coreServices = [
         id: "core-secured",
         title: "Secured by TibCERT",
         icon : "/images/secured-by-tibcert.png",
-        description: "A comprehensive support framework to secure organization infrastructure and critical workflows.",
+        description: "Protect your digital presence and earn the “Secured by TibCERT” Badge for your website or Facebook Page.",
         items: [
             "Securing public facing interfaces including websites, social media, and web servers.",
             "Deploying advanced endpoint detection tools (EDR) across organization devices.",
@@ -233,7 +233,7 @@ const coreServices = [
 
                                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start relative z-10">
                                    <!-- Left Column: Title and Description -->
-                                   <div class="md:col-span-5 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                                   <div class="md:col-span-5 lg:col-span-4 flex flex-col items-center md:items-center text-center md:text-center">
                                        {service.icon && service.icon.trim() !== '' && (
                                            <div class="mb-6">
                                                {service.icon.trim().startsWith('<svg') ? (
@@ -245,7 +245,7 @@ const coreServices = [
                                                )}
                                            </div>
                                        )}
-                                       <h2 class="text-3xl font-black text-brand-text mb-3 tracking-tight italic group-hover:text-brand-red transition-colors uppercase">
+                                       <h2 class="text-3xl  font-black text-brand-text mb-3  italic group-hover:text-brand-red transition-color ">
                                            {service.title}
                                        </h2> 
                                        <p class="text-brand-muted text-sm font-light leading-relaxed">{service.description}</p>
