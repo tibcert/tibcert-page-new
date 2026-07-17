@@ -2,33 +2,6 @@
 import SectionShell from "../common/SectionShell.astro";
 import SectionHeader from "../common/SectionHeader.astro";
 
-const groups = [
-    {
-        name: "TibCERT & MEMBERS",
-        description:
-            "",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
-    },
-    {
-        name: "TIBETAN COMMUNITY",
-        description:
-            "",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
-    },
-    {
-        name: "SECURITY RESEARCHERS",
-        description:
-            "",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>`,
-    },
-    {
-        name: "ADVISORY COUNCIL",
-        description:
-            "",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
-    },
-];
-
 const tlpLevels = [
     {
         name: "TLP:RED",
@@ -66,9 +39,14 @@ const tlpLevels = [
 ];
 ---
 
-<SectionShell id="tlp" class="pt-20 pb-16 bg-brand-void reveal" containerClass="mx-auto px-4" contentClass="">
+<SectionShell
+    id="tlp"
+    class="pt-20 pb-16 bg-brand-void reveal"
+    containerClass="mx-auto px-4"
+    contentClass=""
+>
     <!-- Sophisticated Background Elements -->
-    <div 
+    <div
         class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,#ef482c08_0%,transparent_40%)] pointer-events-none"
     >
     </div>
@@ -80,13 +58,15 @@ const tlpLevels = [
     <div class="relative z-10">
         <div class="">
             <!-- Header -->
-            <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div
+                class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6"
+            >
                 <div class="flex-grow max-w-4xl">
                     <SectionHeader
                         eyebrow="Communification Protocol // INFORMATION_SHARING"
                         title="Traffic Light"
                         titleAccent="Protocol (TLP)"
-                        description="This TLP defines how TibCERT facilitates greater sharing of information and is part of the TibCERT policy in terms of information sharing between our core stakeholders."
+                        description="TLP (Traffic Light Protocol) is a standardized system for labeling sensitive information based on how widely it can be shared. It enables secure exchange of threat intelligence while protecting sensitive data from unintended disclosure. TibCERT uses the TLP as defined by FIRST(Forum of Incident Response and Security Teams) and it is a part of TibCERT policy in terms of information sharing between our core stakeholders."
                     />
                 </div>
                 <div class="shrink-0 pb-2">
@@ -102,207 +82,209 @@ const tlpLevels = [
                 </div>
             </div>
 
-        <!-- Info Sharing Groups: Tech Specification Design -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-text/5 border border-brand-text/5 mb-16">
-            {
-                groups.map((group, index) => (
-                    <div class="group relative bg-brand-void p-8 overflow-hidden">
-                        <!-- Technical Border Accents -->
-                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
-                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
-                        
-                        <div class="relative z-10 flex flex-col h-full">
-                            <div class="flex flex-col gap-4 ">
-                                
-                                <h3 class="text-lg font-mono  text-brand-text tracking-widest  group-hover:text-brand-red transition-colors text-center">
-                                    {group.name}
-                                </h3>
-                            </div>
-                            {/* <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow font-light">
-                                {group.description}
-                            </p> */}
-                            
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
-        <!-- Redesigned Centered Footer -->
-        <div
-            class="flex flex-col items-center justify-center text-center mt-8 pb-12 border-b border-brand-text/5"
-        >
+            <!-- Redesigned Centered Footer -->
             <div
-                class="bg-brand-void border border-brand-text/5 px-10 py-4 rounded-sm backdrop-blur-sm inline-flex items-center gap-6 group hover:border-brand-red/30 transition-colors"
+                class="flex flex-col items-center justify-center text-center mt-8 pb-12 border-b border-brand-text/5"
             >
-                <div class="w-2 h-2 bg-brand-red rounded-full animate-pulse"></div>
-                <p
-                    class="text-brand-muted font-mono text-xs tracking-widest uppercase"
+                <div
+                    class="bg-brand-void border border-brand-text/5 px-10 py-4 rounded-sm backdrop-blur-sm inline-flex items-center gap-6 group hover:border-brand-red/30 transition-colors"
                 >
-                     <span
-                        class="text-brand-mute normal-case">TibCERT uses the TLP as defined by FIRST(Forum of Incident Response and Security Teams).</span
+                    <div
+                        class="w-2 h-2 bg-brand-red rounded-full animate-pulse"
                     >
-                </p>
-                <div class="w-2 h-2 bg-brand-red rounded-full animate-pulse"></div>
-            </div>
-
-            <div
-                class="flex items-center gap-8 mt-12 text-[9px] font-mono font-bold text-brand-muted/40 tracking-[0.5em] uppercase"
-            >
-                <span>CONFIDENTIALITY</span>
-                <span class="text-brand-red/20 font-light">|</span>
-                <span> Integrity</span>
-                <span class="text-brand-red/20 font-light">|</span>
-                <span> Availability</span>
-            </div>
-        </div>
-    </div>
-</SectionShell>
-
-<!-- Modal Implementation -->
-<div
-    id="tlp-modal"
-    class="fixed inset-0 z-[9999] hidden items-center justify-center p-4 backdrop-blur-md bg-brand-void/80"
->
-    <div
-        class="bg-brand-void border border-brand-text/10 w-full max-w-5xl rounded-sm shadow-2xl overflow-hidden relative"
-        id="tlp-modal-content"
-    >
-        <!-- Modal Glow -->
-        <div
-            class="absolute -top-24 -right-24 w-64 h-64 bg-brand-red/10 rounded-full blur-[100px] pointer-events-none"
-        >
-        </div>
-
-        {/* Modal Corner Accents */}
-        <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-brand-red/40 pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-brand-red/40 pointer-events-none"></div>
-
-        <div class="p-8 md:p-12">
-            <div class="flex items-center justify-between mb-12">
-                <div class="relative">
-                    <span class="font-mono text-[9px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60">TLP_POLICY // SECURE_SHARING</span>
-                    <h3 class="text-2xl md:text-3xl font-black text-brand-text uppercase tracking-tight italic">
-                        Traffic Light <span class="text-brand-red">Protocol</span>
-                    </h3>
+                    </div>
+                    <p
+                        class="text-brand-muted font-mono text-xs tracking-widest uppercase"
+                    >
+                        <span class="text-brand-mute normal-case"
+                            >TibCERT uses the TLP as defined by FIRST(Forum of
+                            Incident Response and Security Teams).</span
+                        >
+                    </p>
+                    <div
+                        class="w-2 h-2 bg-brand-red rounded-full animate-pulse"
+                    >
+                    </div>
                 </div>
-                <button
-                    id="close-tlp-modal"
-                    class="font-mono text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-text hover:text-brand-red hover:border-brand-red px-4 py-2 transition-all duration-300 cursor-pointer rounded-sm"
+
+                <div
+                    class="flex items-center gap-8 mt-12 text-[9px] font-mono font-bold text-brand-muted/40 tracking-[0.5em] uppercase"
                 >
-                    [ CLOSE_WINDOW ]
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-                {
-                    tlpLevels.map((level) => (
-                        <div class="flex flex-col h-full rounded-sm overflow-hidden border border-brand-text/5 bg-brand-surface/[0.01] hover:bg-brand-surface/[0.03] transition-all duration-300 relative group">
-                            {/* Technical Corner Accents */}
-                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/30 transition-colors"></div>
-                            <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/30 transition-colors"></div>
-
-                            <div
-                                class={`h-12 flex items-center justify-center font-mono text-xs uppercase tracking-[0.25em] font-black ${level.textColor}`}
-                                style={`background-color: ${level.color}`}
-                            >
-                                [ {level.name} ]
-                            </div>
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div class="mb-4">
-                                    <h4 class="text-[8px] font-mono font-bold text-brand-red/60 uppercase tracking-widest mb-1.5">
-                                        // ABBREVIATION
-                                    </h4>
-                                    <p class="text-xs font-bold text-brand-text mb-4 opacity-90">
-                                        {level.abbreviation}
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h4 class="text-[8px] font-mono font-bold text-brand-red/60 uppercase tracking-widest mb-1.5">
-                                        // DESCRIPTION
-                                    </h4>
-                                    <p class="text-xs font-light text-brand-muted leading-relaxed group-hover:text-brand-text transition-colors">
-                                        {level.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-
-            <div class="mt-12 pt-8 border-t border-brand-text/5 text-center">
-                <p class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-[0.4em] flex items-center justify-center gap-4">
-                    <span class="h-px w-8 bg-brand-text/5"></span>
-                    STANDARDIZED // INFORMATION_SHARING // POLICY_FIRST
-                    <span class="h-px w-8 bg-brand-text/5"></span>
-                </p>
+                    <span>CONFIDENTIALITY</span>
+                    <span class="text-brand-red/20 font-light">|</span>
+                    <span> Integrity</span>
+                    <span class="text-brand-red/20 font-light">|</span>
+                    <span> Availability</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    function initTLPModal() {
-        const modal = document.getElementById("tlp-modal");
-        const content = document.getElementById("tlp-modal-content");
-        const openBtn = document.getElementById("open-tlp-modal");
-        const closeBtn = document.getElementById("close-tlp-modal");
+    <!-- Modal Implementation -->
+    <div
+        id="tlp-modal"
+        class="fixed inset-0 z-[9999] hidden items-center justify-center p-4 backdrop-blur-md bg-brand-void/80"
+    >
+        <div
+            class="bg-brand-void border border-brand-text/10 w-full max-w-5xl rounded-sm shadow-2xl overflow-hidden relative"
+            id="tlp-modal-content"
+        >
+            <!-- Modal Glow -->
+            <div
+                class="absolute -top-24 -right-24 w-64 h-64 bg-brand-red/10 rounded-full blur-[100px] pointer-events-none"
+            >
+            </div>
 
-        if (!modal || !openBtn || !closeBtn || !content) return;
+            {/* Modal Corner Accents */}
+            <div
+                class="absolute top-0 left-0 w-4 h-4 border-t border-l border-brand-red/40 pointer-events-none"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-brand-red/40 pointer-events-none"
+            >
+            </div>
 
-        // Move modal to body root to avoid stacking context traps
-        if (modal.parentElement !== document.body) {
-            document.body.appendChild(modal);
+            <div class="p-8 md:p-12">
+                <div class="flex items-center justify-between mb-12">
+                    <div class="relative">
+                        <span
+                            class="font-mono text-[9px] text-brand-red tracking-[0.4em] mb-2 block uppercase opacity-60"
+                            >TLP_POLICY // SECURE_SHARING</span
+                        >
+                        <h3
+                            class="text-2xl md:text-3xl font-black text-brand-text uppercase tracking-tight italic"
+                        >
+                            Traffic Light <span class="text-brand-red"
+                                >Protocol</span
+                            >
+                        </h3>
+                    </div>
+                    <button
+                        id="close-tlp-modal"
+                        class="font-mono text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-text hover:text-brand-red hover:border-brand-red px-4 py-2 transition-all duration-300 cursor-pointer rounded-sm"
+                    >
+                        [ CLOSE_WINDOW ]
+                    </button>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6"
+                >
+                    {
+                        tlpLevels.map((level) => (
+                            <div class="flex flex-col h-full rounded-sm overflow-hidden border border-brand-text/5 bg-brand-surface/[0.01] hover:bg-brand-surface/[0.03] transition-all duration-300 relative group">
+                                {/* Technical Corner Accents */}
+                                <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/30 transition-colors" />
+                                <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/30 transition-colors" />
+
+                                <div
+                                    class={`h-12 flex items-center justify-center font-mono text-xs uppercase tracking-[0.25em] font-black ${level.textColor}`}
+                                    style={`background-color: ${level.color}`}
+                                >
+                                    [ {level.name} ]
+                                </div>
+                                <div class="p-6 flex-grow flex flex-col justify-between">
+                                    <div class="mb-4">
+                                        <h4 class="text-[8px] font-mono font-bold text-brand-red/60 uppercase tracking-widest mb-1.5">
+                                            // ABBREVIATION
+                                        </h4>
+                                        <p class="text-xs font-bold text-brand-text mb-4 opacity-90">
+                                            {level.abbreviation}
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-[8px] font-mono font-bold text-brand-red/60 uppercase tracking-widest mb-1.5">
+                                            // DESCRIPTION
+                                        </h4>
+                                        <p class="text-xs font-light text-brand-muted leading-relaxed group-hover:text-brand-text transition-colors">
+                                            {level.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div
+                    class="mt-12 pt-8 border-t border-brand-text/5 text-center"
+                >
+                    <p
+                        class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-[0.4em] flex items-center justify-center gap-4"
+                    >
+                        <span class="h-px w-8 bg-brand-text/5"></span>
+                        STANDARDIZED // INFORMATION_SHARING // POLICY_FIRST
+                        <span class="h-px w-8 bg-brand-text/5"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initTLPModal() {
+            const modal = document.getElementById("tlp-modal");
+            const content = document.getElementById("tlp-modal-content");
+            const openBtn = document.getElementById("open-tlp-modal");
+            const closeBtn = document.getElementById("close-tlp-modal");
+
+            if (!modal || !openBtn || !closeBtn || !content) return;
+
+            // Move modal to body root to avoid stacking context traps
+            if (modal.parentElement !== document.body) {
+                document.body.appendChild(modal);
+            }
+
+            openBtn.addEventListener("click", () => {
+                modal.classList.remove("hidden");
+                modal.classList.add("flex");
+                document.body.style.overflow = "hidden";
+
+                // Trigger animation
+                content.classList.add("animate-modal-in");
+            });
+
+            const closeModal = () => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+                document.body.style.overflow = "auto";
+                content.classList.remove("animate-modal-in");
+            };
+
+            closeBtn.addEventListener("click", closeModal);
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Close on Escape
+            window.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && !modal.classList.contains("hidden"))
+                    closeModal();
+            });
         }
 
-        openBtn.addEventListener("click", () => {
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
-            document.body.style.overflow = "hidden";
+        // Support for View Transitions
+        document.addEventListener("astro:page-load", initTLPModal);
+        // Initial load
+        initTLPModal();
+    </script>
 
-            // Trigger animation
-            content.classList.add("animate-modal-in");
-        });
-
-        const closeModal = () => {
-            modal.classList.add("hidden");
-            modal.classList.remove("flex");
-            document.body.style.overflow = "auto";
-            content.classList.remove("animate-modal-in");
-        };
-
-        closeBtn.addEventListener("click", closeModal);
-
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        // Close on Escape
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && !modal.classList.contains("hidden"))
-                closeModal();
-        });
-    }
-
-    // Support for View Transitions
-    document.addEventListener("astro:page-load", initTLPModal);
-    // Initial load
-    initTLPModal();
-</script>
-
-<style>
-    @keyframes modal-in {
-        from {
-            opacity: 0;
-            transform: scale(0.95) translateY(10px);
+    <style>
+        @keyframes modal-in {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
-        to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
+        .animate-modal-in {
+            animation: modal-in 0.3s ease-out forwards;
         }
-    }
-    .animate-modal-in {
-        animation: modal-in 0.3s ease-out forwards;
-    }
-</style>
+    </style>
+</SectionShell>
