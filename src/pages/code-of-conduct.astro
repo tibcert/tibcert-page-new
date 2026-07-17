@@ -35,231 +35,222 @@ const references = [
 <Layout title="Code of Conduct | TIBCERT">
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <div class="container mx-auto px-4">
-                <!-- Header Section -->
-                <PageHeader
-                    eyebrow="ORGANIZATIONAL_POLICIES // CONDUCT_STANDARDS"
-                    title="Code of"
-                    titleAccent="Conduct"
-                >
-                    <p>
-                        TibCERT online community is an online space where
-                        Tibetans can come together to share experiences
-                        towards creating a resilient digital security
-                        community. As such, we are committed to providing
-                        inclusive and harassment-free spaces, regardless of
-                        gender, race, ethnicity, gender identity and
-                        expression, sexual orientation, disability, physical
-                        appearance, body size, age, or religion.
-                    </p>
-                    <p>
-                        Consequently, we do not tolerate harassment of any
-                        kind in our spaces, both online and in-person. The
-                        TibCERT Online Community is committed to providing a
-                        welcoming and respectful environment, so individuals
-                        engaging in TibCERT virtual spaces are expected to
-                        refrain from engaging in any type of unacceptable
-                        behavior.
-                    </p>
-                </PageHeader>
+            <!-- Header Section -->
+            <PageHeader
+                eyebrow="ORGANIZATIONAL_POLICIES // CONDUCT_STANDARDS"
+                title="Code of"
+                titleAccent="Conduct"
+            >
+                <p>
+                    TibCERT online community is an online space where Tibetans
+                    can come together to share experiences towards creating a
+                    resilient digital security community. As such, we are
+                    committed to providing inclusive and harassment-free spaces,
+                    regardless of gender, race, ethnicity, gender identity and
+                    expression, sexual orientation, disability, physical
+                    appearance, body size, age, or religion.
+                </p>
+                <p>
+                    Consequently, we do not tolerate harassment of any kind in
+                    our spaces, both online and in-person. The TibCERT Online
+                    Community is committed to providing a welcoming and
+                    respectful environment, so individuals engaging in TibCERT
+                    virtual spaces are expected to refrain from engaging in any
+                    type of unacceptable behavior.
+                </p>
+            </PageHeader>
 
-                <!-- Guidelines Section -->
-                <div class="mb-24 reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span
-                            class="font-mono text-[10px] text-brand-red uppercase tracking-[0.3em]"
-                            >PART_01 // INAPPROPRIATE_BEHAVIOR</span
-                        >
-                        <div class="h-px flex-grow bg-brand-text/5"></div>
-                    </div>
-
-                    <h2
-                        class="text-2xl md:text-3xl font-black uppercase italic text-brand-text mb-8"
-                    >
-                        Guidelines of What Constitutes Inappropriate Behavior
-                    </h2>
-
-                    <ul
-                        class="space-y-4 text-brand-muted text-sm md:text-base font-light leading-relaxed max-w-4xl"
-                    >
-                        {
-                            inappropriateBehaviors.map((behavior) => (
-                                <li class="flex items-start gap-4">
-                                    <span class="w-1.5 h-1.5 bg-brand-red shrink-0 mt-2" />
-                                    <span>{behavior}</span>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-
-                <!-- Incident Response & Contact -->
-                <div class="mb-24 reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span
-                            class="font-mono text-[10px] text-brand-red uppercase tracking-[0.3em]"
-                            >PART_02 // REPORTING_CHANNEL</span
-                        >
-                        <div class="h-px flex-grow bg-brand-text/5"></div>
-                    </div>
-
-                    <h2
-                        class="text-2xl md:text-3xl font-black uppercase italic text-brand-text mb-8"
-                    >
-                        Addressing Issues and Concerns
-                    </h2>
-
-                    <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-                        <!-- Instructions -->
-                        <div
-                            class="lg:col-span-7 bg-brand-void/25 border border-brand-text/5 p-8 relative flex flex-col justify-center"
-                        >
-                            <div
-                                class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-text/10"
-                            >
-                            </div>
-                            <div
-                                class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-text/10"
-                            >
-                            </div>
-
-                            <div
-                                class="space-y-4 text-xs md:text-sm text-brand-muted leading-relaxed font-light"
-                            >
-                                <p>
-                                    If someone makes you or anyone else feel
-                                    unsafe or unwelcome in any TibCERT Online
-                                    Community space, please contact our Code of
-                                    Conduct Incident Response team immediately.
-                                    We are here for you. You can contact a
-                                    TibCERT Online Community staff member or
-                                    designated representative listed below.
-                                </p>
-                                <p>
-                                    Please note that we understand that some
-                                    time may pass before a victim or witness of
-                                    inappropriate behavior comes to realize the
-                                    inappropriate nature of the action and
-                                    decides to report it.
-                                </p>
-                                <p>
-                                    Harassment and other code of conduct
-                                    violations damage the experience for
-                                    everyone. We want you to be happy and
-                                    productive in our spaces. People like you
-                                    make TibCERT Online Community a better
-                                    place.
-                                </p>
-                                <p>
-                                    Your concerns will be respectfully heard by
-                                    the Code of Conduct Incident Response team.
-                                    If your concern involves any TibCERT Online
-                                    Community staff members, they will recuse
-                                    themselves.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Contacts -->
-                        <div class="lg:col-span-5 flex flex-col gap-4">
-                            <div
-                                class="bg-brand-red/10 border border-brand-red/30 p-8 relative flex-grow flex flex-col justify-center"
-                            >
-                                <div
-                                    class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-red/40"
-                                >
-                                </div>
-                                <div
-                                    class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-red/40"
-                                >
-                                </div>
-
-                                <span
-                                    class="font-mono text-[9px] text-brand-red uppercase tracking-[0.2em] mb-4 block"
-                                    >DESIGNATED_REPRESENTATIVES</span
-                                >
-
-                                <div class="space-y-6">
-                                    <div
-                                        class="border-l-2 border-brand-red/40 pl-4"
-                                    >
-                                        <h4
-                                            class="font-black text-sm uppercase text-brand-text"
-                                        >
-                                            Dorjee Phuntsok
-                                        </h4>
-                                        <p
-                                            class="text-[9px] font-mono text-brand-red uppercase tracking-widest mt-1"
-                                        >
-                                            TibCERT Response Manager
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="border-l-2 border-brand-red/40 pl-4"
-                                    >
-                                        <h4
-                                            class="font-black text-sm uppercase text-brand-text"
-                                        >
-                                            Gemphel Norsang
-                                        </h4>
-                                        <p
-                                            class="text-[9px] font-mono text-brand-red uppercase tracking-widest mt-1"
-                                        >
-                                            TibCERT Response Coordinator
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- References -->
-                <div class="border-t border-brand-text/5 pt-12 reveal">
+            <!-- Guidelines Section -->
+            <div class="mb-24 reveal">
+                <div class="flex items-center gap-4 mb-8">
                     <span
-                        class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-[0.2em] mb-6 block"
-                        >REFERENCES & ACKNOWLEDGEMENTS</span
+                        class="font-mono text-[10px] text-brand-red uppercase tracking-[0.3em]"
+                        >PART_01 // INAPPROPRIATE_BEHAVIOR</span
                     >
-                    <div class="flex flex-wrap gap-x-8 gap-y-4">
-                        {
-                            references.map((ref) => (
-                                <a
-                                    href={ref.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="font-mono text-[10px] text-brand-muted hover:text-brand-red transition-colors flex items-center gap-2 group"
-                                >
-                                    <span>[ {ref.name} ]</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="10"
-                                        height="10"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2.5"
-                                        class="opacity-40 group-hover:opacity-100 transition-opacity"
-                                    >
-                                        <>
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                            <polyline points="15 3 21 3 21 9" />
-                                            <line
-                                                x1="10"
-                                                y1="14"
-                                                x2="21"
-                                                y2="3"
-                                            />
-                                        </>
-                                    </svg>
-                                </a>
-                            ))
-                        }
+                    <div class="h-px flex-grow bg-brand-text/5"></div>
+                </div>
+
+                <h2
+                    class="text-2xl md:text-3xl font-black uppercase italic text-brand-text mb-8"
+                >
+                    Guidelines of What Constitutes Inappropriate Behavior
+                </h2>
+
+                <ul
+                    class="space-y-4 text-brand-muted text-sm md:text-base font-light leading-relaxed max-w-4xl"
+                >
+                    {
+                        inappropriateBehaviors.map((behavior) => (
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 bg-brand-red shrink-0 mt-2" />
+                                <span>{behavior}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
+            <!-- Incident Response & Contact -->
+            <div class="mb-24 reveal">
+                <div class="flex items-center gap-4 mb-8">
+                    <span
+                        class="font-mono text-[10px] text-brand-red uppercase tracking-[0.3em]"
+                        >PART_02 // REPORTING_CHANNEL</span
+                    >
+                    <div class="h-px flex-grow bg-brand-text/5"></div>
+                </div>
+
+                <h2
+                    class="text-2xl md:text-3xl font-black uppercase italic text-brand-text mb-8"
+                >
+                    Addressing Issues and Concerns
+                </h2>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Instructions -->
+                    <div
+                        class="lg:col-span-7 bg-brand-void/25 border border-brand-text/5 p-8 relative flex flex-col justify-center"
+                    >
+                        <div
+                            class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-text/10"
+                        >
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-text/10"
+                        >
+                        </div>
+
+                        <div
+                            class="space-y-4 text-xs md:text-sm text-brand-muted leading-relaxed font-light"
+                        >
+                            <p>
+                                If someone makes you or anyone else feel unsafe
+                                or unwelcome in any TibCERT Online Community
+                                space, please contact our Code of Conduct
+                                Incident Response team immediately. We are here
+                                for you. You can contact a TibCERT Online
+                                Community staff member or designated
+                                representative listed below.
+                            </p>
+                            <p>
+                                Please note that we understand that some time
+                                may pass before a victim or witness of
+                                inappropriate behavior comes to realize the
+                                inappropriate nature of the action and decides
+                                to report it.
+                            </p>
+                            <p>
+                                Harassment and other code of conduct violations
+                                damage the experience for everyone. We want you
+                                to be happy and productive in our spaces. People
+                                like you make TibCERT Online Community a better
+                                place.
+                            </p>
+                            <p>
+                                Your concerns will be respectfully heard by the
+                                Code of Conduct Incident Response team. If your
+                                concern involves any TibCERT Online Community
+                                staff members, they will recuse themselves.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="mt-8 text-[9px] font-mono text-brand-muted/30">
-                        * Note: This Code of Conduct may be subject to change in
-                        accordance with situations.
+                    <!-- Contacts -->
+                    <div class="lg:col-span-5 flex flex-col gap-4">
+                        <div
+                            class="bg-brand-red/10 border border-brand-red/30 p-8 relative flex-grow flex flex-col justify-center"
+                        >
+                            <div
+                                class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-red/40"
+                            >
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-red/40"
+                            >
+                            </div>
+
+                            <span
+                                class="font-mono text-[9px] text-brand-red uppercase tracking-[0.2em] mb-4 block"
+                                >DESIGNATED_REPRESENTATIVES</span
+                            >
+
+                            <div class="space-y-6">
+                                <div
+                                    class="border-l-2 border-brand-red/40 pl-4"
+                                >
+                                    <h4
+                                        class="font-black text-sm uppercase text-brand-text"
+                                    >
+                                        Gemphel Norsang
+                                    </h4>
+                                    <p
+                                        class="text-[9px] font-mono text-brand-red uppercase tracking-widest mt-1"
+                                    >
+                                        TibCERT Response Manager
+                                    </p>
+                                </div>
+                                <div
+                                    class="border-l-2 border-brand-red/40 pl-4"
+                                >
+                                    <h4
+                                        class="font-black text-sm uppercase text-brand-text"
+                                    >
+                                        Tenzin Gyal
+                                    </h4>
+                                    <p
+                                        class="text-[9px] font-mono text-brand-red uppercase tracking-widest mt-1"
+                                    >
+                                        TibCERT Response Coordinator
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- References -->
+            <div class="border-t border-brand-text/5 pt-12 reveal">
+                <span
+                    class="font-mono text-[9px] text-brand-muted/40 uppercase tracking-[0.2em] mb-6 block"
+                    >REFERENCES & ACKNOWLEDGEMENTS</span
+                >
+                <div class="flex flex-wrap gap-x-8 gap-y-4">
+                    {
+                        references.map((ref) => (
+                            <a
+                                href={ref.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-mono text-[10px] text-brand-muted hover:text-brand-red transition-colors flex items-center gap-2 group"
+                            >
+                                <span>[ {ref.name} ]</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    class="opacity-40 group-hover:opacity-100 transition-opacity"
+                                >
+                                    <>
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </>
+                                </svg>
+                            </a>
+                        ))
+                    }
+                </div>
+
+                <div class="mt-8 text-[9px] font-mono text-brand-muted/30">
+                    * Note: This Code of Conduct may be subject to change in
+                    accordance with situations.
+                </div>
+            </div>
         </div>
     </main>
 </Layout>
