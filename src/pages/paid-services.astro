@@ -59,23 +59,27 @@ const trainings = [
         title: "Additional digital security modules",
         subtitle: "Comprehensive Governance",
         description: "Specialized add-on courses designed to integrate with larger training packages or run as standalone technical modules.",
-        details: ["AI policy development", "MDM training", "Social Media advocacy and metrics"]
+        details: ["AI policy development", "Information Integrity/Literacy Training", "Social Media advocacy and metrics"]
     }
 ];
 
-const movementBuilding = {
-    id: "movement-building",
-    duration: "1 Week Intensive",
-    title: "Movement Building Training",
-    description: "A weeklong intensive training: How to build a movement based on the learned experiences of the Tibetan movement. Using Technology, building community, building capacity, building knowledge. … etc ",
-    highlights: [
-        "Leveraging technology for safe mobilization",
-        "Community & capacity building strategies",
-        "Knowledge scaling & secure institutional memory"
-    ]
-};
+
 
 const coreServices = [
+    {
+        id: "core-kiosk",
+        title: "Digital Security Kiosk",
+        banner: "/images/kiosk.jpg",
+        icon: ``,
+        subtitle: "1-3 Day Events",
+        description: "On-site and temporary security support desk deployed directly at your workshops, campaigns, or conferences.",
+        items: [
+            "Providing live digital security helpdesk and support services during the event.",
+            "Forensics and in-depth analysis of devices for threats, malware, and configuration issues.",
+            "Dedicated on-site digital security support for organizers and key speakers.",
+            "Raising awareness around digital security issues identified specifically for the event context."
+        ]
+    },
     {
         id: "core-secured",
         title: "Secured by TibCERT",
@@ -88,19 +92,7 @@ const coreServices = [
             "Interactive training and long-term capacity building for the entire internal team."
         ]
     },
-    {
-        id: "core-kiosk",
-        title: "Digital Security Kiosk",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-brand-red shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>`,
-        subtitle: "1-3 Day Events",
-        description: "On-site and temporary security support desk deployed directly at your workshops, campaigns, or conferences.",
-        items: [
-            "Providing live digital security helpdesk and support services during the event.",
-            "Forensics and in-depth analysis of devices for threats, malware, and configuration issues.",
-            "Dedicated on-site digital security support for organizers and key speakers.",
-            "Raising awareness around digital security issues identified specifically for the event context."
-        ]
-    }
+    
 ];
 ---
 
@@ -217,82 +209,71 @@ const coreServices = [
                             ))
                         }
                     </div>
-            </div>
-
-            <!-- Movement Building Training -->
-            <div class="mb-28 reveal" id="movement-building-section">
-                <div class="mb-12">
-                    <SectionHeader
-                        eyebrow=""
-                        title="Movement"
-                        titleAccent="Building"
-                        description="A weeklong intensive training: How to build a movement based on the learned experiences of the Tibetan movement. Using Technology, building community, building capacity, building knowledge. … etc"
-                    />
-                     <!-- Core Services -->
-            <div class="my-20 reveal" id="core-services-section">
-                
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-12 my-20">
                     {
                         coreServices.map((service) => (
                             <div 
-                                id={service.id}
-                                class="group relative bg-brand-surface/[0.03] hover:bg-brand-surface/[0.07] border border-brand-text/5 hover:border-brand-red/30 p-8 md:p-10 transition-all duration-500 flex flex-col justify-between"
+                                id={service.id} 
+                                class="group relative bg-brand-surface/[0.02] hover:bg-brand-surface/[0.05] border border-brand-text/5 hover:border-brand-red/20 p-8 md:p-12 transition-all duration-500 overflow-hidden"
                             >
-                                <!-- High-tech Corner Accents -->
-                                <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
-                                <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-brand-text/10 group-hover:border-brand-red/40 transition-colors"></div>
+                                <!-- Tech Accents -->
+                                <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-text/10 group-hover:border-brand-red/30 transition-colors pointer-events-none"></div>
+                                <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-text/10 group-hover:border-brand-red/30 transition-colors pointer-events-none"></div>
+                                <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-text/10 group-hover:border-brand-red/30 transition-colors pointer-events-none"></div>
+                                <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-text/10 group-hover:border-brand-red/30 transition-colors pointer-events-none"></div>
                                 
-                                <div class="flex flex-col sm:flex-row gap-6 items-start mb-6">
-                                    {service.icon && (
-                                        <div class="flex-shrink-0">
-                                            {service.icon.trim().startsWith('<svg') ? (
-                                                <div class="w-14 h-14 flex items-center justify-center bg-brand-void border border-brand-text/10 rounded-sm p-3 text-brand-red group-hover:border-brand-red/30 transition-colors">
-                                                    <Fragment set:html={service.icon} />
-                                                </div>
-                                            ) : (
-                                                <div class="w-24 md:w-28">
-                                                    <img
-                                                        src={service.icon}
-                                                        alt={service.title}
-                                                        class="w-full h-auto object-contain"
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
+                                <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(239,72,44,0.02),transparent_60%)] pointer-events-none"></div>
 
-                                    <div class="flex-1 min-w-0">
-                                        <h3 class="text-2xl font-black text-brand-text mb-2 tracking-tight italic group-hover:text-brand-red transition-colors">
-                                            {service.title}
-                                        </h3>
-                                        <p class="text-lg text-brand-muted font-light leading-relaxed">
-                                            {service.description}
-                                        </p>
-                                    </div>
+                                {service.banner && (
+                                    <div 
+                                        class="absolute inset-0 bg-cover bg-center opacity-[0.08] pointer-events-none group-hover:opacity-[0.12] transition-opacity duration-500 z-0" 
+                                        style={`background-image: url('${service.banner}');`}
+                                    ></div>
+                                )}
+
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start relative z-10">
+                                   <!-- Left Column: Title and Description -->
+                                   <div class="md:col-span-5 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                                       {service.icon && service.icon.trim() !== '' && (
+                                           <div class="mb-6">
+                                               {service.icon.trim().startsWith('<svg') ? (
+                                                   <div class="w-16 h-16 flex items-center justify-center bg-brand-void border border-brand-text/10 rounded-sm p-3 text-brand-red group-hover:border-brand-red/30 transition-colors">
+                                                       <Fragment set:html={service.icon} />
+                                                   </div>
+                                               ) : (
+                                                   <img src={service.icon} alt={service.title} class="w-20 h-auto object-contain mx-auto md:mx-0" />
+                                               )}
+                                           </div>
+                                       )}
+                                       <h2 class="text-3xl font-black text-brand-text mb-3 tracking-tight italic group-hover:text-brand-red transition-colors uppercase">
+                                           {service.title}
+                                       </h2> 
+                                       <p class="text-brand-muted text-sm font-light leading-relaxed">{service.description}</p>
+                                   </div>
+
+                                   <!-- Right Column: Bullet Points -->
+                                   <div class="md:col-span-7 lg:col-span-8 h-full flex flex-col justify-center">
+                                       <ul class="space-y-4 md:border-l md:border-brand-text/5 md:pl-8">
+                                            {service.items.map((item) => (
+                                                <li class="flex items-start gap-3 text-brand-muted group-hover:text-brand-text transition-colors duration-500">
+                                                    <span class="text-brand-red font-light shrink-0 select-none">&gt;</span>
+                                                    <span class="text-sm md:text-base font-light leading-relaxed">{item}</span>
+                                                </li>
+                                            ))}
+                                       </ul>
+                                   </div>
                                 </div>
-                                
-
-                                <!-- Technical Details List -->
-                                <ul class="border-t border-brand-text/5 pt-6 space-y-3">
-                                    {service.items.map((item) => (
-                                        <li class="flex items-start gap-2.5 text-sm text-brand-muted/70">
-                                            <span class="text-brand-red font-light shrink-0">&gt;</span>
-                                            <span class=" font-light  ">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
                             </div>
                         ))
                     }
+                    </div>
                 </div>
+               
             </div>
-                </div>
-            </div>
-
-           
 
         </div>
+
+        
         
     </main>
 </Layout>
