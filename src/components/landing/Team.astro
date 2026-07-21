@@ -79,24 +79,30 @@ import SectionHeader from "../common/SectionHeader.astro";
                                     ].map((member, index) => (
                                         <div class="flex-none w-56 group/card pt-16 relative">
                                             <!-- Technical ID Tag -->
-                                            <div class="absolute top-12 left-1/2 -translate-x-1/2 font-mono text-[8px] text-brand-red tracking-[0.3em] opacity-40 group-hover/card:opacity-100 transition-opacity">
+                                            <div class="absolute top-12 left-1/2 -translate-x-1/2 font-mono text-[2px] text-brand-red tracking-[0.3em] opacity-40 group-hover/card:opacity-100 transition-opacity">
                                                
                                             </div>
 
                                             <div class="relative w-40 h-40 mx-auto">
-                                                <!-- Container for Portrait (Sharp/Technical) -->
+                                                <!-- Outer Container (Clipped Border) -->
                                                 <div
-                                                    class={`absolute inset-0 ${member.color} overflow-hidden transition-all duration-500 group-hover/card:scale-105  border border-brand-text/10 group-hover:border-brand-red/40`}
+                                                    class="absolute inset-0 bg-brand-red overflow-hidden transition-all duration-500 group-hover/card:scale-105"
                                                     style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);"
                                                 >
-                                                    <img
-                                                        src={member.img}
-                                                        alt={member.name}
-                                                        width={160}
-                                                        height={160}
-                                                        class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain transition-all duration-700 ${member.pos || ""}`}
-                                                        style="transform-origin: bottom center;"
-                                                    />
+                                                    <!-- Inner Container (Clipped Content) -->
+                                                    <div
+                                                        class="absolute inset-[2px] bg-neutral-900 overflow-hidden"
+                                                        style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXdwazA3ZWJsZ2JrZnBzcXdqdnBibW5uczJqZDJlZmd5NWNobXk0aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2pFCBgj3UNo3w75IBN/giphy.gif'); background-size: cover; background-position: center;"
+                                                    >
+                                                        <img
+                                                            src={member.img}
+                                                            alt={member.name}
+                                                            width={160}
+                                                            height={160}
+                                                            class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain transition-all duration-700 ${member.pos || ""}`}
+                                                            style="transform-origin: bottom center;"
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
                                             
