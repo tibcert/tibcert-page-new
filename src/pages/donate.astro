@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/common/PageHeader.astro";
+
+const description = "Your support helps TibCERT build cybersecurity resilience and defend the Tibetan community against targeted digital threats.";
 ---
 
-<Layout title="Donate | TibCERT">
+<Layout title="Donate | TibCERT" description={description}>
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <!-- Page Heading -->
         <div class="container mx-auto px-4 pb-16 pt-8">
             <PageHeader
                 title="DONATE"
-                description="Your support helps TibCERT build cybersecurity resilience and defend the Tibetan community against targeted digital threats."
+                description={description}
             />
         </div>
 

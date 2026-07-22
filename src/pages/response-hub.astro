@@ -112,11 +112,13 @@ const projects = [
         linkText: "View the document",
     },
 ];
+
+const description = "Our decentralized network of trained responders and community hubs providing localized digital security support.";
 ---
 
 <Layout
     title="Response Hub"
-    description="A volunteer based community platform under TibCERT."
+    description={description}
 >
     <main class="pt-32 pb-24 relative overflow-hidden">
         <div class="container mx-auto px-4">
@@ -125,7 +127,7 @@ const projects = [
                 eyebrow="HUB_CORE_INDEX // RESPONSE_NETWORK"
                 title="Response"
                 titleAccent="Hub"
-                description="Our decentralized network of trained responders and community hubs providing localized digital security support."
+                description={description}
             />
 
     <!-- Intro Sections -->
@@ -415,7 +417,9 @@ const projects = [
                                             alt={member.name}
                                             width={96}
                                             height={96}
-                                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                                            draggable="false"
+                                            oncontextmenu="return false;"
                                         />
                                         <div class="absolute inset-0 bg-brand-red/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                     </div>
@@ -492,7 +496,9 @@ const projects = [
                                     alt={member.name}
                                     width={96}
                                     height={96}
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                                    draggable="false"
+                                    oncontextmenu="return false;"
                                 />
                                 <div class="absolute inset-0 bg-brand-red/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
@@ -569,7 +575,9 @@ const projects = [
                                     alt={member.name}
                                     width={96}
                                     height={96}
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                                    draggable="false"
+                                    oncontextmenu="return false;"
                                 />
                                 <div class="absolute inset-0 bg-brand-red/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>

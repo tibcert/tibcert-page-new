@@ -4,16 +4,18 @@ import { Image } from "astro:assets";
 import Team from "../components/landing/Team.astro";
 import TLPSection from "../components/landing/TLPSection.astro";
 import PageHeader from "../components/common/PageHeader.astro";
+
+const description = "The Tibetan Computer Emergency Readiness Team (TibCERT) is a coalition-based structure for reducing and mitigating online threats in the Tibetan community, as well expanding Tibetans’ technical research capacity on threats in the diaspora and surveillance and censorship inside Tibet, ultimately ensuring greater online freedom and security for Tibetan society as a whole.";
 ---
 
-<Layout title="About TibCERT">
+<Layout title="About TibCERT" description={description}>
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <div class="container mx-auto px-4 pb-12">
             <PageHeader
                 eyebrow=""
                 title="ABOUT"
                 titleAccent=""
-                description="The Tibetan Computer Emergency Readiness Team (TibCERT) is a coalition-based structure for reducing and mitigating online threats in the Tibetan community, as well expanding Tibetans’ technical research capacity on threats in the diaspora and surveillance and censorship inside Tibet, ultimately ensuring greater online freedom and security for Tibetan society as a whole."
+                description={description}
             >
                 <!-- Right: Mission Points (List Style) -->
                 <div slot="right" class="space-y-6">

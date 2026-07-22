@@ -133,10 +133,10 @@ TLqo0fsP6oej8w==
     },
     {
         id: "SUBMIT",
-        tag: "Malware Submission",
+        tag: "Incident Submission",
         email: "submit[@]tibcert.org",
-        title: "Report Attacks",
-        description: "Submit suspected phishing emails, spyware, or malware samples for technical analysis.",
+        title: "Submit Threat",
+        description: "Submit suspected malware, phishing links, or suspicious telemetry.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
         pgp: "0x868D72F7",
         fingerprint: "CA53 1690 E79A AB62 298B BA75 868D 72F7 E1DC ADEF",
@@ -183,9 +183,11 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
 -----END PGP PUBLIC KEY BLOCK-----`
     }
 ];
+
+const description = "Need assistance or want to coordinate? Reach out directly through our specific secure channels.";
 ---
 
-<Layout title="Contact | TIBCERT">
+<Layout title="Contact | TIBCERT" description={description}>
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <div class="container mx-auto px-4">
                 <!-- Header Section -->
@@ -193,7 +195,7 @@ B8EJX6Az6QnXkBplmNFCFIQ6bg==
                     eyebrow=""
                     title="CONTACT"
                     titleAccent="US"
-                    description="Need assistance or want to coordinate? Reach out directly through our specific secure channels."
+                    description={description}
                 />
 
                 <!-- Contact Grid -->

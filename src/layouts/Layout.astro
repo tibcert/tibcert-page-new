@@ -7,22 +7,102 @@ import ScrollToTop from "../components/common/ScrollToTop.astro";
 interface Props {
     title: string;
     description?: string;
+    image?: string;
 }
 
 const {
     title,
     description = "Tibetan Computer Emergency Response Team - Enhancing digital security for the Tibetan community.",
+    image = "/screenshot.png",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://tibcert.org");
+const socialImageURL = new URL(image, canonicalURL);
+
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
+
+// Schema.org Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "GovernmentOrganization",
+  "@id": "https://tibcert.org/#organization",
+  "name": "Tibetan Computer Emergency Readiness Team",
+  "alternateName": "TibCERT",
+  "url": "https://tibcert.org",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tibcert.org/favicon.svg"
+  },
+  "description": "A coalition-based structure for reducing and mitigating online threats in the Tibetan community."
+};
+
+let breadcrumbSchema = null;
+if (!isHome) {
+  const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+  const itemListElement = [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tibcert.org/"
+    }
+  ];
+
+  let currentPath = "https://tibcert.org";
+  pathSegments.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    itemListElement.push({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " "),
+      "item": currentPath
+    });
+  });
+
+  breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": itemListElement
+  };
+}
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+        {breadcrumbSchema && (
+            <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+        )}
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Primary Meta Tags -->
+        <title>{title} | TIBCERT</title>
+        <meta name="title" content={`${title} | TIBCERT`} />
+        <meta name="description" content={description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={`${title} | TIBCERT`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImageURL} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={`${title} | TIBCERT`} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={socialImageURL} />
+
         <!-- Google Fonts: Inter and JetBrains Mono -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,7 +110,6 @@ const {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
             rel="stylesheet"
         />
-        <title>{title} | TIBCERT</title>
     </head>
     <body class="bg-brand-void text-brand-text relative">
         <!-- Global Cyber Tech Overlays -->

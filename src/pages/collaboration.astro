@@ -47,16 +47,18 @@ const networks = [
         focus: "Sharing security intelligence and coordinating cross-border take-downs.",
     },
 ];
+
+const description = "Through TibCERT’s long term collaborative initiatives, we believe collective defence is our strongest safeguard. By partnering with international cybersecurity researchers, Human rights organizations, and digital security experts, we exchange vital threat intelligence to protect the Tibetan community from persistent and targeted digital transnational repression.";
 ---
 
-<Layout title="Collaboration | TIBCERT">
+<Layout title="Collaboration | TIBCERT" description={description}>
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <div class="container mx-auto px-4 pb-20">
             <PageHeader
                 eyebrow=""
                 title="COLLABORATION"
                 titleAccent=""
-                description="Through TibCERT’s long term collaborative initiatives, we believe collective defence is our strongest safeguard. By partnering with international cybersecurity researchers, Human rights organizations, and digital security experts, we exchange vital threat intelligence to protect the Tibetan community from persistent and targeted digital transnational repression. "
+                description={description}
             >
                 <div slot="right" class="space-y-6">
                     {

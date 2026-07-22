@@ -12,9 +12,11 @@ const formatDate = (date: Date) => {
         day: '2-digit'
     }).toUpperCase();
 };
+
+const description = "Technical directives, community intelligence, and system updates established under coordinated security protocols.";
 ---
 
-<Layout title="Blog | TIBCERT">
+<Layout title="Blog | TIBCERT" description={description}>
     <main class="pt-32 pb-24 relative overflow-hidden">
         <!-- Premium Radial Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"></div>
@@ -30,7 +32,7 @@ const formatDate = (date: Date) => {
                     News & <span class="text-brand-red">Insights</span>
                 </h1>
                 <p class="text-brand-muted text-base font-light leading-relaxed max-w-xl">
-                    Technical directives, community intelligence, and system updates established under coordinated security protocols.
+                    {description}
                 </p>
             </div>
 

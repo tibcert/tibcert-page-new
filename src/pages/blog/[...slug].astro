@@ -21,9 +21,42 @@ const formatDate = (date: Date) => {
         day: "numeric",
     });
 };
+
+// Article JSON-LD Structured Data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": post.data.author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TIBCERT",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tibcert.org/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://tibcert.org/blog/${post.slug}/`
+  },
+  "image": post.data.image ? new URL(post.data.image, "https://tibcert.org").href : "https://tibcert.org/screenshot.png"
+};
 ---
 
-<Layout title={`${post.data.title} | Blog | TIBCERT`}>
+<Layout 
+    title={`${post.data.title} | Blog | TIBCERT`} 
+    description={post.data.description}
+    image={post.data.image}
+>
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
     <main class="pt-32 pb-24 relative overflow-hidden">
         <!-- Premium Radial Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_50%_-20%,rgba(220,38,38,0.15),transparent_70%)] pointer-events-none"></div>

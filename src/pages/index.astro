@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/landing/HeroWithLogo.astro";
-import ComSercolAstroComponent from "../components/landing/com&Ser&col.astro";
+import ComSercolAstroComponent from "../components/landing/WhatWeDo.astro";
 // import TrustLogos from "../components/landing/TrustLogos.astro";
 
 import ReportsFeed from "../components/landing/ReportsFeed.astro";
@@ -12,7 +12,10 @@ import SecuredByTibcertBanner from "../components/landing/SecuredByTibcertBanner
 import Membership from "../components/landing/Membership.astro";
 ---
 
-<Layout title="Home">
+<Layout 
+	title="Home"
+	description="Enhancing digital security and online freedom for the Tibetan community through coalition-based incident response, training, and technical threat research."
+>
 	<main>
 		<Hero />
 		<ComSercolAstroComponent />

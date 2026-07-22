@@ -99,8 +99,10 @@ import SectionHeader from "../common/SectionHeader.astro";
                                                             alt={member.name}
                                                             width={160}
                                                             height={160}
-                                                            class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain transition-all duration-700 ${member.pos || ""}`}
+                                                            class={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] h-[115%] max-w-none object-contain transition-all duration-700 select-none pointer-events-none ${member.pos || ""}`}
                                                             style="transform-origin: bottom center;"
+                                                            draggable="false"
+                                                            oncontextmenu="return false;"
                                                         />
                                                     </div>
                                                 </div>
