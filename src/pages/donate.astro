@@ -2,17 +2,64 @@
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/common/PageHeader.astro";
 
-const description = "Your support helps TibCERT build cybersecurity resilience and defend the Tibetan community against targeted digital threats.";
+const description =
+    "Your support helps TibCERT build cybersecurity resilience and defend the Tibetan community against targeted digital threats.";
+
+const donate = [
+    {
+        id: "THREAT_INTEL",
+        title: "Protect Activists",
+        desc: "We provide the digital armor needed to withstand surveillance and censorship.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    },
+    {
+        id: "THREAT_INTEL",
+        title: "Global Impact",
+        desc: "Our tools and research reach millions of users in the most repressive environments.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.5-2.4 4-5.2 4-8.5A8.9 8.9 0 0 0 12 3a8.9 8.9 0 0 0-4 9.5c0 3.3 1.5 6.1 4 8.5Zm0 0V3" /></svg>`,
+    },
+    {
+        id: "THREAT_INTEL",
+        title: "Rapid Response",
+        desc: "We react quickly to emerging threats and cyber attacks against vulnerable communities.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    },
+];
 ---
 
 <Layout title="Donate | TibCERT" description={description}>
     <main class="pt-32 pb-24 relative overflow-hidden bg-brand-bg min-h-screen">
         <!-- Page Heading -->
         <div class="container mx-auto px-4 pb-16 pt-8">
-            <PageHeader
-                title="DONATE"
-                description={description}
-            />
+            <PageHeader title="DONATE" description={description}>
+                <div slot="right" class="space-y-6">
+                    <h1
+                        class="text-2xl font-bold text-brand-red mb-4 uppercase tracking-tight text-3xl"
+                    >
+                        Why Give?
+                    </h1>
+                    {
+                        donate.map((m) => (
+                            <div class="flex items-start gap-4    transition-all rounded-sm">
+                                <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center text-brand-red">
+                                    <span
+                                        aria-hidden="true"
+                                        set:html={m.icon}
+                                    />
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="text-sm font-bold text-brand-text mb-1 uppercase tracking-tight">
+                                        {m.title}
+                                    </h4>
+                                    <p class="text-sm leading-relaxed font-light text-brand-muted">
+                                        {m.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </PageHeader>
         </div>
 
         <!-- Donation Interactive Tab Widget -->
