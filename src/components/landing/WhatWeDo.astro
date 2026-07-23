@@ -75,18 +75,20 @@ const cards = [
 						{/* Hover Tech Radial Glow Accent */}
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(239,72,44,0.08),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 						<div class="relative z-10 flex flex-col justify-between h-full">
-							<div>
-								<div class="flex justify-between items-start mb-4">
-									<h3 class="text-2xl font-black uppercase tracking-tight text-brand-red">
-										{card.title}
-									</h3>
-									<Fragment set:html={card.icon} />
-								</div>
+							<a href={card.href}>
+								<div>
+									<div class="flex justify-between items-start mb-4">
+										<h3 class="text-2xl font-black uppercase tracking-tight text-brand-red">
+											{card.title}
+										</h3>
+										<Fragment set:html={card.icon} />
+									</div>
 
-								<p class="text-brand-muted leading-relaxed font-light">
-									{card.description}
-								</p>
-							</div>
+									<p class="text-brand-muted leading-relaxed font-light">
+										{card.description}
+									</p>
+								</div>
+							</a>
 
 							{/* <a
 								href={card.href}

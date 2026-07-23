@@ -69,21 +69,21 @@ const donate = [
                 <div class="tabs-sidebar">
                     <button
                         id="tab-one-time"
-                        class="w-full text-left font-mono text-md sm:text-xs uppercase tracking-[0.15em] border border-brand-red text-white bg-brand-red px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm shadow-lg shadow-brand-red/10 tab-btn"
+                        class="w-full text-left font-mono text-md sm:text-xs uppercase border border-brand-red text-white bg-brand-red px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm shadow-lg shadow-brand-red/10 tab-btn"
                         data-tab="one-time"
                     >
                         ONE TIME DONATION
                     </button>
                     <button
                         id="tab-monthly"
-                        class="w-full text-left font-mono text-md sm:text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-muted hover:border-brand-red hover:text-white px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm tab-btn"
+                        class="w-full text-left font-mono text-md sm:text-xs uppercase border border-brand-red text-brand-muted hover:text-white px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm tab-btn"
                         data-tab="monthly"
                     >
                         MONTHLY DONATION
                     </button>
                     <button
                         id="tab-other"
-                        class="w-full text-left font-mono text-sm sm:text-xs uppercase tracking-[0.15em] border border-brand-text/10 text-brand-muted hover:border-brand-red hover:text-white px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm tab-btn"
+                        class="w-full text-left font-mono text-sm sm:text-xs border border-brand-red text-brand-muted hover:text-white px-5 py-4 transition-all duration-300 cursor-pointer rounded-sm tab-btn"
                         data-tab="other"
                     >
                         SUPPORT OUR OTHER PROJECTS
@@ -265,21 +265,18 @@ const donate = [
                     b.classList.remove(
                         "bg-brand-red",
                         "text-white",
-                        "border-brand-red",
                         "shadow-lg",
                         "shadow-brand-red/10",
                     );
-                    b.classList.add("border-brand-text/10", "text-brand-muted");
+                    b.classList.add("text-brand-muted");
                 });
                 btn.classList.add(
                     "bg-brand-red",
                     "text-white",
-                    "border-brand-red",
                     "shadow-lg",
                     "shadow-brand-red/10",
                 );
                 btn.classList.remove(
-                    "border-brand-text/10",
                     "text-brand-muted",
                 );
 
