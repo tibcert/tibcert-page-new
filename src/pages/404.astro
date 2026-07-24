@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BackgroundGlow from "../components/common/BackgroundGlow.astro";
+import TibetanPattern from "../components/common/TibetanPattern.astro";
+
+const description = "Error 404: The requested network node or resource could not be found. Return to TibCERT's secure database or report an incident.";
+---
+
+<Layout title="404 - Not Found" description={description}>
+    <main class="min-h-screen pt-32 pb-24 relative overflow-hidden bg-brand-bg flex items-center justify-center">
+        <!-- Radial Glow and Background Grid patterns -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-[800px] bg-[radial-gradient(circle_at_50%_50%,rgba(239,72,44,0.1),transparent_70%)] pointer-events-none -z-10"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)] -z-10 opacity-[0.03] pointer-events-none"></div>
+
+        <!-- Ambient Background Glows -->
+        <BackgroundGlow color="bg-brand-red" size="w-96 h-96" opacity="opacity-10" class="top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2" />
+        <BackgroundGlow color="bg-brand-maroon" size="w-[500px] h-[500px]" opacity="opacity-15" class="bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2" />
+
+        <div class="container mx-auto px-4 max-w-4xl relative z-10 text-center flex flex-col items-center">
+            
+            <!-- Animated Tibetan Pattern background overlay -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-20 pointer-events-none select-none opacity-10">
+                <TibetanPattern size="w-[600px] h-[600px]" color="#ef482c" />
+            </div>
+
+            <!-- Page Content -->
+            <div class="reveal relative py-8 px-6 md:px-12 rounded-sm border border-brand-text/5 bg-brand-surface/40 backdrop-blur-md max-w-2xl w-full">
+                <!-- Technical corner brackets -->
+                <div class="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-brand-red pointer-events-none"></div>
+                <div class="absolute -top-px -right-px w-8 h-8 border-t-2 border-r-2 border-brand-red pointer-events-none"></div>
+                <div class="absolute -bottom-px -left-px w-8 h-8 border-b-2 border-l-2 border-brand-red pointer-events-none"></div>
+                <div class="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-brand-red pointer-events-none"></div>
+
+                <!-- Huge 404 Heading -->
+                <div class="relative select-none mb-2">
+                    <h1 class="text-8xl md:text-[10rem] font-black italic tracking-tighter text-brand-red/90 text-glow-red animate-pulse leading-none font-mono">
+                        404
+                    </h1>
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-red/10 border border-brand-red/30 rounded-sm mb-6">
+                    <span class="w-1.5 h-1.5 bg-brand-red rounded-full animate-ping"></span>
+                    <span class="font-mono text-[10px] text-brand-red tracking-[0.3em] uppercase font-bold">
+                        Security Alert: Route Offline
+                    </span>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight uppercase text-brand-text mb-4">
+                    Destination Not Resolved
+                </h2>
+
+                <p class="text-sm md:text-base text-brand-muted leading-relaxed font-light mb-8 max-w-lg mx-auto">
+                    The network path or database resource you are trying to access is unavailable, restricted, or has been relocated to another secure zone.
+                </p>
+
+                <!-- Terminal Diagnostic Box -->
+                <div class="bg-brand-void/90 border border-brand-text/10 rounded-sm p-4 font-mono text-left text-xs mb-8 overflow-hidden relative group">
+                    <div class="flex items-center justify-between border-b border-brand-text/10 pb-2 mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-red/70"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-amber/70"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-muted/50"></span>
+                        </div>
+                        <span class="text-[10px] text-brand-muted/70 uppercase select-none">DIAGNOSTIC_CONSOLE v1.0.4</span>
+                    </div>
+                    <div class="space-y-1.5 text-brand-muted">
+                        <p><span class="text-brand-red">&gt;</span> ERROR_CODE: <span class="text-brand-text">0x404_PAGE_MISSING</span></p>
+                        <p><span class="text-brand-red">&gt;</span> REQUESTED_NODE: <span class="text-brand-text break-all" id="requested-node">UNKNOWN_PATH</span></p>
+                        <p><span class="text-brand-red">&gt;</span> NETWORK_STATUS: <span class="text-brand-amber animate-pulse">OFFLINE</span></p>
+                        <p><span class="text-brand-red">&gt;</span> MITIGATION: <span class="text-brand-text">REROUTE_TO_ROOT</span></p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a
+                        href="/"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm bg-brand-red border border-brand-red text-white font-mono text-xs uppercase tracking-[0.15em] hover:bg-[#d13d25] hover:border-[#d13d25] transition-all duration-300 shadow-lg shadow-brand-red/15 cursor-pointer group"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Command Center
+                    </a>
+                    
+                    <a
+                        href="/contact"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm border border-brand-text/10 text-brand-text font-mono text-xs uppercase tracking-[0.15em] hover:bg-brand-red/5 hover:border-brand-red/40 transition-all duration-300 cursor-pointer group"
+                    >
+                        Report Incident
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<script>
+    // Dynamically retrieve the missing path for the console report
+    function updateRequestedNode() {
+        const nodeEl = document.getElementById("requested-node");
+        if (nodeEl) {
+            // Get pathname from browser
+            const path = window.location.pathname;
+            nodeEl.textContent = path ? decodeURIComponent(path) : "UNKNOWN_PATH";
+        }
+    }
+    
+    // Run on mount and load
+    document.addEventListener("astro:page-load", updateRequestedNode);
+    updateRequestedNode();
+</script>
+
+<style>
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
