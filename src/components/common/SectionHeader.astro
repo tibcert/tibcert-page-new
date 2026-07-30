@@ -41,8 +41,9 @@ const alignment = align === "center" ? "items-center text-center mx-auto" : "";
     <SectionDivider class:list={[dividerClass, align === "center" ? "mx-auto" : ""]} />
 
     {description && (
-        <p class:list={["text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl mt-4", align === "center" ? "mx-auto" : ""]}>
-            {description}
-        </p>
+        <p 
+            class:list={["text-base md:text-lg text-brand-muted leading-relaxed font-light max-w-2xl mt-4", align === "center" ? "mx-auto" : ""]}
+            set:html={description}
+        />
     )}
 </div>
