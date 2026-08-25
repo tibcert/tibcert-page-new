@@ -7,7 +7,17 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tibcert.org',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        return (
+          !page.endsWith('/code-of-conduct/') &&
+          !page.endsWith('/donate/') &&
+          !page.endsWith('/paid-services/')
+        );
+      }
+    })
+  ],
   image: {
     domains: ["blog.tibcert.org"],
     service: passthroughImageService(),
